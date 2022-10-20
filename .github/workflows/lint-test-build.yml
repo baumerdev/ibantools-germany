@@ -1,0 +1,29 @@
+name: Lint, test and build
+
+on: [push, pull_request]
+
+jobs:
+  lint_test_build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        nodejs: [16, 18]
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup 🔧
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.nodejs }}
+
+      - name: Install dependencies 📦
+        run: npm ci
+
+      - name: Lint, test and build 🏗
+        run: |
+          npm run test
+          npm run lint
+          npm run build:all
