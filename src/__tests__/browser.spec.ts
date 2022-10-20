@@ -1,4 +1,6 @@
 /*!
+ * @jest-environment jsdom
+ *
  * ibantools-germany
  * Copyright (C) 2022 Markus Baumer <markus@baumer.dev>
  *
@@ -16,22 +18,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { generateBBAN } from "./lib/generate";
-import { isValidAccountNumberBLZ, isValidBBAN } from "./lib/validate";
+import "../browser";
 
-declare global {
-  interface Window {
-    ibantoolsGermany: {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      [name: string]: Function;
-    };
-  }
-}
-
-if (typeof window.ibantoolsGermany === "undefined") {
-  window.ibantoolsGermany = {};
-}
-
-window.ibantoolsGermany.generateBBAN = generateBBAN;
-window.ibantoolsGermany.isValidAccountNumberBLZ = isValidAccountNumberBLZ;
-window.ibantoolsGermany.isValidBBAN = isValidBBAN;
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+describe("browser", () => {
+  it("adds function ibantoolsGermany.generateBBAN to window", () => {
+    expect(typeof window.ibantoolsGermany.generateBBAN).toBe("function");
+  });
+  it("adds function ibantoolsGermany.isValidAccountNumberBLZ to window", () => {
+    expect(typeof window.ibantoolsGermany.isValidAccountNumberBLZ).toBe(
+      "function"
+    );
+  });
+  it("adds function ibantoolsGermany.isValidBBAN to window", () => {
+    expect(typeof window.ibantoolsGermany.isValidBBAN).toBe("function");
+  });
+});

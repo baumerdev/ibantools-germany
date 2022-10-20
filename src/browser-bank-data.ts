@@ -21,17 +21,17 @@ import { isValidBIC } from "./main";
 
 declare global {
   interface Window {
-    deBankAccount: {
+    ibantoolsGermany: {
       // eslint-disable-next-line @typescript-eslint/ban-types
       [name: string]: Function;
     };
   }
 }
 
-if (typeof window.deBankAccount === "undefined") {
-  window.deBankAccount = {};
+if (typeof window.ibantoolsGermany === "undefined") {
+  window.ibantoolsGermany = {};
 }
 
-window.deBankAccount.bankDataByBLZ = bankDataByBLZ;
-window.deBankAccount.ibanDetails = ibanDetails;
-window.deBankAccount.isValidBIC = isValidBIC;
+window.ibantoolsGermany.bankDataByBLZ = bankDataByBLZ;
+window.ibantoolsGermany.ibanDetails = ibanDetails;
+window.ibantoolsGermany.isValidBIC = isValidBIC;
