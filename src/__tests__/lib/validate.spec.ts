@@ -16,7 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { isValidAccountNumberBLZ, isValidBBAN } from "../../lib/validate";
+import {
+  isValidAccountNumberBLZ,
+  isValidBBAN,
+  isValidBIC,
+} from "../../lib/validate";
 
 describe("validateBankAccount", () => {
   it("confirms account number 9290701, BLZ 10220500 is valid (valid check digit)", () => {
@@ -53,5 +57,27 @@ describe("isValidBBAN", () => {
   });
   it("confirms BBAN null is invalid (not a string)", () => {
     expect(isValidBBAN(null)).toEqual(false);
+  });
+});
+
+describe("isValidBIC", () => {
+  it("returns true for BIC MARKDEF1100", () => {
+    expect(isValidBIC("MARKDEF1100")).toEqual(true);
+  });
+  it("returns true for BIC PBNKDEFFXXX", () => {
+    expect(isValidBIC("PBNKDEFFXXX")).toEqual(true);
+  });
+  it("returns true for BIC PBNKDEFF", () => {
+    expect(isValidBIC("PBNKDEFF")).toEqual(true);
+  });
+
+  it("returns false for null", () => {
+    expect(isValidBIC(null)).toEqual(false);
+  });
+  it("returns false for invalid BIC format", () => {
+    expect(isValidBIC("1")).toEqual(false);
+  });
+  it("returns false for unknown BIC AAAADE00000", () => {
+    expect(isValidBIC("AAAADE00000")).toEqual(false);
   });
 });

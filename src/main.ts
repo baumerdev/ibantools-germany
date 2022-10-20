@@ -24,7 +24,11 @@ import {
   IBANDetails,
   ProbablyString,
 } from "./lib/types";
-import { isValidAccountNumberBLZ, isValidBBAN } from "./lib/validate";
+import {
+  isValidAccountNumberBLZ,
+  isValidBBAN,
+  isValidBIC,
+} from "./lib/validate";
 
 export {
   AccountNumberBLZ,
@@ -35,5 +39,6 @@ export {
   ibanDetails,
   isValidAccountNumberBLZ,
   isValidBBAN,
+  isValidBIC,
   ProbablyString,
 };

@@ -73,6 +73,26 @@ export const bankDataByBLZ = (blz: string): BankNameBIC | null => {
 };
 
 /**
+ * Search all bank data and check if any contains the BIC
+ *
+ * @param bic BIC to search for
+ * @returns Whether BIC exists in bank data
+ */
+export const isBICInData = (bic: string): boolean => {
+  if (!bic.match(/^[a-zA-Z]{4}DE[a-zA-Z0-9]{2}([A-Z0-9]{3})?$/i)) {
+    return false;
+  }
+
+  const searchBIC = `${bic.toUpperCase()}${bic.length === 8 ? "XXX" : ""}`;
+
+  return (
+    typeof Object.values(currentBank as Banks).find(
+      (bank) => bank[1] && bank[1] === searchBIC
+    ) !== "undefined"
+  );
+};
+
+/**
  * Get account number, BLZ and bank data for BBAN
  *
  * Returns null if wrong format or optional validation fails.

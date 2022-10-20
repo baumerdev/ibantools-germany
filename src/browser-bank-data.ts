@@ -17,6 +17,7 @@
  */
 
 import { bankDataByBLZ, ibanDetails } from "./lib/data";
+import { isValidBIC } from "./main";
 
 declare global {
   interface Window {
@@ -33,3 +34,4 @@ if (typeof window.deBankAccount === "undefined") {
 
 window.deBankAccount.bankDataByBLZ = bankDataByBLZ;
 window.deBankAccount.ibanDetails = ibanDetails;
+window.deBankAccount.isValidBIC = isValidBIC;

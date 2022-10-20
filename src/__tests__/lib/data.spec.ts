@@ -23,6 +23,7 @@ import {
   Banks,
   CheckDigits,
   ibanDetails,
+  isBICInData,
   methodForBLZ,
 } from "../../lib/data";
 
@@ -75,6 +76,25 @@ describe("bankDataByBLZ", () => {
   });
   it("returns null for BLZ 123_5678 (invalid char)", () => {
     expect(bankDataByBLZ("123_5678")).toEqual(null);
+  });
+});
+
+describe("isBICInData", () => {
+  it("returns true for BIC MARKDEF1100", () => {
+    expect(isBICInData("MARKDEF1100")).toEqual(true);
+  });
+  it("returns true for BIC PBNKDEFFXXX", () => {
+    expect(isBICInData("PBNKDEFFXXX")).toEqual(true);
+  });
+  it("returns true for BIC PBNKDEFF", () => {
+    expect(isBICInData("PBNKDEFF")).toEqual(true);
+  });
+
+  it("returns false for invalid BIC format", () => {
+    expect(isBICInData("1")).toEqual(false);
+  });
+  it("returns false for unknown BIC AAAADE00000", () => {
+    expect(isBICInData("AAAADE00000")).toEqual(false);
   });
 });
 

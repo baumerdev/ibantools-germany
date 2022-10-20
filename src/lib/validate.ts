@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { methodForBLZ } from "./data";
+import { isBICInData, methodForBLZ } from "./data";
 import { extractAccountNumberBLZFromBBAN } from "./extract";
 import { methodDispatch } from "./method-dispatch";
 import { ProbablyString, Result } from "./types";
@@ -55,7 +55,7 @@ export const isValidAccountNumberBLZ = (
 };
 
 /**
- * Validate BBAN
+ * Validate German BBAN
  *
  * IMPORTANT: A positive result does not does not necessarily mean that
  * the account exists; it only checks for structure and check digit!
@@ -70,4 +70,18 @@ export const isValidBBAN = (bban: ProbablyString): boolean => {
   }
 
   return isValidAccountNumberBLZ(extracted.accountNumber, extracted.blz);
+};
+
+/**
+ * Validate German BIC
+ *
+ * @param bic BIC
+ * @returns
+ */
+export const isValidBIC = (bic: ProbablyString): boolean => {
+  if (!bic) {
+    return false;
+  }
+
+  return isBICInData(bic);
 };
