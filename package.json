@@ -4,6 +4,7 @@
   "description": "Validator, tools and data for German bank accounts",
   "author": "Markus Baumer <markus@baumer.dev>",
   "repository": "https://github.com/baumerdev/ibantools-germany",
+  "homepage": "https://baumerdev.github.io/ibantools-germany/",
   "license": "AGPL",
   "keywords": [
     "iban",
