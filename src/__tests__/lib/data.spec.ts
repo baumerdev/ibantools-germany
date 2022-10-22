@@ -16,36 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import currentBank from "../../data/current.bank.json";
-import currentCheckDigit from "../../data/current.checkDigit.json";
-import {
-  bankDataByBLZ,
-  Banks,
-  CheckDigits,
-  ibanDetails,
-  isBICInData,
-  methodForBLZ,
-} from "../../lib/data";
+import currentCheckDigits from "../../data/current.json";
+import { CheckDigits, methodForBLZ } from "../../lib/data";
 
-describe("current.bank.json", () => {
-  // Safeguard that there are enough converted entries.
-  it("contains more than 3000 entries", () => {
-    expect(Object.keys(currentBank as Banks).length).toBeGreaterThan(3500);
-  });
-});
-
-describe("current.checkDigit.json", () => {
+describe("current.json", () => {
   // Safeguard that there are enough converted entries.
   it("contains more than 100 entries", () => {
     expect(
-      Object.keys(currentCheckDigit as CheckDigits).length
+      Object.keys(currentCheckDigits as CheckDigits).length
     ).toBeGreaterThan(100);
   });
 });
 
 describe("methodForBLZ", () => {
-  Object.keys(currentCheckDigit as CheckDigits).forEach((method) => {
-    const firstBLZForMethod = (currentCheckDigit as CheckDigits)[method][0];
+  Object.keys(currentCheckDigits as CheckDigits).forEach((method) => {
+    const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
       expect(methodForBLZ(String(firstBLZForMethod))).toEqual(method);
     });
@@ -53,76 +38,5 @@ describe("methodForBLZ", () => {
 
   it("returns null for unknown BLZ 00000000", () => {
     expect(methodForBLZ("00000000")).toEqual(null);
-  });
-});
-
-describe("bankDataByBLZ", () => {
-  Object.keys(currentBank as Banks).forEach((blz) => {
-    const blzData = (currentBank as Banks)[blz];
-    const blzObject = { bankName: blzData[0], bic: blzData[1] };
-    it(`returns correct data for BLZ ${blz}`, () => {
-      expect(bankDataByBLZ(String(blz))).toEqual(blzObject);
-    });
-  });
-
-  it("returns null for unknown BLZ 12345678", () => {
-    expect(bankDataByBLZ("12345678")).toEqual(null);
-  });
-  it("returns null for unknown BLZ 00000000", () => {
-    expect(bankDataByBLZ("00000000")).toEqual(null);
-  });
-  it("returns null for BLZ 1234567 (not 8 digits)", () => {
-    expect(bankDataByBLZ("1234567")).toEqual(null);
-  });
-  it("returns null for BLZ 123_5678 (invalid char)", () => {
-    expect(bankDataByBLZ("123_5678")).toEqual(null);
-  });
-});
-
-describe("isBICInData", () => {
-  it("returns true for BIC MARKDEF1100", () => {
-    expect(isBICInData("MARKDEF1100")).toEqual(true);
-  });
-  it("returns true for BIC PBNKDEFFXXX", () => {
-    expect(isBICInData("PBNKDEFFXXX")).toEqual(true);
-  });
-  it("returns true for BIC PBNKDEFF", () => {
-    expect(isBICInData("PBNKDEFF")).toEqual(true);
-  });
-
-  it("returns false for invalid BIC format", () => {
-    expect(isBICInData("1")).toEqual(false);
-  });
-  it("returns false for unknown BIC AAAADE00000", () => {
-    expect(isBICInData("AAAADE00000")).toEqual(false);
-  });
-});
-
-describe("ibanDetails", () => {
-  it("returns data for BBAN null (not a string)", () => {
-    expect(ibanDetails("100000000000000001")).toEqual({
-      accountNumber: "0000000001",
-      bankName: "Bundesbank",
-      bic: "MARKDEF1100",
-      blz: "10000000",
-    });
-  });
-  it("returns null for BBAN null (not a string)", () => {
-    expect(ibanDetails(null)).toEqual(null);
-  });
-  it("returns null for BBAN with invalid format", () => {
-    expect(ibanDetails("0")).toEqual(null);
-  });
-  it("returns null for BBAN with invalid check digit", () => {
-    expect(ibanDetails("100100100000000000")).toEqual(null);
-  });
-  it("returns null for BBAN with unknown BLZ", () => {
-    expect(ibanDetails("123456780000000000", false)).toEqual(null);
-  });
-  it("returns null for BBAN with unknown BLZ", () => {
-    expect(ibanDetails("000000000000000000")).toEqual(null);
-  });
-  it("returns data for BBAN with unknown BLZ but disabled validation", () => {
-    expect(ibanDetails("100000000000000000", false)).not.toEqual(null);
   });
 });

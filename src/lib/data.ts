@@ -16,18 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import currentBank from "../data/current.bank.json";
-import currentCheckDigit from "../data/current.checkDigit.json";
-import { extractAccountNumberBLZFromBBAN } from "./extract";
-import { BankNameBIC, IBANDetails, ProbablyString } from "./types";
-import { isValidAccountNumberBLZ } from "./validate";
+import currentCheckDigits from "../data/current.json";
 
 export interface CheckDigits {
   [method: string]: number[];
-}
-
-export interface Banks {
-  [method: string]: string[];
 }
 
 /**
@@ -44,92 +36,8 @@ export const methodForBLZ = (blz: string): string | null => {
   const numbericBlz = Number(blz);
 
   return (
-    Object.keys(currentCheckDigit as CheckDigits).find((method) => {
-      return (currentCheckDigit as CheckDigits)[method].includes(numbericBlz);
+    Object.keys(currentCheckDigits as CheckDigits).find((method) => {
+      return (currentCheckDigits as CheckDigits)[method].includes(numbericBlz);
     }) ?? null
   );
-};
-
-/**
- * Get name (and BIC if available) for bank with given BLZ
- *
- * @param blz German BLZ with 8 digits
- * @returns Bank data or null if invalid
- */
-export const bankDataByBLZ = (blz: string): BankNameBIC | null => {
-  if (!blz.match(/^[1-9]\d{7}$/)) {
-    return null;
-  }
-
-  const bankData = (currentBank as Banks)[blz];
-  if (!bankData) {
-    return null;
-  }
-
-  return {
-    bankName: bankData[0],
-    bic: bankData[1],
-  };
-};
-
-/**
- * Search all bank data and check if any contains the BIC
- *
- * @param bic BIC to search for
- * @returns Whether BIC exists in bank data
- */
-export const isBICInData = (bic: string): boolean => {
-  if (!bic.match(/^[a-zA-Z]{4}DE[a-zA-Z0-9]{2}([A-Z0-9]{3})?$/i)) {
-    return false;
-  }
-
-  const searchBIC = `${bic.toUpperCase()}${bic.length === 8 ? "XXX" : ""}`;
-
-  return (
-    typeof Object.values(currentBank as Banks).find(
-      (bank) => bank[1] && bank[1] === searchBIC
-    ) !== "undefined"
-  );
-};
-
-/**
- * Get account number, BLZ and bank data for BBAN
- *
- * Returns null if wrong format or optional validation fails.
- *
- * If "validate" is true the account number and BLZ is validated by
- * its corresponding check digit method.
- *
- * IMPORTANT: A non-null result does not does not necessarily mean that
- * the account exists; it only checks for structure and check digit!
- *
- * @param bban German BBAN with 18 digits
- * @param validate Optional check digit validation (default: true)
- * @returns Data for IBAN or null if invalid
- */
-export const ibanDetails = (
-  bban: ProbablyString,
-  validate = true
-): IBANDetails | null => {
-  const extracted = extractAccountNumberBLZFromBBAN(bban);
-  if (!extracted) {
-    return null;
-  }
-
-  if (
-    validate &&
-    !isValidAccountNumberBLZ(extracted.accountNumber, extracted.blz)
-  ) {
-    return null;
-  }
-
-  const bankData = bankDataByBLZ(extracted.blz);
-  if (!bankData) {
-    return null;
-  }
-
-  return {
-    ...extracted,
-    ...bankData,
-  };
 };

@@ -1,7 +1,7 @@
 {
   "name": "ibantools-germany",
   "version": "0.0.2",
-  "description": "Validator, tools and data for German bank accounts",
+  "description": "IBAN Validator and Generator for German Bank Accounts",
   "author": "Markus Baumer <markus@baumer.dev>",
   "repository": "https://github.com/baumerdev/ibantools-germany",
   "homepage": "https://baumerdev.github.io/ibantools-germany/",
@@ -34,7 +34,6 @@
     "dist/"
   ],
   "scripts": {
-    "main": "ts-node src/main.ts",
     "import": "ts-node src/cli/import.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
@@ -44,10 +43,9 @@
     "clean": "rimraf dist docs coverage package ibantools-germany*.tgz",
     "docs": "rimraf docs && typedoc --entryPoints src/main.ts --out docs/",
     "build": "tsc -p tsconfig.build.json",
-    "build:all": "rimraf dist && npm run build && npm run esm-wrapper && npm run esbuild:browser && npm run esbuild:browser-bank-data",
+    "build:all": "rimraf dist && npm run build && npm run esm-wrapper && npm run esbuild",
     "esm-wrapper": "ts-node src/cli/esm-wrapper.ts",
-    "esbuild:browser": "esbuild src/browser.ts --bundle --minify --outfile=dist/build/browser.js",
-    "esbuild:browser-bank-data": "esbuild src/browser-bank-data.ts --bundle --minify --outfile=dist/build/browser-bank-data.js",
+    "esbuild": "esbuild src/browser.ts --bundle --minify --outfile=dist/build/browser.js",
     "prepare": "husky install",
     "prepack": "npm run clean && npm run lint && npm run test && npm run build:all"
   },

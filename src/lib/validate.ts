@@ -16,8 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { isBICInData, methodForBLZ } from "./data";
+import { methodForBLZ } from "./data";
 import { extractAccountNumberBLZFromBBAN } from "./extract";
+import { lettersToDigits, modulo97 } from "./helper";
 import { methodDispatch } from "./method-dispatch";
 import { ProbablyString, Result } from "./types";
 
@@ -73,15 +74,33 @@ export const isValidBBAN = (bban: ProbablyString): boolean => {
 };
 
 /**
- * Validate German BIC
+ * Validate German IBAN
  *
- * @param bic BIC
+ * IMPORTANT: A positive result does not does not necessarily mean that
+ * the account exists; it only checks for structure and check digit!
+ *
+ * @param iban German IBAN with 22 chars
  * @returns
  */
-export const isValidBIC = (bic: ProbablyString): boolean => {
-  if (!bic) {
+export const isValidIBAN = (iban: ProbablyString): boolean => {
+  if (
+    typeof iban !== "string" ||
+    iban.length !== 22 ||
+    !iban.toUpperCase().startsWith("DE")
+  ) {
     return false;
   }
 
-  return isBICInData(bic);
+  const checkDigit = iban.slice(2, 4);
+  const bban = iban.slice(4);
+
+  // Validate IBAN check digit
+  const validateAlphanumeric = `${bban}DE${checkDigit}`;
+  const validateNumberic = lettersToDigits(validateAlphanumeric);
+  if (modulo97(validateNumberic) !== 1) {
+    return false;
+  }
+
+  // Validate BBAN
+  return isValidBBAN(bban);
 };

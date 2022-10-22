@@ -19,7 +19,7 @@
 import {
   isValidAccountNumberBLZ,
   isValidBBAN,
-  isValidBIC,
+  isValidIBAN,
 } from "../../lib/validate";
 
 describe("validateBankAccount", () => {
@@ -60,24 +60,22 @@ describe("isValidBBAN", () => {
   });
 });
 
-describe("isValidBIC", () => {
-  it("returns true for BIC MARKDEF1100", () => {
-    expect(isValidBIC("MARKDEF1100")).toEqual(true);
-  });
-  it("returns true for BIC PBNKDEFFXXX", () => {
-    expect(isValidBIC("PBNKDEFFXXX")).toEqual(true);
-  });
-  it("returns true for BIC PBNKDEFF", () => {
-    expect(isValidBIC("PBNKDEFF")).toEqual(true);
+describe("isValidIBAN", () => {
+  it("confirms DE02300209000106531065 is valid", () => {
+    expect(isValidIBAN("DE02300209000106531065")).toEqual(true);
   });
 
-  it("returns false for null", () => {
-    expect(isValidBIC(null)).toEqual(false);
+  it("confirms DE00300209000106531065 is invalid (wrong checksum)", () => {
+    expect(isValidIBAN("DE00300209000106531065")).toEqual(false);
   });
-  it("returns false for invalid BIC format", () => {
-    expect(isValidBIC("1")).toEqual(false);
+  it("confirms FR1420041010050500013M02606 is invalid (wrong country)", () => {
+    expect(isValidIBAN("FR1420041010050500013M02606")).toEqual(false);
   });
-  it("returns false for unknown BIC AAAADE00000", () => {
-    expect(isValidBIC("AAAADE00000")).toEqual(false);
+
+  it("confirms null is invalid (not a string)", () => {
+    expect(isValidIBAN(null)).toEqual(false);
+  });
+  it("confirms 1234 is invalid (too short)", () => {
+    expect(isValidIBAN("1234")).toEqual(false);
   });
 });

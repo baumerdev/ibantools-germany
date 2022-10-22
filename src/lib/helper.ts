@@ -148,3 +148,22 @@ export const diffNextHalfDecade = (value: number): number => {
   }
   return 10 - ((value % 10) % 5);
 };
+
+/**
+ * Checksum calculation method for IBAN
+ */
+export const modulo97 = (value: string) => {
+  let checksum = Number(value.slice(0, 2));
+  let fragment: string;
+  for (let offset = 2; offset < value.length; offset += 7) {
+    fragment = `${checksum}${value.substring(offset, offset + 7)}`;
+    checksum = parseInt(fragment, 10) % 97;
+  }
+  return checksum;
+};
+
+/**
+ * Convert letters to digits (ASCII code minus 55)
+ */
+export const lettersToDigits = (string: string): string =>
+  string.replace(/[a-z]/gi, (letter) => String(letter.charCodeAt(0) - 55));

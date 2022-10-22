@@ -16,8 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { generateBBAN } from "./lib/generate";
-import { isValidAccountNumberBLZ, isValidBBAN } from "./lib/validate";
+import { generateBBAN, generateIBAN } from "./lib/generate";
+import {
+  isValidAccountNumberBLZ,
+  isValidBBAN,
+  isValidIBAN,
+} from "./lib/validate";
 
 declare global {
   interface Window {
@@ -33,5 +37,7 @@ if (typeof window.ibantoolsGermany === "undefined") {
 }
 
 window.ibantoolsGermany.generateBBAN = generateBBAN;
+window.ibantoolsGermany.generateIBAN = generateIBAN;
 window.ibantoolsGermany.isValidAccountNumberBLZ = isValidAccountNumberBLZ;
 window.ibantoolsGermany.isValidBBAN = isValidBBAN;
+window.ibantoolsGermany.isValidIBAN = isValidIBAN;

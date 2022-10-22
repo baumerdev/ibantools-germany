@@ -20,19 +20,19 @@ import * as main from "../main";
 
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 describe("main", () => {
-  it("exports function named bankDataByBLZ", () => {
-    expect(typeof main.bankDataByBLZ).toBe("function");
-  });
   it("exports function named generateBBAN", () => {
     expect(typeof main.generateBBAN).toBe("function");
   });
-  it("exports function named ibanDetails", () => {
-    expect(typeof main.ibanDetails).toBe("function");
+  it("exports function named generateIBAN", () => {
+    expect(typeof main.generateIBAN).toBe("function");
   });
   it("exports function named isValidAccountNumberBLZ", () => {
     expect(typeof main.isValidAccountNumberBLZ).toBe("function");
   });
   it("exports function named isValidBBAN", () => {
     expect(typeof main.isValidBBAN).toBe("function");
+  });
+  it("exports function named isValidIBAN", () => {
+    expect(typeof main.isValidIBAN).toBe("function");
   });
 });

@@ -33,32 +33,12 @@ const datasets = blzFile
   .map((row) => {
     const blz = Number(row.slice(0, 8));
     const master = row.slice(8, 9) === "1" ? true : false;
-    const name = row.slice(9, 67).trim();
-    const postcode = row.slice(67, 72);
-    const city = row.slice(72, 107).trim();
-    const shortName = row.slice(107, 134).trim();
-    const pan = row.slice(134, 139).trim();
-    const bic = row.slice(139, 150).trim();
     const checkDigitMethod = row.slice(150, 152);
-    const datasetNumber = row.slice(152, 158);
-    const changeType = row.slice(158, 159);
-    const deleteEntry = row.slice(159, 160) === "1" ? true : false;
-    const successor = row.slice(160, 168);
 
     return {
-      bic,
       blz,
-      changeType,
       checkDigitMethod,
-      city,
-      datasetNumber,
-      deleteEntry,
       master,
-      name,
-      pan,
-      postcode,
-      shortName,
-      successor,
     };
   });
 
@@ -80,24 +60,6 @@ masterDatasets.forEach((dataset) => {
   dataCheckDigit[dataset.checkDigitMethod].push(dataset.blz);
 });
 fs.writeFileSync(
-  `${__dirname}/../data/current.checkDigit.json`,
+  `${__dirname}/../data/current.json`,
   JSON.stringify(dataCheckDigit)
-);
-
-// Write all bank names and BIC for BLZ
-// This data is stored spearately because it is not needed for validation
-// thus may be removed during tree-shaking if not used.
-// To reduce file size the values are stored in arrays to omit the omit
-// the repetition of field names for each entry.
-const dataBank: { [blz: number]: string[] } = {};
-masterDatasets.forEach((dataset) => {
-  const data = [dataset.name];
-  if (dataset.bic) {
-    data.push(dataset.bic);
-  }
-  dataBank[dataset.blz] = data;
-});
-fs.writeFileSync(
-  `${__dirname}/../data/current.bank.json`,
-  JSON.stringify(dataBank)
 );

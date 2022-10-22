@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { paddedAccountNumber } from "./helper";
+import { lettersToDigits, modulo97, paddedAccountNumber } from "./helper";
 import { ProbablyString } from "./types";
 
 /**
@@ -44,4 +44,29 @@ export const generateBBAN = (
   }
 
   return `${blz}${paddedAccountNumber(accountNumber)}`;
+};
+
+/**
+ * Generate IBAN from BBAN und country
+ *
+ * Returns null if IBAN can't be generated, i.e. provided values are faulty
+ * or BBAN+country is invalid (if param 'validate' is true)
+ *
+ * @param accountNumber Account number with up to 10 digits
+ * @param blz German BLZ with 8 digits
+ * @returns IBAN or null if invalid
+ */
+export const generateIBAN = (
+  accountNumber: ProbablyString,
+  blz: ProbablyString
+) => {
+  const bban = generateBBAN(accountNumber, blz);
+  if (!bban) {
+    return null;
+  }
+
+  const dataForCalculation = lettersToDigits(`${bban}DE00`);
+  const checkDigit = 98 - modulo97(dataForCalculation);
+
+  return `DE${checkDigit < 10 ? "0" + String(checkDigit) : checkDigit}${bban}`;
 };

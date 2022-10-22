@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import currentCheckDigit from "../../data/current.checkDigit.json";
+import currentCheckDigits from "../../data/current.json";
 import { CheckDigits } from "../../lib/data";
 import { methodDispatch } from "../../lib/method-dispatch";
 import { Result } from "../../lib/types";
@@ -67,8 +67,8 @@ describe("methodDispatch", () => {
 });
 
 describe("methodDispatch by data", () => {
-  Object.keys(currentCheckDigit as CheckDigits).forEach((method) => {
-    const firstBLZForMethod = (currentCheckDigit as CheckDigits)[method][0];
+  Object.keys(currentCheckDigits as CheckDigits).forEach((method) => {
+    const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`confirms method ${method} in data file is implemented`, () => {
       expect(methodDispatch("1", String(firstBLZForMethod), method)).toMatch(
         /^(VALID|INVALID|NO_CHECK_DIGIT_CALCULATION)$/

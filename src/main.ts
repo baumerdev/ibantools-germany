@@ -16,8 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { bankDataByBLZ, ibanDetails } from "./lib/data";
-import { generateBBAN } from "./lib/generate";
+import { generateBBAN, generateIBAN } from "./lib/generate";
 import {
   AccountNumberBLZ,
   BankNameBIC,
@@ -27,18 +26,19 @@ import {
 import {
   isValidAccountNumberBLZ,
   isValidBBAN,
-  isValidBIC,
+  isValidIBAN,
 } from "./lib/validate";
 
 export {
   AccountNumberBLZ,
-  bankDataByBLZ,
   BankNameBIC,
   generateBBAN,
+  generateIBAN,
   IBANDetails,
-  ibanDetails,
   isValidAccountNumberBLZ,
   isValidBBAN,
-  isValidBIC,
+  isValidIBAN,
   ProbablyString,
 };
+
+console.log(generateIBAN("9290701", "10220500"));
