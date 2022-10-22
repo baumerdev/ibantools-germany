@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  deploy_docs:
+  test_coverage:
     runs-on: ubuntu-latest
 
     steps:
