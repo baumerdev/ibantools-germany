@@ -26,9 +26,9 @@ jobs:
         run: |
           npm ci
           npm run docs
-          touch build/docs/.nojekyll
+          touch docs/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build/docs
+          folder: docs

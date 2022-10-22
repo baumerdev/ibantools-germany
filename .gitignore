@@ -3,8 +3,9 @@
 /src/data/blz-aktuell-txt-data.txt.txt
 
 # Project stuff
-/build/
+/coverage/
 /dist/
+/docs/
 
 # WebStorm
 .idea/*
