@@ -40,5 +40,3 @@ export {
   isValidIBAN,
   ProbablyString,
 };
-
-console.log(generateIBAN("9290701", "10220500"));
