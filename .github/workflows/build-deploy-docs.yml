@@ -22,9 +22,11 @@ jobs:
           node-version: "16"
           cache: "npm"
 
+      - name: Install dependencies 📦
+        run: npm ci
+
       - name: Create docs 🏗
         run: |
-          npm ci
           npm run docs
           touch docs/.nojekyll
 
