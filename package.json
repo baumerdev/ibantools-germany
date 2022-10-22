@@ -48,6 +48,7 @@
     "esm-wrapper": "ts-node src/cli/esm-wrapper.ts",
     "esbuild:browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=dist/build/browser.js",
     "esbuild:browser-bank-data": "esbuild src/browser-bank-data.ts --bundle --minify --sourcemap=external --outfile=dist/build/browser-bank-data.js",
+    "prepare": "husky install",
     "prepack": "npm run clean && npm run lint && npm run test && npm run build:all"
   },
   "devDependencies": {
@@ -63,6 +64,7 @@
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
+    "husky": "^8.0.1",
     "jest": "29.2.1",
     "jest-environment-jsdom": "^29.2.1",
     "npm-check-updates": "^16.3.14",
