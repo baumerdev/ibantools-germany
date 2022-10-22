@@ -17,7 +17,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
     "outDir": "./dist/cjs/",
     "types": ["node", "jest"],
     "lib": ["ES6", "DOM"]
