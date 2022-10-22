@@ -1,6 +1,7 @@
 # IBANTools-Germany: Validator and Generator for German Bank Accounts
 
 ![CI: Lint, test and build](https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/baumerdev/ibantools-germany/badge.svg?branch=main)](https://coveralls.io/github/baumerdev/ibantools-germany?branch=main)
 
 This TypeScript/JavaScript library validates German bank account numbers and
 can be used as an enhancement of IBAN validators like [IBANTools](https://simplify.github.io/ibantools/).
