@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>ibantools-germany - v0.0.2</title><meta name="description" content="Documentation for ibantools-germany - v0.0.2"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>ibantools-germany - v0.0.3</title><meta name="description" content="Documentation for ibantools-germany - v0.0.3"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base=".">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -6,21 +6,19 @@
 <div id="tsd-toolbar-links"></div></div>
 <ul class="results">
 <li class="state loading">Preparing search index...</li>
-<li class="state failure">The search index is not available</li></ul><a href="https://github.com/baumerdev/ibantools-germany" class="title">ibantools-germany - v0.0.2</a></div>
+<li class="state failure">The search index is not available</li></ul><a href="https://github.com/baumerdev/ibantools-germany" class="title">ibantools-germany - v0.0.3</a></div>
 <div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
 <div class="container container-main">
 <div class="col-8 col-content">
 <div class="tsd-page-title">
-<h2>ibantools-germany - v0.0.2</h2></div>
+<h2>ibantools-germany - v0.0.3</h2></div>
 <div class="tsd-panel tsd-typography">
-<a href="#ibantools-germany-validator-tools-and-data-for-german-bank-accounts" id="ibantools-germany-validator-tools-and-data-for-german-bank-accounts" style="color: inherit; text-decoration: none;">
-  <h1>IBANTools-Germany: validator, tools and data for German bank accounts.</h1>
+<a href="#ibantools-germany-validator-and-generator-for-german-bank-accounts" id="ibantools-germany-validator-and-generator-for-german-bank-accounts" style="color: inherit; text-decoration: none;">
+  <h1>IBANTools-Germany: Validator and Generator for German Bank Accounts</h1>
 </a>
 <p><img src="https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg?branch=main" alt="CI: Lint, test and build"></p>
 <p>This TypeScript/JavaScript library validates German bank account numbers and
-can be used as an enhancement of IBAN validators like <a href="https://simplify.github.io/ibantools/">IBANTools</a>.
-In addition, this library also contains general data such as bank names and
-BIC/Swift Codes.</p>
+can be used as an enhancement of IBAN validators like <a href="https://simplify.github.io/ibantools/">IBANTools</a>.</p>
 <ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
@@ -43,9 +41,9 @@ times a year.</p>
 <a href="#browser--cdn" id="browser--cdn" style="color: inherit; text-decoration: none;">
   <h3>Browser / CDN</h3>
 </a>
-<p>If you just want the functions in your browser, you can include one or both of
-the following pre-build files.</p>
-<pre><code class="language-html"><span class="hl-1">&lt;!-- available functions: generateBBAN, isValidAccountNumberBLZ, isValidBBAN --&gt;</span><br/><span class="hl-2">&lt;</span><span class="hl-3">script</span><span class="hl-4"> </span><span class="hl-5">src</span><span class="hl-4">=</span><span class="hl-6">&quot;https://cdn.jsdelivr.net/npm/ibantools-germany/dist/build/browser.js&quot;</span><span class="hl-2">&gt;&lt;/</span><span class="hl-3">script</span><span class="hl-2">&gt;</span><br/><br/><span class="hl-1">&lt;!-- available functions: bankDataByBLZ, ibanDetails, isValidBIC --&gt;</span><br/><span class="hl-2">&lt;</span><span class="hl-3">script</span><span class="hl-4"> </span><span class="hl-5">src</span><span class="hl-4">=</span><span class="hl-6">&quot;https://cdn.jsdelivr.net/npm/ibantools-germany/dist/build/browser-bank-data.js&quot;</span><span class="hl-2">&gt;&lt;/</span><span class="hl-3">script</span><span class="hl-2">&gt;</span>
+<p>If you just want the functions in your browser, you can include the following
+pre-build file.</p>
+<pre><code class="language-html"><span class="hl-2">&lt;</span><span class="hl-3">script</span><span class="hl-4"> </span><span class="hl-5">src</span><span class="hl-4">=</span><span class="hl-6">&quot;https://cdn.jsdelivr.net/npm/ibantools-germany/dist/build/browser.js&quot;</span><span class="hl-2">&gt;&lt;/</span><span class="hl-3">script</span><span class="hl-2">&gt;</span>
 </code></pre>
 
 <a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
@@ -58,24 +56,16 @@ shown in the usage examples below, you can use <code>require</code> as well.</p>
   <h3>Validation</h3>
 </a>
 <p>You can validate the bank account number and BLZ (Bankleitzahl = bank sort
-code), BBAN part of IBAN and BIC/Swift Codes. But even if those formats are
-international standards this library only validates data for Germany and will
-return false for all other countries.</p>
-<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-0"> { </span><span class="hl-8">isValidAccountNumberBLZ</span><span class="hl-0">, </span><span class="hl-8">isValidBBAN</span><span class="hl-0">, </span><span class="hl-8">isValidBIC</span><span class="hl-0"> } </span><span class="hl-7">from</span><span class="hl-0"> </span><span class="hl-9">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-1">// These functions rely on the smaller current.checkDigit.json ; see below</span><br/><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;102205000009290701&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;20041010050500013M02606&quot;</span><span class="hl-0">); </span><span class="hl-1">// false (corrent but not a German BBAN)</span><br/><br/><span class="hl-1">// This function relies on the larger current.bank.json ; see below</span><br/><span class="hl-10">isValidBIC</span><span class="hl-0">(</span><span class="hl-9">&quot;MARKDEFF&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidBIC</span><span class="hl-0">(</span><span class="hl-9">&quot;MARKDEFFXXX&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidBIC</span><span class="hl-0">(</span><span class="hl-9">&quot;foobar&quot;</span><span class="hl-0">); </span><span class="hl-1">// false (invalid format)</span><br/><span class="hl-10">isValidBIC</span><span class="hl-0">(</span><span class="hl-9">&quot;BNPAFRPH&quot;</span><span class="hl-0">); </span><span class="hl-1">// false (corrent but not a German BIC)</span>
+code), or the BBAN part of an IBAN. Note: Even if IBAN is an international
+standard, this library only validates data for Germany and will return false
+for other countries.</p>
+<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-0"> { </span><span class="hl-8">isValidAccountNumberBLZ</span><span class="hl-0">, </span><span class="hl-8">isValidBBAN</span><span class="hl-0">, </span><span class="hl-8">isValidBIC</span><span class="hl-0"> } </span><span class="hl-7">from</span><span class="hl-0"> </span><span class="hl-9">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;102205000009290701&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;DE23102205000009290701&quot;</span><span class="hl-0">); </span><span class="hl-1">// true</span><br/><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;20041010050500013M02606&quot;</span><span class="hl-0">); </span><span class="hl-1">// false (valid but not a German BBAN)</span><br/><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;FR1420041010050500013M02606&quot;</span><span class="hl-0">); </span><span class="hl-1">// false (valid but not a German IBAN)</span>
 </code></pre>
 
 <a href="#generation" id="generation" style="color: inherit; text-decoration: none;">
   <h3>Generation</h3>
 </a>
-<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-0"> { </span><span class="hl-8">generateBBAN</span><span class="hl-0"> } </span><span class="hl-7">from</span><span class="hl-0"> </span><span class="hl-9">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-1">// 102205000009290701</span><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;foo&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;bar&quot;</span><span class="hl-0">); </span><span class="hl-1">// null</span>
-</code></pre>
-
-<a href="#iban--bank-details" id="iban--bank-details" style="color: inherit; text-decoration: none;">
-  <h3>IBAN / Bank Details</h3>
-</a>
-<p>You can get detailed information for the BBAN like the extracted bank account
-number and BLZ as well as the bank name and BIC (if assigned).</p>
-<pre><code class="language-javascript"><span class="hl-1">// These functions rely on the larger current.bank.json ; see below</span><br/><span class="hl-7">import</span><span class="hl-0"> { </span><span class="hl-8">bankDataByBLZ</span><span class="hl-0">, </span><span class="hl-8">ibanDetails</span><span class="hl-0"> } </span><span class="hl-7">from</span><span class="hl-0"> </span><span class="hl-9">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">ibanDetails</span><span class="hl-0">(</span><span class="hl-9">&quot;100100100000138301&quot;</span><span class="hl-0">);</span><br/><span class="hl-1">// {</span><br/><span class="hl-1">//   accountNumber: &quot;0000138301&quot;,</span><br/><span class="hl-1">//   blz: &quot;10010010&quot;,</span><br/><span class="hl-1">//   bankName: &quot;Postbank Ndl der Deutsche Bank&quot;,</span><br/><span class="hl-1">//   bic: &quot;PBNKDEFFXXX&quot;</span><br/><span class="hl-1">// }</span><br/><br/><span class="hl-10">bankDataByBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;10010010&quot;</span><span class="hl-0">);</span><br/><span class="hl-1">// {</span><br/><span class="hl-1">//   bankName: &quot;Postbank Ndl der Deutsche Bank&quot;,</span><br/><span class="hl-1">//   bic: &quot;PBNKDEFFXXX&quot;</span><br/><span class="hl-1">// }</span>
+<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-0"> { </span><span class="hl-8">generateBBAN</span><span class="hl-0"> } </span><span class="hl-7">from</span><span class="hl-0"> </span><span class="hl-9">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-1">// 102205000009290701</span><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;foo&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;bar&quot;</span><span class="hl-0">); </span><span class="hl-1">// null</span><br/><br/><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-1">// DE23102205000009290701</span><br/><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;foo&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;bar&quot;</span><span class="hl-0">); </span><span class="hl-1">// null</span>
 </code></pre>
 
 <a href="#browser--cdn-1" id="browser--cdn-1" style="color: inherit; text-decoration: none;">
@@ -83,42 +73,20 @@ number and BLZ as well as the bank name and BIC (if assigned).</p>
 </a>
 <p>If you use the pre-build version, an object <code>ibantoolsGermany</code> is globally
 defined on <code>window</code> containing the functions.</p>
-<pre><code class="language-javascript"><span class="hl-1">// browser.js</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;102205000009290701&quot;</span><span class="hl-0">);</span><br/><span class="hl-1">// browser-bank-data.js</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">bankDataByBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;10010010&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">ibanDetails</span><span class="hl-0">(</span><span class="hl-9">&quot;100100100000138301&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidBIC</span><span class="hl-0">(</span><span class="hl-9">&quot;MARKDEFF&quot;</span><span class="hl-0">);</span>
+<pre><code class="language-javascript"><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-9">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-9">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;102205000009290701&quot;</span><span class="hl-0">);</span><br/><span class="hl-8">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-9">&quot;DE23102205000009290701&quot;</span><span class="hl-0">);</span>
 </code></pre>
 
 <a href="#data-source" id="data-source" style="color: inherit; text-decoration: none;">
   <h2>Data Source</h2>
 </a>
-<p>Sadly there is no algorithm to verify every German bank account number, BBAN
-or BIC. Each bank has its own method(s) which can change from time to time.
-Therefore <a href="https://www.bundesbank.de/en/tasks/payment-systems/services/bank-sort-codes/download-bank-sort-codes-626218">Deutsche Bundesbank</a>
+<p>Sadly there is no algorithm to verify every German bank account number or BBAN.
+Each bank has its own method(s) which can change from time to time. Therefore
+<a href="https://www.bundesbank.de/en/tasks/payment-systems/services/bank-sort-codes/download-bank-sort-codes-626218">Deutsche Bundesbank</a>
 publishes updated data every quarter.</p>
-<p>These updates can contain technical changes (modifications in check digit
-methods) and content changes (BLZ, bank names, etc). It is also possible that
-there are updates that do not contain any relevant changes for this library at
+<p>Updates can contain technical changes (modifications in check digit methods)
+and content changes (BLZ, bank names, etc). It is also possible that there
+are updates that do not contain any relevant changes for this library at
 all.</p>
-
-<a href="#bundle-size" id="bundle-size" style="color: inherit; text-decoration: none;">
-  <h3>Bundle Size</h3>
-</a>
-<p>The Deutsche Bundesbank data file is very large and currently contains over
-15,000 lines. The import script creates two JSON files based on the raw data
-file, only containing the data we really need.</p>
-<ul>
-<li><strong>current.checkDigit.json</strong> (~35 kb) Requirement for the validation of bank
-accounts, BLZ and BBAN</li>
-<li><strong>current.bank.json</strong> (~200 kb) Requirement for everything to do with bank
-data details and BIC</li>
-</ul>
-<p>The above usage examples always state which file is used. You should use a
-webtool that supports tree-shaking and only use the functions you really
-need. Due to the significant size of the larger file, you should consider
-using the functions based on this file rather in the backend.</p>
-<p>If you use the pre-build Browser / CDN files:</p>
-<ul>
-<li>browser.js includes current.checkDigit.json</li>
-<li>browser-bank-data.js includes all of current.bank.json</li>
-</ul>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <nav id="tsd-sidebar-links" class="tsd-navigation"><a href="https://github.com/baumerdev/ibantools-germany" target="_blank">Github Repository</a><a href="https://www.npmjs.com/package/ibantools-germany" target="_blank">NPMJS Package</a></nav>
@@ -140,7 +108,7 @@ using the functions based on this file rather in the backend.</p>
 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
 <div class="tsd-accordion-details">
 <ul>
-<li class="current selected"><a href="modules.html">ibantools-<wbr/>germany -<wbr/> v0.0.2</a>
+<li class="current selected"><a href="modules.html">ibantools-<wbr/>germany -<wbr/> v0.0.3</a>
 <ul></ul></li></ul></div></details></nav>
 <nav class="tsd-navigation secondary menu-sticky">
 <ul>
@@ -148,12 +116,11 @@ using the functions based on this file rather in the backend.</p>
 <li class="tsd-kind-interface"><a href="interfaces/BankNameBIC.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Bank<wbr/>NameBIC</a></li>
 <li class="tsd-kind-type-alias"><a href="types/IBANDetails.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4194304-path"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)" id="icon-4194304-text"></path></svg>IBANDetails</a></li>
 <li class="tsd-kind-type-alias"><a href="types/ProbablyString.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Probably<wbr/>String</a></li>
-<li class="tsd-kind-function"><a href="functions/bankDataByBLZ.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>bank<wbr/>Data<wbr/>ByBLZ</a></li>
-<li class="tsd-kind-function"><a href="functions/generateBBAN.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generateBBAN</a></li>
-<li class="tsd-kind-function"><a href="functions/ibanDetails-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>iban<wbr/>Details</a></li>
+<li class="tsd-kind-function"><a href="functions/generateBBAN.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>generateBBAN</a></li>
+<li class="tsd-kind-function"><a href="functions/generateIBAN.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generateIBAN</a></li>
 <li class="tsd-kind-function"><a href="functions/isValidAccountNumberBLZ.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Valid<wbr/>Account<wbr/>NumberBLZ</a></li>
 <li class="tsd-kind-function"><a href="functions/isValidBBAN.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>ValidBBAN</a></li>
-<li class="tsd-kind-function"><a href="functions/isValidBIC.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>ValidBIC</a></li></ul></nav></div></div>
+<li class="tsd-kind-function"><a href="functions/isValidIBAN.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>ValidIBAN</a></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="assets/main.js"></script></body></html>
