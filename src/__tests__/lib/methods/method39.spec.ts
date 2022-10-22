@@ -1,4 +1,4 @@
-/*!
+/**
  * ibantools-germany
  * Copyright (C) 2022 Markus Baumer <markus@baumer.dev>
  *
