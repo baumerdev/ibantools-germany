@@ -41,13 +41,14 @@
     "test": "jest",
     "test:dev": "jest --watchAll",
     "test:coverage": "rimraf coverage && jest --coverage",
-    "clean": "rimraf dist docs coverage",
+    "clean": "rimraf dist docs coverage package ibantools-germany*.tgz",
     "docs": "rimraf docs && typedoc --entryPoints src/main.ts --out docs/",
     "build": "tsc -p tsconfig.build.json",
     "build:all": "rimraf dist && npm run build && npm run esm-wrapper && npm run esbuild:browser && npm run esbuild:browser-bank-data",
     "esm-wrapper": "ts-node src/cli/esm-wrapper.ts",
     "esbuild:browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=dist/build/browser.js",
-    "esbuild:browser-bank-data": "esbuild src/browser-bank-data.ts --bundle --minify --sourcemap=external --outfile=dist/build/browser-bank-data.js"
+    "esbuild:browser-bank-data": "esbuild src/browser-bank-data.ts --bundle --minify --sourcemap=external --outfile=dist/build/browser-bank-data.js",
+    "prepack": "npm run clean && npm run lint && npm run test && npm run build:all"
   },
   "devDependencies": {
     "@types/jest": "^29.2.0",
