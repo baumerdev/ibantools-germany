@@ -6,6 +6,9 @@
 This TypeScript/JavaScript library validates German bank account numbers and
 can be used as an enhancement of IBAN validators like [IBANTools](https://simplify.github.io/ibantools/).
 
+If you need German bank data in your project e.g. to auto-fill forms when a
+user enters an IBAN, take a look the side project  [BankData-Germany](https://baumerdev.github.io/bankdata-germany/).
+
 * [Installation](#installation)
 * [Usage](#usage)
 * [Data Source](#data-source)
