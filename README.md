@@ -3,8 +3,8 @@
 ![CI: Lint, test and build](https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg?branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/baumerdev/ibantools-germany/badge.svg?branch=main)](https://coveralls.io/github/baumerdev/ibantools-germany?branch=main)
 
-This TypeScript/JavaScript library validates German bank account numbers and
-can be used as an enhancement of IBAN validators like [IBANTools](https://simplify.github.io/ibantools/).
+This TypeScript/JavaScript library validates IBAN and German bank account
+numbers. It can be used as an enhancement of IBAN validators like [IBANTools](https://simplify.github.io/ibantools/).
 
 If you need German bank data in your project e.g. to auto-fill forms when a
 user enters an IBAN, take a look the side project  [BankData-Germany](https://baumerdev.github.io/bankdata-germany/).
@@ -44,19 +44,20 @@ shown in the usage examples below, you can use `require` as well.
 ### Validation
 
 You can validate the bank account number and BLZ (Bankleitzahl = bank sort
-code), or the BBAN part of an IBAN. Note: Even if IBAN is an international
-standard, this library only validates data for Germany and will return false
-for other countries.
+code), a BBAN or an IBAN. You can optionally restrict IBAN validation
+to only allow German IBAN.
 
 ```javascript
 import { isValidAccountNumberBLZ, isValidBBAN, isValidBIC } from "ibantools-germany"
 
 isValidAccountNumberBLZ("9290701", "10220500"); // true
-isValidBBAN("102205000009290701"); // true
-isValidIBAN("DE23102205000009290701"); // true
 
+isValidBBAN("102205000009290701"); // true
 isValidBBAN("20041010050500013M02606"); // false (valid but not a German BBAN)
-isValidIBAN("FR1420041010050500013M02606"); // false (valid but not a German IBAN)
+
+isValidIBAN("DE23102205000009290701"); // true
+isValidIBAN("FR1420041010050500013M02606"); // true
+isValidIBAN("FR1420041010050500013M02606", false); // false (only allow German IBAN)
 ```
 
 ### Generation

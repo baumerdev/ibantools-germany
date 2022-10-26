@@ -74,31 +74,44 @@ export const isValidBBAN = (bban: ProbablyString): boolean => {
 };
 
 /**
- * Validate German IBAN
+ * Validate (German) IBAN
+ *
+ * If `onlyGermany` is true, it will return false for any IBAN not starting
+ * with "DE". If false, non-German IBAN will be verified but no national
+ * methods will be applied.
  *
  * IMPORTANT: A positive result does not does not necessarily mean that
  * the account exists; it only checks for structure and check digit!
  *
  * @param iban German IBAN with 22 chars
+ * @param onlyGermany Allow only German IBANs (default: false)
  * @returns
  */
-export const isValidIBAN = (iban: ProbablyString): boolean => {
-  if (
-    typeof iban !== "string" ||
-    iban.length !== 22 ||
-    !iban.toUpperCase().startsWith("DE")
-  ) {
+export const isValidIBAN = (
+  iban: ProbablyString,
+  onlyGermany = false
+): boolean => {
+  if (typeof iban !== "string") {
     return false;
   }
 
+  const country = iban.slice(0, 2).toUpperCase();
   const checkDigit = iban.slice(2, 4);
   const bban = iban.slice(4);
 
   // Validate IBAN check digit
-  const validateAlphanumeric = `${bban}DE${checkDigit}`;
+  const validateAlphanumeric = `${bban}${country}${checkDigit}`;
   const validateNumberic = lettersToDigits(validateAlphanumeric);
   if (modulo97(validateNumberic) !== 1) {
     return false;
+  }
+
+  if (country !== "DE") {
+    if (onlyGermany) {
+      return false;
+    }
+
+    return true;
   }
 
   // Validate BBAN

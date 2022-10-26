@@ -64,12 +64,18 @@ describe("isValidIBAN", () => {
   it("confirms DE02300209000106531065 is valid", () => {
     expect(isValidIBAN("DE02300209000106531065")).toEqual(true);
   });
+  it("confirms DE02300209000106531065 is valid  (onlyGerman)", () => {
+    expect(isValidIBAN("DE02300209000106531065", true)).toEqual(true);
+  });
 
   it("confirms DE00300209000106531065 is invalid (wrong checksum)", () => {
     expect(isValidIBAN("DE00300209000106531065")).toEqual(false);
   });
-  it("confirms FR1420041010050500013M02606 is invalid (wrong country)", () => {
-    expect(isValidIBAN("FR1420041010050500013M02606")).toEqual(false);
+  it("confirms FR1420041010050500013M02606 is valid", () => {
+    expect(isValidIBAN("FR1420041010050500013M02606")).toEqual(true);
+  });
+  it("confirms FR1420041010050500013M02606 is invalid (onlyGerman, wrong country)", () => {
+    expect(isValidIBAN("FR1420041010050500013M02606", true)).toEqual(false);
   });
 
   it("confirms null is invalid (not a string)", () => {
