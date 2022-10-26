@@ -12,6 +12,7 @@ user enters an IBAN, take a look the side project  [BankData-Germany](https://ba
 * [Installation](#installation)
 * [Usage](#usage)
 * [Data Source](#data-source)
+* [Package Version](#package-version)
 
 ## Installation
 
@@ -96,3 +97,26 @@ Updates can contain technical changes (modifications in check digit methods)
 and content changes (BLZ, bank names, etc). It is also possible that there
 are updates that do not contain any relevant changes for this library at
 all.
+
+## Package Version
+
+The version numbers are based on [Semantic Versioning](https://semver.org/)
+with modifications.
+
+> 1.2205.3
+
+The first number representes the Major version. If this number increases there
+are updates that may not be backward compatiple and you have to adjust your
+code. That means the above version string is from major version **1**.
+
+The first two digits of the second number stand for the year of the included
+data and check digit methods. The third and fourth digit increase when there
+are either minor version changes that are backward compatible or when new data
+is included. That means the above version string is from year 20**22** and
+has had a few minor updates, perhaps data updates for spring and summer.
+
+The last number is for patches and bug fixes.
+
+Since the data may change up to four times a year you should use a suitable
+version string in your package.json. Since there will be only breaking changes
+when the first number changes, you should be good with e.g. `"1.x"`
