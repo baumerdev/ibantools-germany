@@ -106,7 +106,7 @@ with modifications.
 > 1.2205.3
 
 The first number representes the Major version. If this number increases there
-are updates that may not be backward compatiple and you have to adjust your
+are updates that may not be backward compatible and you have to adjust your
 code. That means the above version string is from major version **1**.
 
 The first two digits of the second number stand for the year of the included
