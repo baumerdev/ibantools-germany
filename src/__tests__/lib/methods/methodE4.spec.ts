@@ -53,4 +53,7 @@ describe("method E4", () => {
   it("confirms 87654005 is invalid", () => {
     expect(methodE4("87654005")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567890 is invalid", () => {
+    expect(methodE4("1234567890")).toEqual(Result.INVALID);
+  });
 });

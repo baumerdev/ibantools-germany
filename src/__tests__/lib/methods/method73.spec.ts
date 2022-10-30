@@ -68,4 +68,7 @@ describe("method 73", () => {
   it("confirms 987654321 is invalid (wrong digit, variation 3)", () => {
     expect(method73("987654321")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567890 is invalid (wrong digit, variation 3)", () => {
+    expect(method73("1234567890")).toEqual(Result.INVALID);
+  });
 });

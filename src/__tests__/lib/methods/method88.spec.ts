@@ -53,4 +53,7 @@ describe("method 88", () => {
   it("confirms 99913013 is invalid", () => {
     expect(method88("99913013")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567890 is invalid", () => {
+    expect(method88("1234567890")).toEqual(Result.INVALID);
+  });
 });

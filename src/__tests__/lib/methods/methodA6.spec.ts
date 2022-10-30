@@ -56,4 +56,7 @@ describe("method A6", () => {
   it("confirms 200071280 is invalid", () => {
     expect(methodA6("200071280")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567890 is invalid", () => {
+    expect(methodA6("1234567890")).toEqual(Result.INVALID);
+  });
 });

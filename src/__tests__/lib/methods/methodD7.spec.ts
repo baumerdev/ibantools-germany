@@ -71,4 +71,7 @@ describe("method D7", () => {
   it("confirms 0601006977 is invalid", () => {
     expect(methodD7("0601006977")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567890 is invalid", () => {
+    expect(methodD7("1234567890")).toEqual(Result.INVALID);
+  });
 });

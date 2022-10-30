@@ -44,4 +44,7 @@ describe("method A7", () => {
   it("confirms 209010893 is invalid", () => {
     expect(methodA7("209010893")).toEqual(Result.INVALID);
   });
+  it("confirms 1234567899 is invalid", () => {
+    expect(methodA7("1234567899")).toEqual(Result.INVALID);
+  });
 });
