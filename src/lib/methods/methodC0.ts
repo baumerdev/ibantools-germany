@@ -25,7 +25,10 @@ import method52 from "./method52";
 export default (number: string, blz: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
-  if (paddedNumber.match(/^00/) && method52(number, blz) === Result.VALID) {
+  if (
+    paddedNumber.match(/^00/) &&
+    method52(paddedNumber.slice(2), blz) === Result.VALID
+  ) {
     return Result.VALID;
   }
 

@@ -27,6 +27,9 @@ describe("method C0", () => {
   it("confirms 48726458 is valid (variation 1)", () => {
     expect(methodC0("48726458", "13051172")).toEqual(Result.VALID);
   });
+  it("confirms 0012341097 is valid (variation 1)", () => {
+    expect(methodC0("0012341097", "13051172")).toEqual(Result.VALID);
+  });
   it("confirms 0082335729 is valid (variation 2)", () => {
     expect(methodC0("0082335729", "00000000")).toEqual(Result.VALID);
   });
