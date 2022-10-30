@@ -24,6 +24,9 @@ describe("method 53", () => {
   it("confirms 382432256 with BLZ 16052072 is valid", () => {
     expect(method53("382432256", "16052072")).toEqual(Result.VALID);
   });
+  it("confirms 1234567860 is valid (10 digits)", () => {
+    expect(method53("1234567860", "16052072")).toEqual(Result.VALID);
+  });
   it("confirms 9876543218 is valid (method 20)", () => {
     expect(method53("9876543218", "00000000")).toEqual(Result.VALID);
   });

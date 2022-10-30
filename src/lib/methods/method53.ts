@@ -44,7 +44,7 @@ export default (number: string, blz: string): Result => {
     return Result.INVALID;
   }
 
-  const eserAccount = eser9(number, blz);
+  const eserAccount = eser9(number.slice(-9), blz);
   if (!eserAccount) {
     return Result.INVALID;
   }
