@@ -30,18 +30,24 @@ export default (number: string): Result => {
     return method51NominalAccount(paddedNumber);
   }
 
+  const significantNumber = paddedNumber.slice(4, 10);
+
   // Variation 1
-  if (method06Core(number, [2, 3, 4, 5, 6]) === Result.VALID) {
+  if (method06Core(significantNumber, [2, 3, 4, 5, 6]) === Result.VALID) {
     return Result.VALID;
   }
 
   // Variation 2
-  if (method06Core(number, [2, 3, 4, 5, 6], 0, 0, 7) === Result.VALID) {
+  if (
+    method06Core(significantNumber, [2, 3, 4, 5, 6], 0, 0, 7) === Result.VALID
+  ) {
     return Result.VALID;
   }
 
   // Variation 3
-  if (method06Core(number, [2, 1, 2, 1, 2], 0, 0, 10) === Result.VALID) {
+  if (
+    method06Core(significantNumber, [2, 1, 2, 1, 2], 0, 0, 10) === Result.VALID
+  ) {
     return Result.VALID;
   }
 
