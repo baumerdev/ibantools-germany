@@ -68,6 +68,14 @@ export const method06Result = (
   return Result.INVALID;
 };
 
+/**
+ * @param number Significant digits for calculation and check digit at the rightmost position
+ * @param weights Weight for calculation, must be at
+ * @param diff10CheckDigit Check digit if moduloDifference returns 10
+ * @param diff11CheckDigit Check digit if moduloDifference returns 11
+ * @param modulo Moduolo for moduloDifference
+ * @returns
+ */
 export const method06Core = (
   number: string,
   weights: number[],
