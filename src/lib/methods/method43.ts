@@ -30,7 +30,7 @@ export default (number: string): Result => {
 
   const weightedDigits = weightDigitsRTL(digits, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, 10, 10);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 10, 10);
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {
     return Result.VALID;

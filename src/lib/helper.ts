@@ -127,7 +127,7 @@ export const weightDigitsRTL = (
 
 /**
  * Calculates the modulo (remainder of division) and subtracts it from
- * the minuend.
+ * the minuend, returns difference and remainder.
  *
  * Example: Value 12 with divisor 10 and minuend 11 will return 9 (remainder of 12/10 = 2; 11-2 = 9)
  */
@@ -135,7 +135,10 @@ export const moduloDifference = (
   value: number,
   divisor: number,
   minuend: number
-): number => minuend - (value % divisor);
+): { difference: number; remainder: number } => {
+  const remainder = value % divisor;
+  return { difference: minuend - remainder, remainder };
+};
 
 /**
  * Get the difference to next half decade (5, 15, 25...).

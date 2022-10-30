@@ -28,15 +28,23 @@ export const method06CheckDigit = (
   number: string,
   weights: number[],
   modulo = 11
-): { calculatedCheckDigit: number; givenCheckDigit: number } => {
+): {
+  calculatedCheckDigit: number;
+  diffRemainder: number;
+  givenCheckDigit: number;
+} => {
   const digits = getDigits(number);
   const givenCheckDigit = digits.pop() as number; // Check digit is last digit
 
   const weightedDigits = weightDigitsRTL(digits, weights);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, modulo, modulo);
+  const { difference: calculatedCheckDigit, remainder } = moduloDifference(
+    sum,
+    modulo,
+    modulo
+  );
 
-  return { calculatedCheckDigit, givenCheckDigit };
+  return { calculatedCheckDigit, diffRemainder: remainder, givenCheckDigit };
 };
 
 export const method06Result = (

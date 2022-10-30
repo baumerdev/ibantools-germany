@@ -34,7 +34,7 @@ const method91Core = (
 ): Result => {
   const weightedDigits = weightDigitsRTL(digits, weights);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };

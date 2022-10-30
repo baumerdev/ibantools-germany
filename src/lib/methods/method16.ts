@@ -21,12 +21,10 @@ import { Result } from "../types";
 import { method06CheckDigit, method06Result } from "./method06";
 
 export default (number: string): Result => {
-  const { calculatedCheckDigit, givenCheckDigit } = method06CheckDigit(
-    number,
-    [2, 3, 4, 5, 6, 7, 2, 3, 4]
-  );
+  const { calculatedCheckDigit, givenCheckDigit, diffRemainder } =
+    method06CheckDigit(number, [2, 3, 4, 5, 6, 7, 2, 3, 4]);
 
-  if (calculatedCheckDigit === 1 && number.slice(-2, -1) === number.slice(-1)) {
+  if (diffRemainder === 1 && number.slice(-2, -1) === number.slice(-1)) {
     return Result.VALID;
   }
 

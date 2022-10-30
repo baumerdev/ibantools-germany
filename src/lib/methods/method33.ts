@@ -39,7 +39,11 @@ export const method33Core = (
   const weightedDigits = weightDigitsRTL(digits, weights);
   const sum = calculateSum(weightedDigits);
 
-  const calculatedCheckDigit = moduloDifference(sum, modulo, modulo);
+  const { difference: calculatedCheckDigit } = moduloDifference(
+    sum,
+    modulo,
+    modulo
+  );
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };
