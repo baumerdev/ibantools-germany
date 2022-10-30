@@ -30,7 +30,9 @@ describe("method 16", () => {
   it("confirms 1234567841 is valid (default, remainder 1)", () => {
     expect(method16("1234567841")).toEqual(Result.VALID);
   });
-
+  it("confirms 1234568499 is valid (special, remainder 1)", () => {
+    expect(method16("1234568499")).toEqual(Result.VALID);
+  });
   // Check for invalid result
   it("confirms 1135567895 is invalid", () => {
     expect(method16("1135567895")).toEqual(Result.INVALID);

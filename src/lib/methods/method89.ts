@@ -47,7 +47,7 @@ export default (number: string): Result => {
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7]);
   const crossSums = calculateCrossSums(weightedDigits);
   const sum = calculateSum(crossSums);
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };

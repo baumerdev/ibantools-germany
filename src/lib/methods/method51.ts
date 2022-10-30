@@ -35,7 +35,7 @@ const method51aCore = (number: string): Result => {
 
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7]);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };
@@ -55,7 +55,7 @@ const method51dVariation1 = (number: string): Result => {
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7, 8]);
   const sum = calculateSum(weightedDigits);
 
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };
@@ -67,7 +67,7 @@ const method51dVariation2 = (number: string): Result => {
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const sum = calculateSum(weightedDigits);
 
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };

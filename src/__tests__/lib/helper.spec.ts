@@ -166,11 +166,14 @@ describe("weightDigitsRTL", () => {
 
 describe("moduloDifference", () => {
   it("returns 0 for minuend 0 and value 0", () => {
-    expect(moduloDifference(0, 1, 0)).toEqual(0);
+    expect(moduloDifference(0, 1, 0)).toEqual({ difference: 0, remainder: 0 });
   });
 
   it("returns 9 for divisor 10, minuend 11 and value 12", () => {
-    expect(moduloDifference(12, 10, 11)).toEqual(9);
+    expect(moduloDifference(12, 10, 11)).toEqual({
+      difference: 9,
+      remainder: 2,
+    });
   });
 });
 

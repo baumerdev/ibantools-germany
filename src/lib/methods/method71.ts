@@ -33,7 +33,7 @@ export default (number: string): Result => {
 
   const weightedDigits = weightDigits(digits, [6, 5, 4, 3, 2, 1]);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   if (calculatedCheckDigit === 11 && givenCheckDigit === 0) {
     return Result.VALID;

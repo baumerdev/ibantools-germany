@@ -35,7 +35,11 @@ export default (number: string): Result => {
   const weightedDigits = weightDigits(digits, [1, 2, 1, 2, 1, 2]);
   const crossSumDigits = calculateCrossSums(weightedDigits);
   const sumMinus1 = calculateSum(crossSumDigits) - 1;
-  const calculatedCheckDigit = moduloDifference(sumMinus1, 11, 10);
+  const { difference: calculatedCheckDigit } = moduloDifference(
+    sumMinus1,
+    11,
+    10
+  );
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {
     return Result.VALID;

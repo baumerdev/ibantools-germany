@@ -32,7 +32,7 @@ export default (number: string): Result => {
 
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7, 2, 3, 4]);
   const sum = calculateSum(weightedDigits);
-  const calculatedCheckDigit = moduloDifference(sum, 11, 11);
+  const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   if (calculatedCheckDigit === 10) {
     if (paddedNumber.slice(0, 1) === "9" && givenCheckDigit === 7) {
