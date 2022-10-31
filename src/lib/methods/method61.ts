@@ -42,7 +42,7 @@ export default (number: string): Result => {
   );
   const crossSumDigits = calculateCrossSums(weightedDigits);
   const sum = calculateSum(crossSumDigits);
-  const calculatedCheckDigit = 10 - getUnitFromNumber(sum);
+  const calculatedCheckDigit = getUnitFromNumber(10 - getUnitFromNumber(sum));
 
   if (calculatedCheckDigit === givenCheckDigit) {
     return Result.VALID;
