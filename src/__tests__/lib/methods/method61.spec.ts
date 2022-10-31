@@ -30,6 +30,12 @@ describe("method 61", () => {
   it("confirms 0260760481 is valid", () => {
     expect(method61("0260760481")).toEqual(Result.VALID);
   });
+  it("confirms 1234526000 is valid", () => {
+    expect(method61("1234526000")).toEqual(Result.VALID);
+  });
+  it("confirms 1234551080 is valid (special case 8)", () => {
+    expect(method61("1234551080")).toEqual(Result.VALID);
+  });
 
   // Check for invalid result
   it("confirms 2063098200 is invalid", () => {
