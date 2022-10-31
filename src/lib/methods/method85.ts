@@ -31,13 +31,15 @@ export default (number: string): Result => {
     return method02Core(paddedNumber.slice(2, 10), [2, 3, 4, 5, 6, 7, 8]);
   }
 
+  let significantNumber = paddedNumber.slice(3, 10);
   // Variation A
-  if (method06(number) === Result.VALID) {
+  if (method06(significantNumber) === Result.VALID) {
     return Result.VALID;
   }
 
+  significantNumber = significantNumber.slice(1);
   // Variation B
-  if (method33(number) === Result.VALID) {
+  if (method33(significantNumber) === Result.VALID) {
     return Result.VALID;
   }
 
@@ -46,5 +48,5 @@ export default (number: string): Result => {
     return Result.INVALID;
   }
 
-  return method33Core(number, [2, 3, 4, 5, 6], 7);
+  return method33Core(significantNumber, [2, 3, 4, 5, 6], 7);
 };
