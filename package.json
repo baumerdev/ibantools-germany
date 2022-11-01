@@ -31,7 +31,8 @@
     }
   },
   "files": [
-    "dist/"
+    "dist/",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "import": "ts-node src/cli/import.ts",
