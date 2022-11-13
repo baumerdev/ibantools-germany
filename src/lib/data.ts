@@ -17,27 +17,114 @@
  */
 
 import currentCheckDigits from "../data/current.json";
+import nextCheckDigits from "../data/next.json";
 
 export interface CheckDigits {
   [method: string]: number[];
 }
 
+export interface NextCheckDigits {
+  add: CheckDigits;
+  remove: CheckDigits;
+  valid: string;
+}
+
+/**
+ * Returns date object
+ *
+ * @param date Date from string or current date if undefined
+ * @returns
+ */
+export const dateObject = (date?: string | Date): Date => {
+  if (date === undefined) {
+    return new Date();
+  }
+  if (typeof date === "string") {
+    return new Date(date);
+  }
+
+  return date;
+};
+
+/**
+ * Combines current data by adding or removing from data provided in next
+ * @param current
+ * @param nextAdd
+ * @param nextRemove
+ */
+export const combineCurrentNext = (
+  current: CheckDigits,
+  nextAdd: CheckDigits,
+  nextRemove: CheckDigits
+): CheckDigits => {
+  const combinedData: CheckDigits = {};
+
+  const currentMethods = Object.keys(current);
+  for (const currentMethod of currentMethods) {
+    if (!nextAdd[currentMethod] && !nextRemove[currentMethod]) {
+      combinedData[currentMethod] = current[currentMethod];
+      continue;
+    }
+
+    let methodBLZs = current[currentMethod];
+    if (nextRemove[currentMethod]) {
+      methodBLZs = methodBLZs.filter(
+        (methodBLZ) => !nextRemove[currentMethod].includes(methodBLZ)
+      );
+    }
+    if (nextAdd[currentMethod]) {
+      methodBLZs = [...methodBLZs, ...nextAdd[currentMethod]];
+    }
+
+    combinedData[currentMethod] = methodBLZs;
+  }
+
+  return combinedData;
+};
+
+/**
+ * Get data, either current or combined with next by comparing it to valid-to
+ * date from next data
+ * @param date
+ * @returns
+ */
+export const checkDigitData = (date?: string | Date): CheckDigits => {
+  const nextValidFrom = new Date((nextCheckDigits as NextCheckDigits).valid);
+  const currentDate = dateObject(date);
+
+  if (currentDate >= nextValidFrom) {
+    return combineCurrentNext(
+      currentCheckDigits,
+      nextCheckDigits.add,
+      nextCheckDigits.remove
+    );
+  }
+
+  return currentCheckDigits;
+};
+
 /**
  * Get the check digit method assigned for a BLZ
  *
  * @param blz German BLZ with 8 digits
+ * @param date Method valid at this date (default: current date)
  * @returns Check digit method or null if invalid
  */
-export const methodForBLZ = (blz: string): string | null => {
+export const methodForBLZ = (
+  blz: string,
+  date?: string | Date
+): string | null => {
   if (!blz.match(/^[1-9]\d{7}$/)) {
     return null;
   }
 
   const numbericBlz = Number(blz);
 
+  const data = checkDigitData(date);
+
   return (
-    Object.keys(currentCheckDigits as CheckDigits).find((method) => {
-      return (currentCheckDigits as CheckDigits)[method].includes(numbericBlz);
+    Object.keys(data).find((method) => {
+      return data[method].includes(numbericBlz);
     }) ?? null
   );
 };
