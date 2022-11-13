@@ -2,5 +2,6 @@
   "eslint.probe": ["typescript", "javascript"],
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "editor.rulers": [80]
 }
