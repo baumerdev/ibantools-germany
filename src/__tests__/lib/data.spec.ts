@@ -68,7 +68,7 @@ describe("combineCurrentNext", () => {
     CC: [7],
     DD: [2],
   };
-  it("creates current date object for undefined param", () => {
+  it("correctly builds combined data", () => {
     expect(
       combineCurrentNext(exampleCurrent, exampleNextAdd, exampleNextRemove)
     ).toEqual({
