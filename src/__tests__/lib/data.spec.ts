@@ -89,16 +89,39 @@ describe("checkDigitData", () => {
   });
 });
 
-describe("methodForBLZ", () => {
+describe("methodForBLZ without next", () => {
   Object.keys(currentCheckDigits as CheckDigits).forEach((method) => {
     const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
-      expect(methodForBLZ(String(firstBLZForMethod))).toEqual(method);
+      expect(methodForBLZ(String(firstBLZForMethod), new Date(0))).toEqual(
+        method
+      );
     });
   });
 
   it("returns null for unknown BLZ 00000000", () => {
     expect(methodForBLZ("00000000")).toEqual(null);
+  });
+});
+
+describe("methodForBLZ with next", () => {
+  const combinedCheckDigits = combineCurrentNext(
+    currentCheckDigits,
+    (nextCheckDigits as NextCheckDigits).add,
+    (nextCheckDigits as NextCheckDigits).remove
+  );
+
+  Object.keys(combinedCheckDigits).forEach((method) => {
+    const firstBLZForMethod = combinedCheckDigits[method][0];
+    it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
+      expect(
+        methodForBLZ(String(firstBLZForMethod), new Date(nextValidDate))
+      ).toEqual(method);
+    });
+  });
+
+  it("returns null for unknown BLZ 00000000", () => {
+    expect(methodForBLZ("00000000", new Date(nextValidDate))).toEqual(null);
   });
 });
 
