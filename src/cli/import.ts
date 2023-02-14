@@ -94,7 +94,19 @@ const nextMethods = Object.keys(dataCheckDigit).sort();
 // Exit if methods have changed because this may invoke code adjustments
 if (JSON.stringify(currentMethods) !== JSON.stringify(nextMethods)) {
   console.warn("Check digits methods have changed!");
-  process.exit(2);
+  console.warn(
+    "Previously unused methods:",
+    nextMethods.filter((method) => !currentMethods.includes(method))
+  );
+  console.warn(
+    "No longer used methods:",
+    currentMethods.filter((method) => !nextMethods.includes(method))
+  );
+
+  if (process.argv[3] !== "--ack") {
+    console.warn("Please acknowledge this by adding --ack to the command");
+    process.exit(2);
+  }
 }
 
 // Check which BLZ have been added and which removed
@@ -105,12 +117,16 @@ for (const method of currentMethods) {
   const nextMethodBLZs = dataCheckDigit[method];
 
   for (const currentMethodBLZ of currentMethodBLZs) {
-    if (!nextMethodBLZs.includes(currentMethodBLZ)) {
+    if (!nextMethodBLZs || !nextMethodBLZs.includes(currentMethodBLZ)) {
       if (typeof dataRemovedCheckDigit[method] === "undefined") {
         dataRemovedCheckDigit[method] = [];
       }
       dataRemovedCheckDigit[method].push(currentMethodBLZ);
     }
+  }
+
+  if (!nextMethodBLZs) {
+    continue;
   }
 
   for (const nextMethodBLZ of nextMethodBLZs) {
