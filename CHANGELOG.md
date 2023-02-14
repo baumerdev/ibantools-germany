@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-02-14 [v1.2300.0]
+
+* Additionally includes data valid from 2023-03-06, removes data valid before 2022-12-05
+
 ## 2023-02-14 [v1.2201.2]
 
 * Upgrade dependencies, including http-cache-semantics, see CVE-2022-25881 and cacheable-request, see GHSA-8x6c-cv3v-vp6g

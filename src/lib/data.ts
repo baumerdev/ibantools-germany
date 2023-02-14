@@ -76,7 +76,9 @@ export const combineCurrentNext = (
       methodBLZs = [...methodBLZs, ...nextAdd[currentMethod]];
     }
 
-    combinedData[currentMethod] = methodBLZs;
+    if (methodBLZs.length > 0) {
+      combinedData[currentMethod] = methodBLZs;
+    }
   }
 
   return combinedData;

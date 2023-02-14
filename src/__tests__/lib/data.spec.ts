@@ -125,23 +125,23 @@ describe("methodForBLZ with next", () => {
   });
 });
 
-describe("Change 2022-12-05", () => {
-  test("BLZ 50040016 is unknown before valid-from date", () => {
-    expect(methodForBLZ("50040016", new Date(0))).toEqual(null);
+describe("Change 2023-03-06", () => {
+  test("BLZ 81010400 is unknown before valid-from date", () => {
+    expect(methodForBLZ("81010400", new Date(0))).toEqual(null);
   });
-  test("BLZ 50040016 has method 13 at valid-from date", () => {
-    expect(methodForBLZ("50040016", new Date(nextValidDate))).toEqual("13");
+  test("BLZ 81010400 has method 27 at valid-from date", () => {
+    expect(methodForBLZ("81010400", new Date(nextValidDate))).toEqual("27");
   });
-  test("BLZ 70051003 has method 00 before valid-from date", () => {
-    expect(methodForBLZ("70051003", new Date(0))).toEqual("00");
+  test("BLZ 75090500 has method 84 before valid-from date", () => {
+    expect(methodForBLZ("75090500", new Date(0))).toEqual("84");
   });
-  test("BLZ 70051003 has method 13 at valid-from date", () => {
-    expect(methodForBLZ("70051003", new Date(nextValidDate))).toEqual("A3");
+  test("BLZ 75090500 has method 09 at valid-from date", () => {
+    expect(methodForBLZ("75090500", new Date(nextValidDate))).toEqual("09");
   });
-  test("BLZ 50210212 has method 00 before valid-from date", () => {
-    expect(methodForBLZ("50210212", new Date(0))).toEqual("18");
+  test("BLZ 70220800 has method 07 before valid-from date", () => {
+    expect(methodForBLZ("70220800", new Date(0))).toEqual("07");
   });
-  test("BLZ 50210212 is unknown at valid-from date", () => {
-    expect(methodForBLZ("50210212", new Date(nextValidDate))).toEqual(null);
+  test("BLZ 70220800 is unknown at valid-from date", () => {
+    expect(methodForBLZ("70220800", new Date(nextValidDate))).toEqual(null);
   });
 });
