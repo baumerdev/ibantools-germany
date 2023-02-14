@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-02-14 [v1.2201.2]
+
+* Upgrade dependencies, including http-cache-semantics, see CVE-2022-25881 and cacheable-request, see GHSA-8x6c-cv3v-vp6g
+
 ## 2023-01-17 [v1.2201.1]
 
 * Fix failing test for current/next BLZs
