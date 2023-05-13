@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-05-13 [v1.2300.1]
+
+* Upgrade dependencies, including yaml, see CVE-2023-2251
+
 ## 2023-02-14 [v1.2300.0]
 
 * Additionally includes data valid from 2023-03-06, removes data valid before 2022-12-05
