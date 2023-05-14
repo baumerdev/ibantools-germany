@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-05-14 [v1.2301.1]
+
+* Fix valid-from date from 2023-05-06 to 2023-06-05
+
 ## 2023-05-13 [v1.2301.0]
 
 * Additionally includes data valid from 2023-06-05, removes data valid before 2023-03-06
