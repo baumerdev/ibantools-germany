@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-05-23 [v1.2301.2]
+
+* The Bundesbank informed that their data was faulty. Changes were made accordingly.
+
 ## 2023-05-14 [v1.2301.1]
 
 * Fix valid-from date from 2023-05-06 to 2023-06-05
