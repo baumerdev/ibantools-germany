@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-07-23 [v1.2301.3]
+
+* Upgrade dependencies, including word-wrap and tough-cookie, see CVE-2023-26136
+
 ## 2023-05-23 [v1.2301.2]
 
 * The Bundesbank informed that their data was faulty. Changes were made accordingly.
