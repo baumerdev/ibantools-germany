@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-08-04 [v1.2301.4]
+
+* Fixed method A4 ; [#14](https://github.com/baumerdev/ibantools-germany/issues/14)
+
 ## 2023-07-23 [v1.2301.3]
 
 * Upgrade dependencies, including word-wrap and tough-cookie, see CVE-2023-26136

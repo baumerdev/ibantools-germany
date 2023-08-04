@@ -25,21 +25,25 @@ import {
 } from "../helper";
 import { Result } from "../types";
 
-import { method06Core, method06Result } from "./method06";
+import { method06Core } from "./method06";
 import method93 from "./method93";
 
 const variation1 = (number: string): Result =>
   method06Core(number.slice(3, 10), [2, 3, 4, 5, 6, 7]);
 
-const variation2 = (number: string): Result => {
+export const variation2 = (number: string): Result => {
   const digits = getDigits(number.slice(3, 10));
   const givenCheckDigit = digits.pop() as number; // Check digit is last digit
 
   const weightedDigits = weightDigitsRTL(digits, [2, 3, 4, 5, 6, 7]);
   const sum = calculateSum(weightedDigits);
-  const { difference: calculatedCheckDigit } = moduloDifference(sum, 7, 7);
+  const { difference, remainder } = moduloDifference(sum, 7, 7);
 
-  return method06Result(givenCheckDigit, calculatedCheckDigit);
+  if (remainder === 0) {
+    return givenCheckDigit === 0 ? Result.VALID : Result.INVALID;
+  }
+
+  return givenCheckDigit === difference ? Result.VALID : Result.INVALID;
 };
 
 const variation3 = (number: string): Result =>

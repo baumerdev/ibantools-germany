@@ -33,6 +33,9 @@ describe("method A4", () => {
   it("confirms 0007093335 is valid (variation 2)", () => {
     expect(methodA4("0007093335")).toEqual(Result.VALID);
   });
+  it("confirms 1234567800 is valid (variation 2)", () => {
+    expect(methodA4("1234567800")).toEqual(Result.VALID);
+  });
   it("confirms 1199503010 is valid (variation 3)", () => {
     expect(methodA4("1199503010")).toEqual(Result.VALID);
   });
