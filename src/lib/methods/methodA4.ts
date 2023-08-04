@@ -31,7 +31,7 @@ import method93 from "./method93";
 const variation1 = (number: string): Result =>
   method06Core(number.slice(3, 10), [2, 3, 4, 5, 6, 7]);
 
-export const variation2 = (number: string): Result => {
+const variation2 = (number: string): Result => {
   const digits = getDigits(number.slice(3, 10));
   const givenCheckDigit = digits.pop() as number; // Check digit is last digit
 
