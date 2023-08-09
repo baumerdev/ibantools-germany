@@ -21,13 +21,15 @@
     "pruefziffer",
     "pruefzifferberechnungsmethode"
   ],
-  "main": "./dist/cjs/main.js",
-  "module": "./dist/esm/main.js",
-  "types": "./dist/cjs/main.d.ts",
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
+  "types": "./dist/types/main.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/types/main.d.ts",
       "require": "./dist/cjs/main.js",
-      "import": "./dist/esm/main.js"
+      "import": "./dist/esm/main.js",
+      "default": "./dist/esm-wrapped/main.js"
     }
   },
   "files": [
@@ -43,7 +45,7 @@
     "test:coverage": "rimraf coverage && jest --coverage",
     "clean": "rimraf dist docs coverage package ibantools-germany*.tgz",
     "docs": "rimraf docs && typedoc --entryPoints src/main.ts --out docs/",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -b tsconfig.esm.json tsconfig.cjs.json tsconfig.types.json",
     "build:all": "rimraf dist && npm run build && npm run esm-wrapper && npm run esbuild",
     "esm-wrapper": "ts-node src/cli/esm-wrapper.ts",
     "esbuild": "esbuild src/browser.ts --bundle --minify --outfile=dist/build/browser.js",

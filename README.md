@@ -105,7 +105,7 @@ all.
 The version numbers are based on [Semantic Versioning](https://semver.org/)
 with modifications.
 
-> 1.2205.3
+> 1.2205.4
 
 The first number representes the Major version. If this number increases there
 are updates that may not be backward compatible and you have to adjust your

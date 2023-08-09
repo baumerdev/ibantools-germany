@@ -32,7 +32,7 @@ const esmWrapper = [
   ),
 ].join("\n");
 
-if (!fs.existsSync(`${__dirname}/../../dist/esm`)) {
-  fs.mkdirSync(`${__dirname}/../../dist/esm`, { recursive: true });
+if (!fs.existsSync(`${__dirname}/../../dist/esm-wrapped`)) {
+  fs.mkdirSync(`${__dirname}/../../dist/esm-wrapped`, { recursive: true });
 }
-fs.writeFileSync(`${__dirname}/../../dist/esm/main.js`, esmWrapper);
+fs.writeFileSync(`${__dirname}/../../dist/esm-wrapped/main.js`, esmWrapper);
