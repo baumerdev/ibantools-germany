@@ -20,7 +20,7 @@ import { methodForBLZ } from "./data";
 import { extractAccountNumberBLZFromBBAN } from "./extract";
 import { lettersToDigits, modulo97 } from "./helper";
 import { methodDispatch } from "./method-dispatch";
-import { ProbablyString, Result } from "./types";
+import { ProbablyString } from "./types";
 
 /**
  * Validate bank account number and BLZ
@@ -50,7 +50,7 @@ export const isValidAccountNumberBLZ = (
     return false;
   }
 
-  return [Result.VALID, Result.NO_CHECK_DIGIT_CALCULATION].includes(
+  return ["VALID", "NO_CHECK_DIGIT_CALCULATION"].includes(
     methodDispatch(accountNumber, blz, method)
   );
 };

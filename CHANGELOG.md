@@ -1,5 +1,9 @@
 # Changelog
 
+## xxxx-xx-xx [v1.2301.5]
+
+* Internally remove TypeScript enums for better compatibility with Angular ; see [#15](https://github.com/baumerdev/ibantools-germany/issues/15) and [#16](https://github.com/baumerdev/ibantools-germany/pull/16/)
+
 ## 2023-08-04 [v1.2301.4]
 
 * Fixed method A4 ; [#14](https://github.com/baumerdev/ibantools-germany/issues/14)

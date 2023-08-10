@@ -34,21 +34,21 @@ export const method02Core = (number: string, weights: number[]): Result => {
 
   if (calculatedCheckDigit === 11) {
     if (givenCheckDigit === 0) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (calculatedCheckDigit === 10) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string): Result =>

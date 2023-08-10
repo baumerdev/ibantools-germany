@@ -16,35 +16,33 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method33 from "../../../lib/methods/method33";
 
 describe("method 33", () => {
   it("confirms 48658 is valid", () => {
-    expect(method33("48658")).toEqual(Result.VALID);
+    expect(method33("48658")).toEqual("VALID");
   });
   it("confirms 84956 is valid", () => {
-    expect(method33("84956")).toEqual(Result.VALID);
+    expect(method33("84956")).toEqual("VALID");
   });
   it("confirms 1234567892 is valid", () => {
-    expect(method33("1234567892")).toEqual(Result.VALID);
+    expect(method33("1234567892")).toEqual("VALID");
   });
   it("confirms 0000567892 is valid", () => {
-    expect(method33("0000567892")).toEqual(Result.VALID);
+    expect(method33("0000567892")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 48758 is invalid", () => {
-    expect(method33("48758")).toEqual(Result.INVALID);
+    expect(method33("48758")).toEqual("INVALID");
   });
   it("confirms 94956 is invalid", () => {
-    expect(method33("94956")).toEqual(Result.INVALID);
+    expect(method33("94956")).toEqual("INVALID");
   });
   it("confirms 1234568892 is invalid", () => {
-    expect(method33("1234568892")).toEqual(Result.INVALID);
+    expect(method33("1234568892")).toEqual("INVALID");
   });
   it("confirms 0000566892 is invalid", () => {
-    expect(method33("0000566892")).toEqual(Result.INVALID);
+    expect(method33("0000566892")).toEqual("INVALID");
   });
 });

@@ -19,7 +19,6 @@
 import currentCheckDigits from "../../data/current.json";
 import { CheckDigits } from "../../lib/data";
 import { methodDispatch } from "../../lib/method-dispatch";
-import { Result } from "../../lib/types";
 
 describe("methodDispatch", () => {
   for (let i = 0; i <= 144; i++) {
@@ -48,20 +47,20 @@ describe("methodDispatch", () => {
 
     it(`returns no unknown calculation method for method ${method}`, () => {
       expect(methodDispatch("1234", "00000000", method)).not.toEqual(
-        Result.UNKOWN_CHECK_DIGIT_CALCULATION_METHOD
+        "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
       );
     });
   }
 
   it("returns unknown calculation method for method 12", () => {
     expect(methodDispatch("x", "x", "12")).toEqual(
-      Result.UNKOWN_CHECK_DIGIT_CALCULATION_METHOD
+      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
     );
   });
 
   it("returns unknown calculation method", () => {
     expect(methodDispatch("x", "x", "x")).toEqual(
-      Result.UNKOWN_CHECK_DIGIT_CALCULATION_METHOD
+      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
     );
   });
 });

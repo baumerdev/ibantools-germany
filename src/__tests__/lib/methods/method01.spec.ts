@@ -16,17 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method01 from "../../../lib/methods/method01";
 
 describe("method 01", () => {
   it("confirms 1234567899 is valid", () => {
-    expect(method01("1234567899")).toEqual(Result.VALID);
+    expect(method01("1234567899")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 1244567899 is invalid", () => {
-    expect(method01("1244567899")).toEqual(Result.INVALID);
+    expect(method01("1244567899")).toEqual("INVALID");
   });
 });

@@ -16,56 +16,54 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import methodE3 from "../../../lib/methods/methodE3";
 
 describe("method E3", () => {
   it("confirms 9290701 is valid (variation 1)", () => {
-    expect(methodE3("9290701")).toEqual(Result.VALID);
+    expect(methodE3("9290701")).toEqual("VALID");
   });
   it("confirms 539290858 is valid (variation 1)", () => {
-    expect(methodE3("539290858")).toEqual(Result.VALID);
+    expect(methodE3("539290858")).toEqual("VALID");
   });
   it("confirms 1501824 is valid (variation 1)", () => {
-    expect(methodE3("1501824")).toEqual(Result.VALID);
+    expect(methodE3("1501824")).toEqual("VALID");
   });
   it("confirms 1501832 is valid (variation 1)", () => {
-    expect(methodE3("1501832")).toEqual(Result.VALID);
+    expect(methodE3("1501832")).toEqual("VALID");
   });
   it("confirms 9290708 is valid (variation 2)", () => {
-    expect(methodE3("9290708")).toEqual(Result.VALID);
+    expect(methodE3("9290708")).toEqual("VALID");
   });
   it("confirms 539290854 is valid (variation 2)", () => {
-    expect(methodE3("539290854")).toEqual(Result.VALID);
+    expect(methodE3("539290854")).toEqual("VALID");
   });
   it("confirms 1501823 is valid (variation 2)", () => {
-    expect(methodE3("1501823")).toEqual(Result.VALID);
+    expect(methodE3("1501823")).toEqual("VALID");
   });
   it("confirms 1501831 is valid (variation 2)", () => {
-    expect(methodE3("1501831")).toEqual(Result.VALID);
+    expect(methodE3("1501831")).toEqual("VALID");
   });
   it("confirms 2345678909 is valid (variation 2)", () => {
-    expect(methodE3("2345678909")).toEqual(Result.VALID);
+    expect(methodE3("2345678909")).toEqual("VALID");
   });
   it("confirms 5678901237 is valid (variation 2)", () => {
-    expect(methodE3("5678901237")).toEqual(Result.VALID);
+    expect(methodE3("5678901237")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 7414398260 is invalid", () => {
-    expect(methodE3("7414398260")).toEqual(Result.INVALID);
+    expect(methodE3("7414398260")).toEqual("INVALID");
   });
   it("confirms 0123456789 is invalid", () => {
-    expect(methodE3("0123456789")).toEqual(Result.INVALID);
+    expect(methodE3("0123456789")).toEqual("INVALID");
   });
   it("confirms 2345678901 is invalid", () => {
-    expect(methodE3("2345678901")).toEqual(Result.INVALID);
+    expect(methodE3("2345678901")).toEqual("INVALID");
   });
   it("confirms 5678901234 is invalid", () => {
-    expect(methodE3("5678901234")).toEqual(Result.INVALID);
+    expect(methodE3("5678901234")).toEqual("INVALID");
   });
   it("confirms 7414398260 is invalid", () => {
-    expect(methodE3("7414398260")).toEqual(Result.INVALID);
+    expect(methodE3("7414398260")).toEqual("INVALID");
   });
 });

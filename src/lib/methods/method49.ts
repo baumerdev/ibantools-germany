@@ -23,7 +23,7 @@ import method01 from "./method01";
 
 export default (number: string): Result => {
   const result00 = method00(number);
-  if (result00 === Result.VALID) {
+  if (result00 === "VALID") {
     return result00;
   }
 

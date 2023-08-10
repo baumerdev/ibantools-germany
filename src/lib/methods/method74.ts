@@ -42,7 +42,7 @@ export default (number: string): Result => {
   const calculatedCheckDigit = getUnitFromNumber(10 - unit);
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
   // Variation 1, Exemption
@@ -50,7 +50,7 @@ export default (number: string): Result => {
     paddedNumber.match(/^0000[^0]/) &&
     diffNextHalfDecade(sum) === givenCheckDigit
   ) {
-    return Result.VALID;
+    return "VALID";
   }
 
   // Variation 2

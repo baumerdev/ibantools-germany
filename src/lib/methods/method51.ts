@@ -73,8 +73,8 @@ const method51dVariation2 = (number: string): Result => {
 };
 
 export const method51NominalAccount = (number: string): Result => {
-  if (method51dVariation1(number) === Result.VALID) {
-    return Result.VALID;
+  if (method51dVariation1(number) === "VALID") {
+    return "VALID";
   }
 
   return method51dVariation2(number);
@@ -82,18 +82,18 @@ export const method51NominalAccount = (number: string): Result => {
 
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
-  if (method51aCore(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method51aCore(paddedNumber) === "VALID") {
+    return "VALID";
   }
-  if (method51bCore(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method51bCore(paddedNumber) === "VALID") {
+    return "VALID";
   }
-  if (method51cCore(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method51cCore(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
   if (Number(paddedNumber.slice(9, 10)) >= 7) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (paddedNumber.slice(2, 3) === "9") {

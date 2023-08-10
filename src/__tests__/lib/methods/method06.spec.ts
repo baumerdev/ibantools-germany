@@ -16,29 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method06 from "../../../lib/methods/method06";
 
 describe("method 06", () => {
   it("confirms 94012341 is valid", () => {
-    expect(method06("94012341")).toEqual(Result.VALID);
+    expect(method06("94012341")).toEqual("VALID");
   });
   it("confirms 5073321010 is valid", () => {
-    expect(method06("5073321010")).toEqual(Result.VALID);
+    expect(method06("5073321010")).toEqual("VALID");
   });
   it("confirms 1234567892 is valid", () => {
-    expect(method06("1234567892")).toEqual(Result.VALID);
+    expect(method06("1234567892")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 94013341 is invalid", () => {
-    expect(method06("94013341")).toEqual(Result.INVALID);
+    expect(method06("94013341")).toEqual("INVALID");
   });
   it("confirms 5073331010 is invalid", () => {
-    expect(method06("5073331010")).toEqual(Result.INVALID);
+    expect(method06("5073331010")).toEqual("INVALID");
   });
   it("confirms 1234667892 is invalid", () => {
-    expect(method06("1234667892")).toEqual(Result.INVALID);
+    expect(method06("1234667892")).toEqual("INVALID");
   });
 });

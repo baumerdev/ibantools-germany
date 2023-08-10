@@ -34,7 +34,7 @@ export default (number: string): Result => {
 
   // No check digit for account numbers with 10 or 6 and less digits
   if (paddedNumber.match(/(?:^[^0]|^0{4,})/)) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   if (paddedNumber.match(/^0{0,2}[^0]\d{7,8}$/)) {

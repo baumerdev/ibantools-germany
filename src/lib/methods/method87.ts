@@ -228,7 +228,7 @@ const methodA = (number: string): Result => {
   if (p === konto[10]) {
     // BEGIN
     //  Prüfziffer OK;
-    return Result.VALID;
+    return "VALID";
     // END ELSE
   } else {
     // BEGIN
@@ -251,7 +251,7 @@ const methodA = (number: string): Result => {
       if (p === konto[10]) {
         //  BEGIN
         //  Prüfziffer OK;
-        return Result.VALID;
+        return "VALID";
         //  END
       }
       //  END;
@@ -259,7 +259,7 @@ const methodA = (number: string): Result => {
     // END,
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 const methodB = (number: string): Result => {
@@ -282,21 +282,21 @@ export default (number: string): Result => {
     return method51NominalAccount(paddedNumber);
   }
 
-  if (methodA(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (methodA(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  if (methodB(paddedNumber.slice(4, 10)) === Result.VALID) {
-    return Result.VALID;
+  if (methodB(paddedNumber.slice(4, 10)) === "VALID") {
+    return "VALID";
   }
 
-  if (methodC(paddedNumber.slice(4, 10)) === Result.VALID) {
-    return Result.VALID;
+  if (methodC(paddedNumber.slice(4, 10)) === "VALID") {
+    return "VALID";
   }
 
-  if (methodD(paddedNumber.slice(3, 10)) === Result.VALID) {
-    return Result.VALID;
+  if (methodD(paddedNumber.slice(3, 10)) === "VALID") {
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

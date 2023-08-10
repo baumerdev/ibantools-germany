@@ -16,29 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method19 from "../../../lib/methods/method19";
 
 describe("method 19", () => {
   it("confirms 0240334000 is valid", () => {
-    expect(method19("0240334000")).toEqual(Result.VALID);
+    expect(method19("0240334000")).toEqual("VALID");
   });
   it("confirms 0200520016 is valid", () => {
-    expect(method19("0200520016")).toEqual(Result.VALID);
+    expect(method19("0200520016")).toEqual("VALID");
   });
   it("confirms 1234567898 is valid", () => {
-    expect(method19("1234567898")).toEqual(Result.VALID);
+    expect(method19("1234567898")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 0240434000 is invalid", () => {
-    expect(method19("0240434000")).toEqual(Result.INVALID);
+    expect(method19("0240434000")).toEqual("INVALID");
   });
   it("confirms 0200620016 is invalid", () => {
-    expect(method19("0200620016")).toEqual(Result.INVALID);
+    expect(method19("0200620016")).toEqual("INVALID");
   });
   it("confirms 1234577898 is invalid", () => {
-    expect(method19("1234577898")).toEqual(Result.INVALID);
+    expect(method19("1234577898")).toEqual("INVALID");
   });
 });

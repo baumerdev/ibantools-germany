@@ -16,12 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import methodA0 from "../../../lib/methods/methodA0";
 
 describe("method A0", () => {
   it("is currently not used by BLZ or other method", () => {
-    expect(methodA0("")).toEqual(Result.METHOD_NOT_IMPLEMENTED_NOT_IN_USE);
+    expect(methodA0("")).toEqual("METHOD_NOT_IMPLEMENTED_NOT_IN_USE");
   });
 });

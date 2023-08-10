@@ -32,7 +32,7 @@ const method63Core = (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
   if (!paddedNumber.startsWith("0")) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const digits = getDigits(paddedNumber.slice(1, 8));
@@ -47,12 +47,12 @@ const method63Core = (number: string): Result => {
 };
 
 export default (number: string): Result => {
-  if (method63Core(number) === Result.VALID) {
-    return Result.VALID;
+  if (method63Core(number) === "VALID") {
+    return "VALID";
   }
 
   if (number.length > 8) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   // If validation fails, try checking it with trailing

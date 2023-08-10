@@ -16,23 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method02 from "../../../lib/methods/method02";
 
 describe("method 02", () => {
   it("confirms 1234567897 is valid", () => {
-    expect(method02("1234567897")).toEqual(Result.VALID);
+    expect(method02("1234567897")).toEqual("VALID");
   });
   it("confirms 5834567890 is valid", () => {
-    expect(method02("5834567890")).toEqual(Result.VALID);
+    expect(method02("5834567890")).toEqual("VALID");
   });
 
   // Check for invalid results
   it("confirms 5234567890 is invalid (two digit check digit)", () => {
-    expect(method02("5234567890")).toEqual(Result.INVALID);
+    expect(method02("5234567890")).toEqual("INVALID");
   });
   it("confirms 1234667897 is invalid", () => {
-    expect(method02("1234667897")).toEqual(Result.INVALID);
+    expect(method02("1234667897")).toEqual("INVALID");
   });
 });

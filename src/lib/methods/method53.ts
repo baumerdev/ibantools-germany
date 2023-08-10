@@ -41,12 +41,12 @@ export default (number: string, blz: string): Result => {
   }
 
   if (blz.length != 8 || !blz.match(/^\d{3}5/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const eserAccount = eser9(number.slice(-9), blz);
   if (!eserAccount) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return eserValidate(eserAccount);

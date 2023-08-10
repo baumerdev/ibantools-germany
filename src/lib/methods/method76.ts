@@ -32,10 +32,10 @@ const method76Core = (number: string): Result => {
   const calculatedCheckDigit = sum % 11;
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string): Result => {
@@ -43,11 +43,11 @@ export default (number: string): Result => {
 
   // Account type (first digit) must be 0, 4 or 6-9
   if (!paddedNumber.match(/^[046789]/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
-  if (method76Core(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method76Core(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
   // If validation fails, try checking it with trailing

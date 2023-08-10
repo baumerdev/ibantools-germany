@@ -49,8 +49,8 @@ export default (number: string): Result => {
     (numericNumber >= 7000000000 && numericNumber <= 7099999999) ||
     (numericNumber >= 8500000000 && numericNumber <= 8599999999)
   ) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

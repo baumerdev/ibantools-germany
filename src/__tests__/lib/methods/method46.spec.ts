@@ -16,47 +16,45 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method46 from "../../../lib/methods/method46";
 
 describe("method 46", () => {
   it("confirms 0235468612 is valid", () => {
-    expect(method46("0235468612")).toEqual(Result.VALID);
+    expect(method46("0235468612")).toEqual("VALID");
   });
   it("confirms 0837890901 is valid", () => {
-    expect(method46("0837890901")).toEqual(Result.VALID);
+    expect(method46("0837890901")).toEqual("VALID");
   });
   it("confirms 1041447600 is valid", () => {
-    expect(method46("1041447600")).toEqual(Result.VALID);
+    expect(method46("1041447600")).toEqual("VALID");
   });
   it("confirms 1234567990 is valid", () => {
-    expect(method46("1234567990")).toEqual(Result.VALID);
+    expect(method46("1234567990")).toEqual("VALID");
   });
   it("confirms 1234567900 is valid", () => {
-    expect(method46("1234567900")).toEqual(Result.VALID);
+    expect(method46("1234567900")).toEqual("VALID");
   });
   it("confirms 34567990 is valid", () => {
-    expect(method46("34567990")).toEqual(Result.VALID);
+    expect(method46("34567990")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 0235568612 is invalid", () => {
-    expect(method46("0235568612")).toEqual(Result.INVALID);
+    expect(method46("0235568612")).toEqual("INVALID");
   });
   it("confirms 0837891901 is invalid", () => {
-    expect(method46("0837891901")).toEqual(Result.INVALID);
+    expect(method46("0837891901")).toEqual("INVALID");
   });
   it("confirms 1042447600 is invalid", () => {
-    expect(method46("1042447600")).toEqual(Result.INVALID);
+    expect(method46("1042447600")).toEqual("INVALID");
   });
   it("confirms 1234667990 is invalid", () => {
-    expect(method46("1234667990")).toEqual(Result.INVALID);
+    expect(method46("1234667990")).toEqual("INVALID");
   });
   it("confirms 1234577900 is invalid", () => {
-    expect(method46("1234577900")).toEqual(Result.INVALID);
+    expect(method46("1234577900")).toEqual("INVALID");
   });
   it("confirms 34568990 is invalid", () => {
-    expect(method46("34568990")).toEqual(Result.INVALID);
+    expect(method46("34568990")).toEqual("INVALID");
   });
 });

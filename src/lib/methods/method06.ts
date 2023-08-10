@@ -55,25 +55,25 @@ export const method06Result = (
 ): Result => {
   if (calculatedCheckDigit === 10) {
     if (givenCheckDigit === diff10CheckDigit) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (calculatedCheckDigit === 11) {
     if (givenCheckDigit === diff11CheckDigit) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 /**

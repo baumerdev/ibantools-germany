@@ -35,12 +35,12 @@ export default (number: string): Result => {
   const calculatedCheckDigit = 10 - getUnitFromNumber(sumPlus7);
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {
-    return Result.VALID;
+    return "VALID";
   }
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

@@ -22,12 +22,12 @@ import method20 from "./method20";
 import method29 from "./method29";
 
 export default (number: string): Result => {
-  if (method20(number) === Result.VALID) {
-    return Result.VALID;
+  if (method20(number) === "VALID") {
+    return "VALID";
   }
 
-  if (method29(number) === Result.VALID) {
-    return Result.VALID;
+  if (method29(number) === "VALID") {
+    return "VALID";
   }
 
   const numericNumber = Number(number);
@@ -35,8 +35,8 @@ export default (number: string): Result => {
     (numericNumber >= 5100000000 && numericNumber <= 5999999999) ||
     (numericNumber >= 9010000000 && numericNumber <= 9109999999)
   ) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

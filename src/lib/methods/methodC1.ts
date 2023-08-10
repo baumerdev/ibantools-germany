@@ -43,10 +43,10 @@ export default (number: string): Result => {
     const calculatedCheckDigit = getUnitFromNumber(diff10);
 
     if (calculatedCheckDigit === givenCheckDigit) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return method17(number);

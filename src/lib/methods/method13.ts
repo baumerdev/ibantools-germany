@@ -23,10 +23,8 @@ import { method00Core } from "./method00";
 
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
-  if (
-    method00Core(paddedNumber.slice(1, 8), [2, 1, 2, 1, 2, 1]) === Result.VALID
-  ) {
-    return Result.VALID;
+  if (method00Core(paddedNumber.slice(1, 8), [2, 1, 2, 1, 2, 1]) === "VALID") {
+    return "VALID";
   }
 
   // If validation fails, try checking it with trailing

@@ -16,38 +16,36 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import methodD0 from "../../../lib/methods/methodD0";
 
 describe("method D0", () => {
   it("confirms 6100272324 is valid (variation 1)", () => {
-    expect(methodD0("6100272324")).toEqual(Result.VALID);
+    expect(methodD0("6100272324")).toEqual("VALID");
   });
   it("confirms 6100273479 is valid (variation 1)", () => {
-    expect(methodD0("6100273479")).toEqual(Result.VALID);
+    expect(methodD0("6100273479")).toEqual("VALID");
   });
   it("has no check digit calculation for 5700000000", () => {
-    expect(methodD0("5700000000")).toEqual(Result.NO_CHECK_DIGIT_CALCULATION);
+    expect(methodD0("5700000000")).toEqual("NO_CHECK_DIGIT_CALCULATION");
   });
   it("has no check digit calculation for 5799999999", () => {
-    expect(methodD0("5799999999")).toEqual(Result.NO_CHECK_DIGIT_CALCULATION);
+    expect(methodD0("5799999999")).toEqual("NO_CHECK_DIGIT_CALCULATION");
   });
 
   // Check for invalid result
   it("confirms 6100272885 is invalid", () => {
-    expect(methodD0("6100272885")).toEqual(Result.INVALID);
+    expect(methodD0("6100272885")).toEqual("INVALID");
   });
   it("confirms 6100273377 is invalid", () => {
-    expect(methodD0("6100273377")).toEqual(Result.INVALID);
+    expect(methodD0("6100273377")).toEqual("INVALID");
   });
   it("confirms 6100274012 is invalid", () => {
-    expect(methodD0("6100274012")).toEqual(Result.INVALID);
+    expect(methodD0("6100274012")).toEqual("INVALID");
   });
   it("confirms 5699999999 is invalid", () => {
-    expect(methodD0("5699999999")).toEqual(Result.INVALID);
+    expect(methodD0("5699999999")).toEqual("INVALID");
   });
   it("confirms 5800000000 is invalid", () => {
-    expect(methodD0("5800000000")).toEqual(Result.INVALID);
+    expect(methodD0("5800000000")).toEqual("INVALID");
   });
 });

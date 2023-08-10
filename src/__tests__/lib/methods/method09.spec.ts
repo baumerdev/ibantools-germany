@@ -16,12 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method09 from "../../../lib/methods/method09";
 
 describe("method 09", () => {
   it("has no check digit calculation for 12345", () => {
-    expect(method09("12345")).toEqual(Result.NO_CHECK_DIGIT_CALCULATION);
+    expect(method09("12345")).toEqual("NO_CHECK_DIGIT_CALCULATION");
   });
 });

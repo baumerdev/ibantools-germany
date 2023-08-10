@@ -33,12 +33,12 @@ export default (number: string): Result => {
   const { difference: calculatedCheckDigit } = moduloDifference(sum, 10, 10);
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {
-    return Result.VALID;
+    return "VALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

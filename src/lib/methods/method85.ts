@@ -33,19 +33,19 @@ export default (number: string): Result => {
 
   let significantNumber = paddedNumber.slice(3, 10);
   // Variation A
-  if (method06(significantNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method06(significantNumber) === "VALID") {
+    return "VALID";
   }
 
   significantNumber = significantNumber.slice(1);
   // Variation B
-  if (method33(significantNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method33(significantNumber) === "VALID") {
+    return "VALID";
   }
 
   // Variation C
   if (paddedNumber.match(/[789]$/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return method33Core(significantNumber, [2, 3, 4, 5, 6], 7);

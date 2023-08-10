@@ -31,8 +31,8 @@ export default (number: string): Result => {
     return method51NominalAccount(paddedNumber);
   }
 
-  if (method06(paddedNumber.slice(3, 10)) === Result.VALID) {
-    return Result.VALID;
+  if (method06(paddedNumber.slice(3, 10)) === "VALID") {
+    return "VALID";
   }
 
   return method00(paddedNumber.slice(3, 10));

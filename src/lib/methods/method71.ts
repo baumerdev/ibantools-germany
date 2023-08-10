@@ -36,16 +36,16 @@ export default (number: string): Result => {
   const { difference: calculatedCheckDigit } = moduloDifference(sum, 11, 11);
 
   if (calculatedCheckDigit === 11 && givenCheckDigit === 0) {
-    return Result.VALID;
+    return "VALID";
   }
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 1) {
-    return Result.VALID;
+    return "VALID";
   }
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

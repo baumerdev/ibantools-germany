@@ -40,12 +40,12 @@ const method50Core = (number: string): Result => {
 };
 
 export default (number: string): Result => {
-  if (method50Core(number) === Result.VALID) {
-    return Result.VALID;
+  if (method50Core(number) === "VALID") {
+    return "VALID";
   }
 
   if (number.length > 7) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   // If validation fails, try checking it with trailing

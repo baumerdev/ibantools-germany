@@ -48,13 +48,13 @@ export const eserValidate = (eserAccount: string): Result => {
     const modulo = (modulo11 + i * checkDigitWeight) % 11;
     if (modulo === 10) {
       if (givenCheckDigit === i) {
-        return Result.VALID;
+        return "VALID";
       }
       break;
     }
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string, blz: string): Result => {
@@ -63,12 +63,12 @@ export default (number: string, blz: string): Result => {
   }
 
   if (blz.length != 8 || !blz.match(/^\d{3}5/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const eserAccount = eser8(number, blz);
   if (!eserAccount) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return eserValidate(eserAccount);

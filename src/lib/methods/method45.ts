@@ -29,7 +29,7 @@ export default (number: string): Result => {
     paddedNumber.slice(4, 5) === "1" ||
     paddedNumber.slice(0, 2) === "48"
   ) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   return method00Core(number, [2, 1, 2, 1, 2, 1, 2, 1, 2]);

@@ -40,10 +40,10 @@ const variation2 = (number: string): Result => {
   const { difference, remainder } = moduloDifference(sum, 7, 7);
 
   if (remainder === 0) {
-    return givenCheckDigit === 0 ? Result.VALID : Result.INVALID;
+    return givenCheckDigit === 0 ? "VALID" : "INVALID";
   }
 
-  return givenCheckDigit === difference ? Result.VALID : Result.INVALID;
+  return givenCheckDigit === difference ? "VALID" : "INVALID";
 };
 
 const variation3 = (number: string): Result =>
@@ -55,24 +55,24 @@ export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
   if (!paddedNumber.match(/^\d{2}99/)) {
-    if (variation1(paddedNumber) === Result.VALID) {
-      return Result.VALID;
+    if (variation1(paddedNumber) === "VALID") {
+      return "VALID";
     }
 
-    if (variation2(paddedNumber) === Result.VALID) {
-      return Result.VALID;
+    if (variation2(paddedNumber) === "VALID") {
+      return "VALID";
     }
   }
 
   if (paddedNumber.match(/^\d{2}99/)) {
-    if (variation3(paddedNumber) === Result.VALID) {
-      return Result.VALID;
+    if (variation3(paddedNumber) === "VALID") {
+      return "VALID";
     }
   }
 
-  if (variation4(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (variation4(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

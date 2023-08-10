@@ -43,7 +43,7 @@ const method57Variation3 = (number: string): Result => {
 
 const method57Variation4 = (number: string): Result => {
   if (number === "0185125434") {
-    return Result.VALID;
+    return "VALID";
   }
 
   const thirdFourthNumber = Number(number.slice(2, 4));
@@ -53,10 +53,10 @@ const method57Variation4 = (number: string): Result => {
     thirdFourthNumber <= 12 &&
     seventhToNinthNumber < 500
   ) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string): Result => {
@@ -90,5 +90,5 @@ export default (number: string): Result => {
     return method57Variation4(paddedNumber);
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

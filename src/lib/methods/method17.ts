@@ -42,12 +42,12 @@ export default (number: string): Result => {
   );
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {
-    return Result.VALID;
+    return "VALID";
   }
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

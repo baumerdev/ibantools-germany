@@ -18,9 +18,9 @@
 
 import { Result } from "../types";
 
-import { HandleSum, method00Core } from "./method00";
+import { method00Core } from "./method00";
 
 export default (number: string): Result =>
   method00Core(number, [2, 1, 2, 1, 2, 1, 2, 1, 2], {
-    handleSum: HandleSum.CROSS_SUM,
+    handleSum: "CROSS_SUM",
   });

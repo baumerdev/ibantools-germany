@@ -29,7 +29,7 @@ export default (number: string): Result => {
     (numericNumber >= 700000000 && numericNumber <= 799999999) ||
     (numericNumber >= 910000000 && numericNumber <= 989999999)
   ) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   return method06(number);

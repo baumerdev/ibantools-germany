@@ -23,12 +23,12 @@ import method04 from "./method04";
 import method22 from "./method22";
 
 export default (number: string): Result => {
-  if (method22(number) === Result.VALID) {
-    return Result.VALID;
+  if (method22(number) === "VALID") {
+    return "VALID";
   }
 
-  if (method00(number) === Result.VALID) {
-    return Result.VALID;
+  if (method00(number) === "VALID") {
+    return "VALID";
   }
 
   return method04(number);

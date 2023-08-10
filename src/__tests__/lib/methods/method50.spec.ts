@@ -16,35 +16,33 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method50 from "../../../lib/methods/method50";
 
 describe("method 50", () => {
   it("confirms 4000005001 is valid", () => {
-    expect(method50("4000005001")).toEqual(Result.VALID);
+    expect(method50("4000005001")).toEqual("VALID");
   });
   it("confirms 4444442001 is valid", () => {
-    expect(method50("4444442001")).toEqual(Result.VALID);
+    expect(method50("4444442001")).toEqual("VALID");
   });
   it("confirms 1234560000 is valid", () => {
-    expect(method50("1234560000")).toEqual(Result.VALID);
+    expect(method50("1234560000")).toEqual("VALID");
   });
   it("confirms 1234560 is valid (omitted subaccount)", () => {
-    expect(method50("1234560")).toEqual(Result.VALID);
+    expect(method50("1234560")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 4001005001 is invalid", () => {
-    expect(method50("4001005001")).toEqual(Result.INVALID);
+    expect(method50("4001005001")).toEqual("INVALID");
   });
   it("confirms 4444452001 is invalid", () => {
-    expect(method50("4444452001")).toEqual(Result.INVALID);
+    expect(method50("4444452001")).toEqual("INVALID");
   });
   it("confirms 1234570000 is invalid", () => {
-    expect(method50("1234570000")).toEqual(Result.INVALID);
+    expect(method50("1234570000")).toEqual("INVALID");
   });
   it("confirms 1334560 is invalid", () => {
-    expect(method50("1334560")).toEqual(Result.INVALID);
+    expect(method50("1334560")).toEqual("INVALID");
   });
 });

@@ -23,7 +23,7 @@ import { method00Core } from "./method00";
 
 const tenDigits = (number: string): Result => {
   if (number.slice(3, 4) !== "9") {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return method00Core(number.slice(3, 10), [2, 1, 2, 1, 2, 1, 2, 1, 2]);
@@ -42,20 +42,20 @@ const nineDigitsVariation2 = (number: string): Result => {
 
 export default (number: string): Result => {
   if (number.length < 6) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const paddedNumber = paddedAccountNumber(number);
   if (paddedNumber.startsWith("04")) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   if (!paddedNumber.startsWith("0")) {
     return tenDigits(paddedNumber);
   }
 
-  if (nineDigitsVariation1(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (nineDigitsVariation1(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
   return nineDigitsVariation2(paddedNumber);

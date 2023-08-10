@@ -25,7 +25,7 @@ export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
   if (paddedNumber.match(/^57/)) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   return method20(number);

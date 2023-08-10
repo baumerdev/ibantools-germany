@@ -26,7 +26,7 @@ export default (number: string): Result => {
   const firstDigit = Number(paddedNumber.slice(0, 1));
 
   if (isNaN(firstDigit)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const leftFillConsts = [

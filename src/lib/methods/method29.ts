@@ -40,8 +40,8 @@ export default (number: string): Result => {
   const calculatedCheckDigit = 10 - sumUnit;
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

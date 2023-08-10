@@ -22,18 +22,18 @@ import method00 from "./method00";
 import method19 from "./method19";
 
 export default (number: string): Result => {
-  if (method19(number) === Result.VALID) {
-    return Result.VALID;
+  if (method19(number) === "VALID") {
+    return "VALID";
   }
 
-  if (method00(number) === Result.VALID) {
-    return Result.VALID;
+  if (method00(number) === "VALID") {
+    return "VALID";
   }
 
   const numericNumber = Number(number);
   if (numericNumber >= 1300000 && numericNumber <= 99399999) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

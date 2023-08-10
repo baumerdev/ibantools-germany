@@ -25,8 +25,8 @@ import method03 from "./method03";
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
-  if (method00(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method00(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
   return method03(paddedNumber);

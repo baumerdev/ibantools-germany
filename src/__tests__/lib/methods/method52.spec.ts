@@ -16,20 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method52 from "../../../lib/methods/method52";
 
 describe("method 52", () => {
   it("confirms 43001500 with BLZ 13051172 is valid", () => {
-    expect(method52("43001500", "13051172")).toEqual(Result.VALID);
+    expect(method52("43001500", "13051172")).toEqual("VALID");
   });
   it("confirms 9876543218 is valid (method 20)", () => {
-    expect(method52("9876543218", "00000000")).toEqual(Result.VALID);
+    expect(method52("9876543218", "00000000")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 123456789 with BLZ 13051172 is invalid", () => {
-    expect(method52("123456789", "13051172")).toEqual(Result.INVALID);
+    expect(method52("123456789", "13051172")).toEqual("INVALID");
   });
 });

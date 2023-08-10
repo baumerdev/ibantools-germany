@@ -22,7 +22,6 @@ import {
   getUnitFromNumber,
   paddedAccountNumber,
   weightDigits,
-  WeightType,
 } from "../helper";
 import { Result } from "../types";
 
@@ -40,14 +39,14 @@ export default (number: string): Result => {
   const weightedDigits = weightDigits(
     digits,
     [1, 2, 3, 1, 2, 3, 1, 2, 3],
-    WeightType.MULTIPLY_ADD
+    "MULTIPLY_ADD"
   );
   const weightedModuloDigits = weightedDigits.map((digit) => digit % 11);
   const sum = calculateSum(weightedModuloDigits);
   const calculatedCheckDigit = getUnitFromNumber(sum);
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
-  return Result.INVALID;
+  return "INVALID";
 };

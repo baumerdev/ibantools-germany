@@ -36,7 +36,7 @@ export default (number: string): Result => {
   const calculatedCheckDigit = getUnitFromNumber(10 - unitDigit);
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
-  return Result.INVALID;
+  return "INVALID";
 };

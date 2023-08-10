@@ -16,14 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method12 from "../../../lib/methods/method12";
 
 describe("method 12", () => {
   it("is an unknown check digit calculation method", () => {
-    expect(method12("12345")).toEqual(
-      Result.UNKOWN_CHECK_DIGIT_CALCULATION_METHOD
-    );
+    expect(method12("12345")).toEqual("UNKOWN_CHECK_DIGIT_CALCULATION_METHOD");
   });
 });

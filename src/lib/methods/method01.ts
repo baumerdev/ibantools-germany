@@ -34,9 +34,9 @@ export const method01Core = (number: string, weights: number[]): Result => {
   const calculatedCheckDigit = getUnitFromNumber(10 - unitDigit);
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string): Result =>

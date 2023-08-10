@@ -28,7 +28,6 @@ import {
   paddedAccountNumber,
   weightDigits,
   weightDigitsRTL,
-  WeightType,
 } from "../../lib/helper";
 
 describe("paddedAccountNumber", () => {
@@ -136,9 +135,9 @@ describe("weightDigits", () => {
   });
 
   it("returns array [2, 6, 4, 10] for numbers [1, 2, 3, 4] with weights [1, 2, 1, 2]", () => {
-    expect(
-      weightDigits([1, 2, 3, 4], [1, 2, 1, 2], WeightType.MULTIPLY_ADD)
-    ).toEqual([2, 6, 4, 10]);
+    expect(weightDigits([1, 2, 3, 4], [1, 2, 1, 2], "MULTIPLY_ADD")).toEqual([
+      2, 6, 4, 10,
+    ]);
   });
 
   it("should throw an error if more digits than weights are given", () => {
@@ -158,9 +157,9 @@ describe("weightDigitsRTL", () => {
   });
 
   it("returns array [5, 8, 3, 4] for numbers [1, 2, 3, 4] with weights [1, 2, 1, 2]", () => {
-    expect(
-      weightDigitsRTL([1, 2, 3, 4], [1, 2, 1, 2], WeightType.MULTIPLY_ADD)
-    ).toEqual([5, 8, 3, 4]);
+    expect(weightDigitsRTL([1, 2, 3, 4], [1, 2, 1, 2], "MULTIPLY_ADD")).toEqual(
+      [5, 8, 3, 4]
+    );
   });
 });
 

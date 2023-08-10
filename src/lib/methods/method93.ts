@@ -29,9 +29,9 @@ export default (number: string): Result => {
     method06Core(
       paddedNumber.slice(variation1Offset, variation1Offset + 6),
       [2, 3, 4, 5, 6]
-    ) === Result.VALID
+    ) === "VALID"
   ) {
-    return Result.VALID;
+    return "VALID";
   }
 
   return method06Core(

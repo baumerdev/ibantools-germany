@@ -29,5 +29,5 @@ export default (number: string): Result => {
     return method01(number);
   }
 
-  return Result.NO_CHECK_DIGIT_CALCULATION;
+  return "NO_CHECK_DIGIT_CALCULATION";
 };

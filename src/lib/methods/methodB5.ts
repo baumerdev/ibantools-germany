@@ -25,11 +25,11 @@ import { method01Core } from "./method01";
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
-  if (method01Core(number, [7, 3, 1, 7, 3, 1, 7, 3, 1]) === Result.VALID) {
-    return Result.VALID;
+  if (method01Core(number, [7, 3, 1, 7, 3, 1, 7, 3, 1]) === "VALID") {
+    return "VALID";
   }
   if (paddedNumber.match(/^[89]/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return method00(number);

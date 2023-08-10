@@ -80,10 +80,7 @@ export const getUnitFromNumber = (number: number): number =>
 export const getUnitsFromNumbers = (numbers: number[]): number[] =>
   numbers.map((number) => getUnitFromNumber(number));
 
-export enum WeightType {
-  MULTIPLY,
-  MULTIPLY_ADD,
-}
+export type WeightType = "MULTIPLY" | "MULTIPLY_ADD";
 
 /**
  * Return an array of digits weighted. This can either be by
@@ -99,7 +96,7 @@ export enum WeightType {
 export const weightDigits = (
   digits: number[],
   weights: number[],
-  weightType: WeightType = WeightType.MULTIPLY
+  weightType: WeightType = "MULTIPLY"
 ): number[] => {
   if (weights.length < digits.length) {
     throw new Error(
@@ -108,7 +105,7 @@ export const weightDigits = (
   }
 
   return digits.map((digit, index) => {
-    if (weightType === WeightType.MULTIPLY_ADD) {
+    if (weightType === "MULTIPLY_ADD") {
       return digit * weights[index] + weights[index];
     }
     return digit * weights[index];
@@ -122,7 +119,7 @@ export const weightDigits = (
 export const weightDigitsRTL = (
   digits: number[],
   weights: number[],
-  weightType: WeightType = WeightType.MULTIPLY
+  weightType: WeightType = "MULTIPLY"
 ): number[] => weightDigits([...digits].reverse(), weights, weightType);
 
 /**

@@ -33,31 +33,30 @@ export type ProbablyString = string | null | undefined;
  * If you use the isSomethingValid functions you will receive a boolean true
  * if the result is either VALID or NO_CHECK_DIGIT_CALCULATION
  */
-export enum Result {
+export type Result =
   /**
    * Something is invalid
    */
-  INVALID = "INVALID",
+  | "INVALID"
   /**
    * Check digit calculation method isn't implemented because it no bank
    * currently uses it.
    */
-  METHOD_NOT_IMPLEMENTED_NOT_IN_USE = "METHOD_NOT_IMPLEMENTED_NOT_IN_USE",
+  | "METHOD_NOT_IMPLEMENTED_NOT_IN_USE"
   /**
    * The bank uses no check digit method for some or all account numbers.
    * So we can't test if the account number is wrong and have to treat it
    * as valid.
    */
-  NO_CHECK_DIGIT_CALCULATION = "NO_CHECK_DIGIT_CALCULATION",
+  | "NO_CHECK_DIGIT_CALCULATION"
   /**
    * Check digit calculation method is not known
    */
-  UNKOWN_CHECK_DIGIT_CALCULATION_METHOD = "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD",
+  | "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
   /**
    * All validations were successful
    */
-  VALID = "VALID",
-}
+  | "VALID";
 
 /**
  * Components of German BBAN

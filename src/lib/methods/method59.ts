@@ -22,7 +22,7 @@ import method00 from "./method00";
 
 export default (number: string): Result => {
   if (Number(number) < 100000000) {
-    return Result.VALID;
+    return "VALID";
   }
 
   return method00(number);

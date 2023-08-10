@@ -40,22 +40,22 @@ export default (number: string): Result => {
 
   if (calculatedCheckDigit === 11) {
     if (givenCheckDigit === 0) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (calculatedCheckDigit === 10) {
     if (digits.slice(1, 2)[0] >= 8 && givenCheckDigit === 0) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
-  return Result.INVALID;
+  return "INVALID";
 };

@@ -35,8 +35,8 @@ export default (number: string): Result => {
   const calculatedCheckDigit = getUnitFromNumber(sum);
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

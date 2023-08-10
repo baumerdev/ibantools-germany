@@ -66,21 +66,21 @@ const variation4 = (number: string): Result => {
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
-  if (variation1(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (variation1(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  if (variation2(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (variation2(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  if (variation3(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (variation3(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  if (variation4(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (variation4(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

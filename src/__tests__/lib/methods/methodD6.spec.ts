@@ -16,47 +16,45 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import methodD6 from "../../../lib/methods/methodD6";
 
 describe("method D6", () => {
   it("confirms 3601671056 is valid (variation 1)", () => {
-    expect(methodD6("3601671056")).toEqual(Result.VALID);
+    expect(methodD6("3601671056")).toEqual("VALID");
   });
   it("confirms 4402001046 is valid (variation 1)", () => {
-    expect(methodD6("4402001046")).toEqual(Result.VALID);
+    expect(methodD6("4402001046")).toEqual("VALID");
   });
   it("confirms 6100268241 is valid (variation 1)", () => {
-    expect(methodD6("6100268241")).toEqual(Result.VALID);
+    expect(methodD6("6100268241")).toEqual("VALID");
   });
   it("confirms 7001000681 is valid (variation 2)", () => {
-    expect(methodD6("7001000681")).toEqual(Result.VALID);
+    expect(methodD6("7001000681")).toEqual("VALID");
   });
   it("confirms 9000111105 is valid (variation 2)", () => {
-    expect(methodD6("9000111105")).toEqual(Result.VALID);
+    expect(methodD6("9000111105")).toEqual("VALID");
   });
   it("confirms 9001291005 is valid (variation 2)", () => {
-    expect(methodD6("9001291005")).toEqual(Result.VALID);
+    expect(methodD6("9001291005")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 3615071237 is invalid", () => {
-    expect(methodD6("3615071237")).toEqual(Result.INVALID);
+    expect(methodD6("3615071237")).toEqual("INVALID");
   });
   it("confirms 6039267013 is invalid", () => {
-    expect(methodD6("6039267013")).toEqual(Result.INVALID);
+    expect(methodD6("6039267013")).toEqual("INVALID");
   });
   it("confirms 6039316014 is invalid", () => {
-    expect(methodD6("6039316014")).toEqual(Result.INVALID);
+    expect(methodD6("6039316014")).toEqual("INVALID");
   });
   it("confirms 7004017653 is invalid", () => {
-    expect(methodD6("7004017653")).toEqual(Result.INVALID);
+    expect(methodD6("7004017653")).toEqual("INVALID");
   });
   it("confirms 9002720007 is invalid", () => {
-    expect(methodD6("9002720007")).toEqual(Result.INVALID);
+    expect(methodD6("9002720007")).toEqual("INVALID");
   });
   it("confirms 9017483524 is invalid", () => {
-    expect(methodD6("9017483524")).toEqual(Result.INVALID);
+    expect(methodD6("9017483524")).toEqual("INVALID");
   });
 });

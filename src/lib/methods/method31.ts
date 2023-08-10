@@ -28,12 +28,12 @@ export default (number: string): Result => {
   const calculatedCheckDigit = sum % 11;
 
   if (calculatedCheckDigit === 10) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

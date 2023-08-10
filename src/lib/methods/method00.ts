@@ -27,10 +27,7 @@ import {
 } from "../helper";
 import { Result } from "../types";
 
-export enum HandleSum {
-  UNIT,
-  CROSS_SUM,
-}
+export type HandleSum = "UNIT" | "CROSS_SUM";
 
 interface Method00CoreOptionInterface {
   checkDigitPosition?: number | null;
@@ -63,7 +60,7 @@ const getSum = (weightedDigits: number[], crossSums: boolean): number => {
 };
 
 const sumHandler = (crossSum: number, handleSum: HandleSum): number => {
-  if (handleSum === HandleSum.CROSS_SUM) {
+  if (handleSum === "CROSS_SUM") {
     let calcCrossSum = crossSum;
     while (calcCrossSum >= 10) {
       calcCrossSum = calculateCrossSum(calcCrossSum);
@@ -81,7 +78,7 @@ const coreOptionsWithDefaults = (
     ...{
       checkDigitPosition: null,
       crossSums: true,
-      handleSum: HandleSum.UNIT,
+      handleSum: "UNIT",
       rtl: true,
     },
     ...options,
@@ -107,9 +104,9 @@ export const method00Core = (
   const calculatedCheckDigit = getUnitFromNumber(10 - handledCrossSum);
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
-  return Result.INVALID;
+  return "INVALID";
 };
 
 export default (number: string): Result =>

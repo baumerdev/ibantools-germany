@@ -26,7 +26,7 @@ export default (number: string): Result => {
   const firstDigit = Number(paddedNumber.slice(0, 1));
 
   if (isNaN(firstDigit) || firstDigit >= 6) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   const leftFillConsts = [4383200, 4383201, 4383202, 4383203, 4383204, 4383205];

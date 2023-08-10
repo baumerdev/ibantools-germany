@@ -36,23 +36,23 @@ export default (number: string): Result => {
 
   if (calculatedCheckDigit === 10) {
     if (paddedNumber.slice(0, 1) === "9" && givenCheckDigit === 7) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (calculatedCheckDigit === 11) {
     if (paddedNumber.slice(0, 1) === "9" && givenCheckDigit === 8) {
-      return Result.VALID;
+      return "VALID";
     }
 
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (givenCheckDigit === calculatedCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

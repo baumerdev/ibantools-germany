@@ -25,12 +25,12 @@ export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
   if (paddedNumber.match(/^00[1-9]/)) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   if (paddedNumber.match(/^[1-9]/)) {
     return method00(number);
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

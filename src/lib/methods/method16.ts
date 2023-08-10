@@ -25,7 +25,7 @@ export default (number: string): Result => {
     method06CheckDigit(number, [2, 3, 4, 5, 6, 7, 2, 3, 4]);
 
   if (diffRemainder === 1 && number.slice(-2, -1) === number.slice(-1)) {
-    return Result.VALID;
+    return "VALID";
   }
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);

@@ -327,6 +327,6 @@ export const methodDispatch = (
     case "E4":
       return methods.methodE4(accountNumber);
     default:
-      return Result.UNKOWN_CHECK_DIGIT_CALCULATION_METHOD;
+      return "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD";
   }
 };

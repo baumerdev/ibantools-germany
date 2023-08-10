@@ -16,23 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Result } from "../../../lib/types";
-
 import method60 from "../../../lib/methods/method60";
 
 describe("method 60", () => {
   it("confirms 1234567891 is valid", () => {
-    expect(method60("1234567891")).toEqual(Result.VALID);
+    expect(method60("1234567891")).toEqual("VALID");
   });
   it("confirms 34567891 is valid", () => {
-    expect(method60("34567891")).toEqual(Result.VALID);
+    expect(method60("34567891")).toEqual("VALID");
   });
 
   // Check for invalid result
   it("confirms 1235567891 is invalid", () => {
-    expect(method60("1235567891")).toEqual(Result.INVALID);
+    expect(method60("1235567891")).toEqual("INVALID");
   });
   it("confirms 34567881 is invalid", () => {
-    expect(method60("34567881")).toEqual(Result.INVALID);
+    expect(method60("34567881")).toEqual("INVALID");
   });
 });

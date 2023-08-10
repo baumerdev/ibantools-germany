@@ -18,4 +18,4 @@
 
 import { Result } from "../types";
 
-export default (_: string): Result => Result.NO_CHECK_DIGIT_CALCULATION;
+export default (_: string): Result => "NO_CHECK_DIGIT_CALCULATION";

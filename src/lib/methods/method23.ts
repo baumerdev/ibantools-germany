@@ -29,7 +29,7 @@ export default (number: string): Result => {
   );
 
   if (calculatedCheckDigit === 1 && number.slice(4, 5) === number.slice(5, 6)) {
-    return Result.VALID;
+    return "VALID";
   }
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);

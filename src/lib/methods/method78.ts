@@ -22,7 +22,7 @@ import method00 from "./method00";
 
 export default (number: string): Result => {
   if (number.match(/^0{0,2}[^0]\d{7}$/)) {
-    return Result.NO_CHECK_DIGIT_CALCULATION;
+    return "NO_CHECK_DIGIT_CALCULATION";
   }
 
   return method00(number);

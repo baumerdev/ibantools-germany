@@ -25,12 +25,12 @@ import method10 from "./method10";
 export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
-  if (method00(paddedNumber) === Result.VALID) {
-    return Result.VALID;
+  if (method00(paddedNumber) === "VALID") {
+    return "VALID";
   }
 
   if (paddedNumber.match(/^9/)) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   return method10(paddedNumber);

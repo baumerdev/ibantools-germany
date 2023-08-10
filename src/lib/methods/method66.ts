@@ -32,7 +32,7 @@ export default (number: string): Result => {
   const paddedNumber = paddedAccountNumber(number);
 
   if (!paddedNumber.startsWith("0")) {
-    return Result.INVALID;
+    return "INVALID";
   }
 
   if (paddedNumber.startsWith("09")) {

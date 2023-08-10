@@ -38,17 +38,13 @@ export default (number: string): Result => {
   }
 
   // Variation 1
-  if (
-    method00Core(paddedNumber.slice(3, 10), [2, 1, 2, 1, 2, 1]) === Result.VALID
-  ) {
-    return Result.VALID;
+  if (method00Core(paddedNumber.slice(3, 10), [2, 1, 2, 1, 2, 1]) === "VALID") {
+    return "VALID";
   }
 
   // Variation 2
-  if (
-    method00Core(paddedNumber.slice(4, 10), [2, 1, 2, 1, 2]) === Result.VALID
-  ) {
-    return Result.VALID;
+  if (method00Core(paddedNumber.slice(4, 10), [2, 1, 2, 1, 2]) === "VALID") {
+    return "VALID";
   }
 
   // Variation 3
@@ -60,8 +56,8 @@ export default (number: string): Result => {
   const { difference: calculatedCheckDigit } = moduloDifference(sum, 7, 7);
 
   if (calculatedCheckDigit === givenCheckDigit) {
-    return Result.VALID;
+    return "VALID";
   }
 
-  return Result.INVALID;
+  return "INVALID";
 };

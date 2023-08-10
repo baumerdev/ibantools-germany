@@ -27,9 +27,9 @@ export default (number: string, blz: string): Result => {
 
   if (
     paddedNumber.match(/^00/) &&
-    method52(paddedNumber.slice(2), blz) === Result.VALID
+    method52(paddedNumber.slice(2), blz) === "VALID"
   ) {
-    return Result.VALID;
+    return "VALID";
   }
 
   return method20(paddedNumber);
