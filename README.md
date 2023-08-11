@@ -51,7 +51,7 @@ code), a BBAN or an IBAN. You can optionally restrict IBAN validation
 to only allow German IBAN.
 
 ```javascript
-import { isValidAccountNumberBLZ, isValidBBAN, isValidBIC } from "ibantools-germany"
+import { isValidAccountNumberBLZ, isValidBBAN } from "ibantools-germany"
 
 isValidAccountNumberBLZ("9290701", "10220500"); // true
 
