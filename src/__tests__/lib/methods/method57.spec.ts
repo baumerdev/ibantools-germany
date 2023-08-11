@@ -43,6 +43,12 @@ describe("method 57", () => {
   it("confirms 9322111030 is valid (variation 2)", () => {
     expect(method57("9322111030")).toEqual("VALID");
   });
+  it("confirms 5622111037 is valid (variation 2)", () => {
+    expect(method57("5622111037")).toEqual("VALID");
+  });
+  it("confirms 8322111031 is valid (variation 2)", () => {
+    expect(method57("8322111031")).toEqual("VALID");
+  });
   it("confirms 7777778800 is valid (variation 1, exception beginning with 777777)", () => {
     expect(method57("7777778800")).toEqual("NO_CHECK_DIGIT_CALCULATION");
   });
