@@ -2,7 +2,7 @@
 
 ## 2023-08-11 [v1.2301.5]
 
-* Internally remove TypeScript enums for better compatibility with Angular ; see [#15](https://github.com/baumerdev/ibantools-germany/issues/15) and [#16](https://github.com/baumerdev/ibantools-germany/pull/16/)
+* Internally removed TypeScript enums to improve compatibility with Angular ; see [#15](https://github.com/baumerdev/ibantools-germany/issues/15) and [#16](https://github.com/baumerdev/ibantools-germany/pull/16/)
 
 ## 2023-08-04 [v1.2301.4]
 
@@ -10,11 +10,11 @@
 
 ## 2023-07-23 [v1.2301.3]
 
-* Upgrade dependencies, including word-wrap and tough-cookie, see CVE-2023-26136
+* Upgraded dependencies, including word-wrap and tough-cookie (CVE-2023-26136)
 
 ## 2023-05-23 [v1.2301.2]
 
-* The Bundesbank informed that their data was faulty. Changes were made accordingly.
+* The Bundesbank informed that their data was inaccurate. Changes were made accordingly.
 
 ## 2023-05-14 [v1.2301.1]
 
@@ -26,7 +26,7 @@
 
 ## 2023-05-13 [v1.2300.1]
 
-* Upgrade dependencies, including yaml, see CVE-2023-2251
+* Upgraded dependencies, including yaml (CVE-2023-2251)
 
 ## 2023-02-14 [v1.2300.0]
 
@@ -34,12 +34,12 @@
 
 ## 2023-02-14 [v1.2201.2]
 
-* Upgrade dependencies, including http-cache-semantics, see CVE-2022-25881 and cacheable-request, see GHSA-8x6c-cv3v-vp6g
+* Upgraded dependencies, including http-cache-semantics (CVE-2022-25881) and cacheable-request (GHSA-8x6c-cv3v-vp6g)
 
 ## 2023-01-17 [v1.2201.1]
 
-* Fix failing test for current/next BLZs
-* Upgrade dependencies, including json5, see CVE-2022-46175
+* Fixed failing test for current/next BLZs
+* Upgraded dependencies, including (CVE-2022-46175)
 
 ## 2022-11-13 [v1.2201.0]
 
@@ -50,7 +50,7 @@
 * Fixed methods C0 ; [#7](https://github.com/baumerdev/ibantools-germany/pull/7)
 * Fixed methods 85 ; [#9](https://github.com/baumerdev/ibantools-germany/pull/9)
 * Fixed methods 53 ; [#11](https://github.com/baumerdev/ibantools-germany/pull/11)
-* Updated method 61: Inaccurate method definition in Bundesbank document may have led to false negatives in certain cases ; [#13](https://github.com/baumerdev/ibantools-germany/pull/13)
+* Updated method 61: An inaccurate method definition in the Bundesbank document may have resulted in false negatives in specific cases ; [#13](https://github.com/baumerdev/ibantools-germany/pull/13)
 
 ## 2022-10-30 [v1.2200.2]
 
