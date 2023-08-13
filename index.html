@@ -15,11 +15,12 @@
 <div class="tsd-panel tsd-typography"><a id="md:ibantools-germany-validator-and-generator-for-german-bank-accounts" class="tsd-anchor"></a><h1><a href="#md:ibantools-germany-validator-and-generator-for-german-bank-accounts">IBANTools-Germany: Validator and Generator for German Bank Accounts</a></h1><p><img src="https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg?branch=main" alt="CI: Lint, test and build">
 <a href="https://coveralls.io/github/baumerdev/ibantools-germany?branch=main"><img src="https://coveralls.io/repos/github/baumerdev/ibantools-germany/badge.svg?branch=main" alt="Coverage Status"></a></p>
 <p>This TypeScript/JavaScript library validates IBAN and German bank account
-numbers. It can be used as an enhancement of IBAN validators like <a href="https://simplify.github.io/ibantools/">IBANTools</a>.</p>
-<p>If you need German bank data in your project e.g. to auto-fill forms when a
-user enters an IBAN, take a look the side project  <a href="https://baumerdev.github.io/bankdata-germany/">BankData-Germany</a>.</p>
+numbers. It can be used standalone or as an enhancement of IBAN validators, like
+<a href="https://simplify.github.io/ibantools/">IBANTools</a>.</p>
+<p>If you need German bank data in your project, e.g., to auto-fill forms when a
+user enters an IBAN, take a look at the side project <a href="https://baumerdev.github.io/bankdata-germany/">BankData-Germany</a>.</p>
 <blockquote>
-<p><em>Version 1.2301.* includes the data from 2023-03-06 until 2023-06-04 and from 2023-06-05 until 2023-09-03 and validation will be performed according to the data that is valid at your system time (data will change at 2023-06-05 midnight CET).</em></p>
+<p><em>Version 1.2301.* includes data from 2023-03-06 to 2023-06-04, as well as from 2023-06-05 to 2023-09-03. Validation will be based on the data that is valid according to your system time (data changes at midnight CET on 2023-06-05).</em></p>
 </blockquote>
 <ul>
 <li><a href="#installation">Installation</a></li>
@@ -27,53 +28,56 @@ user enters an IBAN, take a look the side project  <a href="https://baumerdev.gi
 <li><a href="#data-source">Data Source</a></li>
 <li><a href="#package-version">Package Version</a></li>
 </ul>
-<a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><a id="md:package-manager" class="tsd-anchor"></a><h3><a href="#md:package-manager">Package Manager</a></h3><p>Add it to your project with your package manager like npm or yarn. You should
-explicitly install the latest version since the bank data may change multiple
+<a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><a id="md:package-manager" class="tsd-anchor"></a><h3><a href="#md:package-manager">Package Manager</a></h3><p>Add it to your project using a package manager like npm or yarn. You should
+explicitly install the latest version, as the bank data may change multiple
 times a year.</p>
 <pre><code class="language-sh"><span class="hl-0">$ </span><span class="hl-1">npm</span><span class="hl-0"> </span><span class="hl-1">install</span><span class="hl-0"> </span><span class="hl-1">--save</span><span class="hl-0"> </span><span class="hl-1">ibantools-germany@latest</span><br/><span class="hl-2"># or</span><br/><span class="hl-0">$ </span><span class="hl-1">yarn</span><span class="hl-0"> </span><span class="hl-1">add</span><span class="hl-0"> </span><span class="hl-1">ibantools-germany@latest</span>
 </code><button>Copy</button></pre>
-<a id="md:browser--cdn" class="tsd-anchor"></a><h3><a href="#md:browser--cdn">Browser / CDN</a></h3><p>If you just want the functions in your browser, you can include the following
-pre-build file.</p>
+<a id="md:browser--cdn" class="tsd-anchor"></a><h3><a href="#md:browser--cdn">Browser / CDN</a></h3><p>If you only want the functions in your browser, you can include the following
+pre-built file.</p>
 <pre><code class="language-html"><span class="hl-3">&lt;</span><span class="hl-4">script</span><span class="hl-5"> </span><span class="hl-6">src</span><span class="hl-5">=</span><span class="hl-7">&quot;https://cdn.jsdelivr.net/npm/ibantools-germany/dist/build/browser.js&quot;</span><span class="hl-3">&gt;&lt;/</span><span class="hl-4">script</span><span class="hl-3">&gt;</span>
 </code><button>Copy</button></pre>
-<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><p>The npm package contains the code for ESM and CJS, so instead of <code>import</code>, as
-shown in the usage examples below, you can use <code>require</code> as well.</p>
+<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><p>The npm package contains the code for both ESM and CJS. Therefore, in addition
+to using <code>import</code> as shown in the usage examples below, you can also utilize
+<code>require</code>.</p>
 <a id="md:validation" class="tsd-anchor"></a><h3><a href="#md:validation">Validation</a></h3><p>You can validate the bank account number and BLZ (Bankleitzahl = bank sort
-code), a BBAN or an IBAN. You can optionally restrict IBAN validation
-to only allow German IBAN.</p>
+code), a BBAN, or an IBAN. Additionally, you have the option to restrict IBAN
+validation to only allow German IBANs.</p>
 <pre><code class="language-javascript"><span class="hl-8">import</span><span class="hl-0"> { </span><span class="hl-9">isValidAccountNumberBLZ</span><span class="hl-0">, </span><span class="hl-9">isValidBBAN</span><span class="hl-0"> } </span><span class="hl-8">from</span><span class="hl-0"> </span><span class="hl-1">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-2">// true</span><br/><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;102205000009290701&quot;</span><span class="hl-0">); </span><span class="hl-2">// true</span><br/><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;20041010050500013M02606&quot;</span><span class="hl-0">); </span><span class="hl-2">// false (valid but not a German BBAN)</span><br/><br/><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;DE23102205000009290701&quot;</span><span class="hl-0">); </span><span class="hl-2">// true</span><br/><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;FR1420041010050500013M02606&quot;</span><span class="hl-0">); </span><span class="hl-2">// true</span><br/><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;FR1420041010050500013M02606&quot;</span><span class="hl-0">, </span><span class="hl-11">false</span><span class="hl-0">); </span><span class="hl-2">// false (only allow German IBAN)</span>
 </code><button>Copy</button></pre>
 <a id="md:generation" class="tsd-anchor"></a><h3><a href="#md:generation">Generation</a></h3><pre><code class="language-javascript"><span class="hl-8">import</span><span class="hl-0"> { </span><span class="hl-9">generateBBAN</span><span class="hl-0"> } </span><span class="hl-8">from</span><span class="hl-0"> </span><span class="hl-1">&quot;ibantools-germany&quot;</span><br/><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-2">// 102205000009290701</span><br/><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;foo&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;bar&quot;</span><span class="hl-0">); </span><span class="hl-2">// null</span><br/><br/><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">); </span><span class="hl-2">// DE23102205000009290701</span><br/><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;foo&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;bar&quot;</span><span class="hl-0">); </span><span class="hl-2">// null</span>
 </code><button>Copy</button></pre>
-<a id="md:browser--cdn-1" class="tsd-anchor"></a><h3><a href="#md:browser--cdn-1">Browser / CDN</a></h3><p>If you use the pre-build version, an object <code>ibantoolsGermany</code> is globally
-defined on <code>window</code> containing the functions.</p>
+<a id="md:browser--cdn-1" class="tsd-anchor"></a><h3><a href="#md:browser--cdn-1">Browser / CDN</a></h3><p>When using the pre-built version, the <code>ibantoolsGermany</code> object is globally
+defined on the <code>window</code>, containing the functions.</p>
 <pre><code class="language-javascript"><span class="hl-9">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">generateBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-9">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">generateIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-9">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidAccountNumberBLZ</span><span class="hl-0">(</span><span class="hl-1">&quot;9290701&quot;</span><span class="hl-0">, </span><span class="hl-1">&quot;10220500&quot;</span><span class="hl-0">);</span><br/><span class="hl-9">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidBBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;102205000009290701&quot;</span><span class="hl-0">);</span><br/><span class="hl-9">ibantoolsGermany</span><span class="hl-0">.</span><span class="hl-10">isValidIBAN</span><span class="hl-0">(</span><span class="hl-1">&quot;DE23102205000009290701&quot;</span><span class="hl-0">);</span>
 </code><button>Copy</button></pre>
-<a id="md:data-source" class="tsd-anchor"></a><h2><a href="#md:data-source">Data Source</a></h2><p>Sadly there is no algorithm to verify every German bank account number or BBAN.
-Each bank has its own method(s) which can change from time to time. Therefore
+<a id="md:data-source" class="tsd-anchor"></a><h2><a href="#md:data-source">Data Source</a></h2><p>Unfortunately, there isn&#39;t a single algorithm to verify all German bank account
+numbers or BBANs, as each bank employs its own method(s) which can change
+periodically.To address this,
 <a href="https://www.bundesbank.de/en/tasks/payment-systems/services/bank-sort-codes/download-bank-sort-codes-626218">Deutsche Bundesbank</a>
 publishes updated data every quarter.</p>
-<p>Updates can contain technical changes (modifications in check digit methods)
-and content changes (BLZ, bank names, etc). It is also possible that there
-are updates that do not contain any relevant changes for this library at
-all.</p>
+<p>These updates can encompass both technical changes, such as modifications in
+check digit methods, as well as content changes like alterations to BLZ, bank
+names, and more. Some updates might not contain any relevant changes for this
+library at all.</p>
 <a id="md:package-version" class="tsd-anchor"></a><h2><a href="#md:package-version">Package Version</a></h2><p>The version numbers are based on <a href="https://semver.org/">Semantic Versioning</a>
-with modifications.</p>
+with some modifications.</p>
 <blockquote>
 <p>1.2205.3</p>
 </blockquote>
-<p>The first number representes the Major version. If this number increases there
-are updates that may not be backward compatible and you have to adjust your
-code. That means the above version string is from major version <strong>1</strong>.</p>
-<p>The first two digits of the second number stand for the year of the included
-data and check digit methods. The third and fourth digit increase when there
-are either minor version changes that are backward compatible or when new data
-is included. That means the above version string is from year 20<strong>22</strong> and
-has had a few minor updates, perhaps data updates for spring and summer.</p>
-<p>The last number is for patches and bug fixes.</p>
-<p>Since the data may change up to four times a year you should use a suitable
-version string in your package.json. Since there will be only breaking changes
-when the first number changes, you should be good with e.g. <code>&quot;1.x&quot;</code></p>
+<p>The first number represents the Major version. If this number increases, there
+may be updates that are not backward compatible, requiring adjustments to your
+code. In the above version string, the major version is <strong>1</strong>.</p>
+<p>The first two digits of the second number indicate the year of the included data
+and check digit methods. The third and fourth digits increase either with minor
+version changes that maintain backward compatibility or when new data is
+included. In the provided version string, the year is 20<strong>22</strong>, with a few minor
+updates, possibly including data updates for spring and summer.</p>
+<p>The last number is reserved for patches and bug fixes.</p>
+<p>Considering that the data could change up to four times a year, it&#39;s advisable
+to use an appropriate version string in your package.json. As breaking changes
+occur only when the first number changes, specifying something like <code>&quot;1.x&quot;</code>
+should suffice.</p>
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
