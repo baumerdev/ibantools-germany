@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-08-20 [v1.2302.0]
+
+* Additionally includes data valid from 2023-09-04, removes data valid before 2023-06-05
+
 ## 2023-08-11 [v1.2301.5]
 
 * Internally removed TypeScript enums to improve compatibility with Angular ; see [#15](https://github.com/baumerdev/ibantools-germany/issues/15) and [#16](https://github.com/baumerdev/ibantools-germany/pull/16/)
