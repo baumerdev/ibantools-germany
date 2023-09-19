@@ -32,7 +32,7 @@ const datasets = blzFile
   .split("\n")
   .map((row) => {
     const blz = Number(row.slice(0, 8));
-    const master = row.slice(8, 9) === "1" ? true : false;
+    const master = row[8] === "1";
     const checkDigitMethod = row.slice(150, 152);
 
     return {
