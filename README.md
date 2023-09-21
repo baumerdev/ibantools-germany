@@ -53,7 +53,7 @@ code), a BBAN, or an IBAN. Additionally, you have the option to restrict IBAN
 validation to only allow German IBANs.
 
 ```javascript
-import { isValidAccountNumberBLZ, isValidBBAN } from "ibantools-germany"
+import { isValidAccountNumberBLZ, isValidBBAN, isValidIBAN } from "ibantools-germany"
 
 isValidAccountNumberBLZ("9290701", "10220500"); // true
 
@@ -68,7 +68,7 @@ isValidIBAN("FR1420041010050500013M02606", false); // false (only allow German I
 ### Generation
 
 ```javascript
-import { generateBBAN } from "ibantools-germany"
+import { generateBBAN, generateIBAN } from "ibantools-germany"
 
 generateBBAN("9290701", "10220500"); // 102205000009290701
 generateBBAN("foo", "bar"); // null
@@ -94,7 +94,7 @@ ibantoolsGermany.isValidIBAN("DE23102205000009290701");
 
 Unfortunately, there isn't a single algorithm to verify all German bank account
 numbers or BBANs, as each bank employs its own method(s) which can change
-periodically.To address this,
+periodically. To address this,
 [Deutsche Bundesbank](https://www.bundesbank.de/en/tasks/payment-systems/services/bank-sort-codes/download-bank-sort-codes-626218)
 publishes updated data every quarter.
 
