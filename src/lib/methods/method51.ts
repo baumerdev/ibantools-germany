@@ -46,7 +46,7 @@ const method51bCore = (number: string): Result =>
 const method51cCore = (number: string): Result => method00(number.slice(3, 10));
 
 const method51dCore = (number: string): Result =>
-  method33Core(number, [2, 3, 4, 5, 6], 7);
+  method33Core(number, [2, 3, 4, 5, 6], 7, 0);
 
 const method51dVariation1 = (number: string): Result => {
   const digits = getDigits(number.slice(2, 10));

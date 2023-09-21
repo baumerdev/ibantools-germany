@@ -30,7 +30,8 @@ import { method06Result } from "./method06";
 export const method33Core = (
   number: string,
   weights: number[],
-  modulo = 11
+  modulo = 11,
+  remainder0CheckDigit?: number
 ): Result => {
   const paddedNumber = paddedAccountNumber(number);
   const digits = getDigits(paddedNumber.slice(4, 10));
@@ -38,12 +39,16 @@ export const method33Core = (
 
   const weightedDigits = weightDigitsRTL(digits, weights);
   const sum = calculateSum(weightedDigits);
-
-  const { difference: calculatedCheckDigit } = moduloDifference(
+  const { difference: calculatedCheckDigit, remainder } = moduloDifference(
     sum,
     modulo,
     modulo
   );
+
+  // Special sub case only used in method51dCore
+  if (remainder0CheckDigit !== undefined && remainder === 0) {
+    return givenCheckDigit === remainder0CheckDigit ? "VALID" : "INVALID";
+  }
 
   return method06Result(givenCheckDigit, calculatedCheckDigit);
 };
