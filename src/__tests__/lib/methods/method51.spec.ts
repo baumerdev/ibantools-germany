@@ -46,6 +46,9 @@ describe("method 51", () => {
   it("confirms 101356073 is valid (method D)", () => {
     expect(method51("101356073")).toEqual("VALID");
   });
+  it("confirms 1234567870 is valid (method D)", () => {
+    expect(method51("1234567870")).toEqual("VALID");
+  });
   it("confirms 0199100002 is valid (method D, variation 1)", () => {
     expect(method51("0199100002")).toEqual("VALID");
   });
