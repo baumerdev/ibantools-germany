@@ -20,8 +20,13 @@ import { Result } from "../types";
 
 import method00 from "./method00";
 import method03 from "./method03";
+import method07 from "./method07";
 
 export default (number: string): Result => {
+  if (method07(number) === "VALID") {
+    return "VALID";
+  }
+
   if (method03(number) === "VALID") {
     return "VALID";
   }
