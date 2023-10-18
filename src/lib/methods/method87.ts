@@ -267,7 +267,7 @@ const methodB = (number: string): Result => {
 };
 
 const methodC = (number: string): Result => {
-  return method33Core(number, [2, 3, 4, 5, 6], 7);
+  return method33Core(number, [2, 3, 4, 5, 6], 7, 0);
 };
 
 const methodD = (number: string): Result => {

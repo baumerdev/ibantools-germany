@@ -1,5 +1,10 @@
 # Changelog
 
+## 2023-10-18 [v1.2302.3]
+
+* Fixed method 85 ; [#19](https://github.com/baumerdev/ibantools-germany/issues/19)
+* Fixed method 87
+
 ## 2023-10-18 [v1.2302.2]
 
 * Fixed method D6 ; [#18](https://github.com/baumerdev/ibantools-germany/issues/18)

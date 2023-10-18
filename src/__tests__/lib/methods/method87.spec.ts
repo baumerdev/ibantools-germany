@@ -43,8 +43,8 @@ describe("method 87", () => {
   it("confirms 0000950360 is valid (variation B)", () => {
     expect(method87("0000950360")).toEqual("VALID");
   });
-  it("confirms 0000950365 is valid (variation C)", () => {
-    expect(method87("0000950365")).toEqual("VALID");
+  it("confirms 0000156040 is valid (variation C)", () => {
+    expect(method87("0000156040")).toEqual("VALID");
   });
   it("confirms 0001975641 is valid (variation D)", () => {
     expect(method87("0001975641")).toEqual("VALID");
@@ -74,5 +74,8 @@ describe("method 87", () => {
   });
   it("confirms 0002988654 is invalid", () => {
     expect(method87("0002988654")).toEqual("INVALID");
+  });
+  it("confirms 0000156047 is invalid", () => {
+    expect(method87("0000156047")).toEqual("INVALID");
   });
 });

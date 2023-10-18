@@ -45,7 +45,7 @@ export const method33Core = (
     modulo
   );
 
-  // Special sub case only used in method51dCore
+  // Special sub case used in method51dCore, method85, method87c
   if (remainder0CheckDigit !== undefined && remainder === 0) {
     return givenCheckDigit === remainder0CheckDigit ? "VALID" : "INVALID";
   }

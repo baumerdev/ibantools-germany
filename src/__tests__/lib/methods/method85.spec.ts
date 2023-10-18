@@ -34,6 +34,9 @@ describe("method 85", () => {
   it("confirms 1234569041 is valid (variation C)", () => {
     expect(method85("1234569041")).toEqual("VALID");
   });
+  it("confirms 0000156040 is valid (variation C)", () => {
+    expect(method85("0000156040")).toEqual("VALID");
+  });
   it("confirms 0000156078 is valid (variation B)", () => {
     expect(method85("0000156078")).toEqual("VALID");
   });
@@ -59,5 +62,8 @@ describe("method 85", () => {
   });
   it("confirms 3199200002 is invalid", () => {
     expect(method85("3199200002")).toEqual("INVALID");
+  });
+  it("confirms 0000156047 is valid (variation C)", () => {
+    expect(method85("0000156047")).toEqual("INVALID");
   });
 });

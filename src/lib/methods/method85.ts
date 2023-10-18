@@ -48,5 +48,5 @@ export default (number: string): Result => {
     return "INVALID";
   }
 
-  return method33Core(significantNumber, [2, 3, 4, 5, 6], 7);
+  return method33Core(significantNumber, [2, 3, 4, 5, 6], 7, 0);
 };
