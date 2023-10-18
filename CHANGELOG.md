@@ -1,5 +1,10 @@
 # Changelog
 
+## 2023-10-18 [v1.2302.2]
+
+* Fixed method D6 ; [#18](https://github.com/baumerdev/ibantools-germany/issues/18)
+* Updated dependencies (npm audit fix)
+
 ## 2023-09-22 [v1.2302.1]
 
 * Fixed method 51 ; [#17](https://github.com/baumerdev/ibantools-germany/issues/17)
