@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-11-14 [v1.2303.0]
+
+* Additionally includes data valid from 2023-12-04, removes data valid before 2023-09-04
+
 ## 2023-10-18 [v1.2302.3]
 
 * Fixed method 85 ; [#19](https://github.com/baumerdev/ibantools-germany/issues/19)
