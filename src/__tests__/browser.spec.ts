@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  *
  * ibantools-germany
- * Copyright (C) 2022-2023 Markus Baumer <markus@baumer.dev>
+ * Copyright (C) 2022-2024 Markus Baumer <markus@baumer.dev>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
