@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-05-19 [v1.2401.0]
+
+* Additionally includes data valid from 2024-06-03, removes data valid before 2024-03-04
+
 ## 2024-02-17 [v1.2400.0]
 
 * Additionally includes data valid from 2024-03-04, removes data valid before 2023-12-04
