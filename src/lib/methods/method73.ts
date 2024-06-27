@@ -55,7 +55,11 @@ export default (number: string): Result => {
   const sum = calculateSum(crossSums);
   const { difference: calculatedCheckDigit } = moduloDifference(sum, 7, 7);
 
-  if (calculatedCheckDigit === givenCheckDigit) {
+  if (calculatedCheckDigit === 7) {
+    return givenCheckDigit === 0 ? "VALID" : "INVALID";
+  }
+
+  if (calculatedCheckDigit !== 7 && calculatedCheckDigit === givenCheckDigit) {
     return "VALID";
   }
 
