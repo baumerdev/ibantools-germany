@@ -1,8 +1,12 @@
 # Changelog
 
+## 2024-07-14 [v1.2401.2]
+
+* Fixed types exports ; [#22](https://github.com/baumerdev/ibantools-germany/issues/22)
+
 ## 2024-06-28 [v1.2401.1]
 
-* Fixed method 73 ; [#19](https://github.com/baumerdev/ibantools-germany/issues/21)
+* Fixed method 73 ; [#21](https://github.com/baumerdev/ibantools-germany/issues/21)
 * Upgraded dependencies, including braces (CVE-2024-37890) and ws (CVE-2024-37890)
 
 ## 2024-05-19 [v1.2401.0]
