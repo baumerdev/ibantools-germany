@@ -10,7 +10,7 @@ numbers. It can be used standalone or as an enhancement of IBAN validators, like
 If you need German bank data in your project, e.g., to auto-fill forms when a
 user enters an IBAN, take a look at the side project [BankData-Germany](https://baumerdev.github.io/bankdata-germany/).
 
-> _Version 1.2401.* includes data from 2024-03-04 to 2024-06-02, as well as from 2024-06-03 to 2024-09-08. Validation will be based on the data that is valid according to your system time (data changes at midnight CET on 2024-06-03)._
+> _Version 1.2402.* includes data from 2024-06-03 to 2024-09-08, as well as from 2024-09-09 to 2024-12-08. Validation will be based on the data that is valid according to your system time (data changes at midnight CET on 2024-09-09)._
 
 * [Installation](#installation)
 * [Usage](#usage)
