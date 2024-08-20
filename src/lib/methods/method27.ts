@@ -43,7 +43,7 @@ export default (number: string): Result => {
 
   const sum = calculateSum(transformedDigits);
   const sumUnit = getUnitFromNumber(sum);
-  const calculatedCheckDigit = 10 - sumUnit;
+  const calculatedCheckDigit = getUnitFromNumber(10 - sumUnit);
 
   if (givenCheckDigit === calculatedCheckDigit) {
     return "VALID";

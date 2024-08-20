@@ -25,6 +25,9 @@ describe("method 27", () => {
   it("confirms 2847169488 is valid (M10H)", () => {
     expect(method27("2847169488")).toEqual("VALID");
   });
+  it("confirms 2847169400 is valid (M10H)", () => {
+    expect(method27("2847169400")).toEqual("VALID");
+  });
 
   // Check for invalid result
   it("confirms 9291701 is invalid", () => {
