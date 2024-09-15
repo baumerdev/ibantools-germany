@@ -3,7 +3,10 @@
   "version": "1.2402.2",
   "description": "IBAN Validator and Generator for German Bank Accounts",
   "author": "Markus Baumer <markus@baumer.dev>",
-  "repository": "https://github.com/baumerdev/ibantools-germany",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baumerdev/ibantools-germany.git"
+  },
   "homepage": "https://baumerdev.github.io/ibantools-germany/",
   "license": "AGPL",
   "keywords": [
@@ -21,20 +24,14 @@
     "pruefziffer",
     "pruefzifferberechnungsmethode"
   ],
-  "main": "./dist/cjs/main.js",
-  "module": "./dist/esm/main.js",
-  "types": "./dist/cjs/main.d.ts",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/cjs/main.d.ts",
-        "default": "./dist/cjs/main.js"
-      },
-      "import": {
-        "types": "./dist/cjs/main.d.ts",
-        "default": "./dist/esm/main.js"
-      }
-    }
+      "types": "./dist/cjs/main.d.ts",
+      "import": "./dist/esm/main.mjs",
+      "require": "./dist/cjs/main.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist/",
