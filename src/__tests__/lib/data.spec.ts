@@ -33,7 +33,7 @@ describe("current.json", () => {
   // Safeguard that there are enough converted entries.
   it("contains more than 90 entries", () => {
     expect(
-      Object.keys(currentCheckDigits as CheckDigits).length
+      Object.keys(currentCheckDigits as CheckDigits).length,
     ).toBeGreaterThan(90);
   });
 });
@@ -45,7 +45,7 @@ describe("dateObject", () => {
   });
   it("creates correct date object from string", () => {
     expect(dateObject("2022-03-04T05:06:07+0800")).toEqual(
-      new Date("2022-03-04T05:06:07+0800")
+      new Date("2022-03-04T05:06:07+0800"),
     );
   });
   it("creates current date object for undefined param", () => {
@@ -70,7 +70,7 @@ describe("combineCurrentNext", () => {
   };
   it("correctly builds combined data", () => {
     expect(
-      combineCurrentNext(exampleCurrent, exampleNextAdd, exampleNextRemove)
+      combineCurrentNext(exampleCurrent, exampleNextAdd, exampleNextRemove),
     ).toEqual({
       AA: [1, 2, 3],
       BB: [4, 5, 6, 7],
@@ -94,7 +94,7 @@ describe("methodForBLZ without next", () => {
     const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
       expect(methodForBLZ(String(firstBLZForMethod), new Date(0))).toEqual(
-        method
+        method,
       );
     });
   });
@@ -108,14 +108,14 @@ describe("methodForBLZ with next", () => {
   const combinedCheckDigits = combineCurrentNext(
     currentCheckDigits,
     (nextCheckDigits as NextCheckDigits).add,
-    (nextCheckDigits as NextCheckDigits).remove
+    (nextCheckDigits as NextCheckDigits).remove,
   );
 
   Object.keys(combinedCheckDigits).forEach((method) => {
     const firstBLZForMethod = combinedCheckDigits[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
       expect(
-        methodForBLZ(String(firstBLZForMethod), new Date(nextValidDate))
+        methodForBLZ(String(firstBLZForMethod), new Date(nextValidDate)),
       ).toEqual(method);
     });
   });
@@ -125,24 +125,23 @@ describe("methodForBLZ with next", () => {
   });
 });
 
-describe("Change 2024-09-09", () => {
-  // Currently there are only changed and removed BLZ but not newly added ones.
-  // test("BLZ 70110570 is unknown before valid-from date", () => {
-  //   expect(methodForBLZ("70110570", new Date(0))).toEqual(null);
-  // });
-  // test("BLZ 70110570 has method 09 at valid-from date", () => {
-  //   expect(methodForBLZ("70110570", new Date(nextValidDate))).toEqual("09");
-  // });
-  test("BLZ 60069343 has method 10 before valid-from date", () => {
-    expect(methodForBLZ("60069343", new Date(0))).toEqual("10");
+describe("Change 2024-12-09", () => {
+  test("BLZ 30040098 is unknown before valid-from date", () => {
+    expect(methodForBLZ("30040098", new Date(0))).toEqual(null);
   });
-  test("BLZ 60069343 is unknown at valid-from date", () => {
-    expect(methodForBLZ("60069343", new Date(nextValidDate))).toEqual(null);
+  test("BLZ 30040098 has method 13 at valid-from date", () => {
+    expect(methodForBLZ("30040098", new Date(nextValidDate))).toEqual("13");
   });
-  test("BLZ 33060592 has method 51 before valid-from date", () => {
-    expect(methodForBLZ("33060592", new Date(0))).toEqual("51");
+  test("BLZ 83064568 has method 32 before valid-from date", () => {
+    expect(methodForBLZ("83064568", new Date(0))).toEqual("32");
   });
-  test("BLZ 33060592 has method 09 at valid-from date", () => {
-    expect(methodForBLZ("33060592", new Date(nextValidDate))).toEqual("09");
+  test("BLZ 83064568 is unknown at valid-from date", () => {
+    expect(methodForBLZ("83064568", new Date(nextValidDate))).toEqual(null);
+  });
+  test("BLZ 60090800 has method 87 before valid-from date", () => {
+    expect(methodForBLZ("60090800", new Date(0))).toEqual("87");
+  });
+  test("BLZ 60090800 has method 09 at valid-from date", () => {
+    expect(methodForBLZ("60090800", new Date(nextValidDate))).toEqual("09");
   });
 });
