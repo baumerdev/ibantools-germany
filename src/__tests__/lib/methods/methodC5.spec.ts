@@ -102,7 +102,6 @@ describe("method C5", () => {
   it("confirms 1000061457 is invalid (variation 2)", () => {
     expect(methodC5("1000061457")).toEqual("INVALID");
   });
-  1000061498;
   it("confirms 4864446015 is invalid (variation 2)", () => {
     expect(methodC5("4864446015")).toEqual("INVALID");
   });

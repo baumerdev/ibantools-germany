@@ -56,7 +56,7 @@ describe("method 33", () => {
   });
   it("confirms 1234567807 is invalid (special case for method 51 D)", () => {
     expect(method33Core("1234567807", [2, 3, 4, 5, 6], 7, 0)).toEqual(
-      "INVALID"
+      "INVALID",
     );
   });
 });

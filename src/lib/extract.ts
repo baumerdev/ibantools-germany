@@ -25,7 +25,7 @@ import { AccountNumberBLZ, ProbablyString } from "./types";
  * @returns Object with Account number and BLZ or null if invalid
  */
 export const extractAccountNumberBLZFromBBAN = (
-  bban: ProbablyString
+  bban: ProbablyString,
 ): AccountNumberBLZ | null => {
   if (!bban || !bban.match(/^[1-9]\d{17}$/)) {
     return null;

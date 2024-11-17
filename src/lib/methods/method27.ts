@@ -38,7 +38,7 @@ export default (number: string): Result => {
 
   digits.reverse();
   const transformedDigits = digits.map(
-    (digit, index) => transformMatrix[index % 4][digit]
+    (digit, index) => transformMatrix[index % 4][digit],
   );
 
   const sum = calculateSum(transformedDigits);

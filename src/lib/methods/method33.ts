@@ -31,7 +31,7 @@ export const method33Core = (
   number: string,
   weights: number[],
   modulo = 11,
-  remainder0CheckDigit?: number
+  remainder0CheckDigit?: number,
 ): Result => {
   const paddedNumber = paddedAccountNumber(number);
   const digits = getDigits(paddedNumber.slice(4, 10));
@@ -42,7 +42,7 @@ export const method33Core = (
   const { difference: calculatedCheckDigit, remainder } = moduloDifference(
     sum,
     modulo,
-    modulo
+    modulo,
   );
 
   // Special sub case used in method51dCore, method85, method87c

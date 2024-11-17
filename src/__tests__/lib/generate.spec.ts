@@ -49,12 +49,12 @@ describe("generateBBAN", () => {
 describe("generateIBAN", () => {
   it("generates IBAN DE23102205000009290701 from account number 9290701, BLZ 10220500", () => {
     expect(generateIBAN("9290701", "10220500")).toEqual(
-      "DE23102205000009290701"
+      "DE23102205000009290701",
     );
   });
   it("generates IBAN DE06400000000000000000 from account number 0000000001, BLZ 10000000", () => {
     expect(generateIBAN("0000000000", "40000000")).toEqual(
-      "DE06400000000000000000"
+      "DE06400000000000000000",
     );
   });
 

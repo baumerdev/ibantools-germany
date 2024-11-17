@@ -36,7 +36,7 @@ const nineDigitsVariation1 = (number: string): Result => {
 const nineDigitsVariation2 = (number: string): Result => {
   return method00Core(
     `${number.slice(1, 2)}${number.slice(4, 10)}`,
-    [2, 1, 2, 1, 2, 1, 2, 1, 2]
+    [2, 1, 2, 1, 2, 1, 2, 1, 2],
   );
 };
 

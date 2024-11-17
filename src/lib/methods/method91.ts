@@ -30,7 +30,7 @@ import { method06Result } from "./method06";
 const method91Core = (
   digits: number[],
   givenCheckDigit: number,
-  weights: number[]
+  weights: number[],
 ): Result => {
   const weightedDigits = weightDigitsRTL(digits, weights);
   const sum = calculateSum(weightedDigits);

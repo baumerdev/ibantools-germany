@@ -55,7 +55,7 @@ export const dateObject = (date?: string | Date): Date => {
 export const combineCurrentNext = (
   current: CheckDigits,
   nextAdd: CheckDigits,
-  nextRemove: CheckDigits
+  nextRemove: CheckDigits,
 ): CheckDigits => {
   const combinedData: CheckDigits = {};
 
@@ -69,7 +69,7 @@ export const combineCurrentNext = (
     let methodBLZs = current[currentMethod];
     if (nextRemove[currentMethod]) {
       methodBLZs = methodBLZs.filter(
-        (methodBLZ) => !nextRemove[currentMethod].includes(methodBLZ)
+        (methodBLZ) => !nextRemove[currentMethod].includes(methodBLZ),
       );
     }
     if (nextAdd[currentMethod]) {
@@ -98,7 +98,7 @@ export const checkDigitData = (date?: string | Date): CheckDigits => {
     return combineCurrentNext(
       currentCheckDigits,
       nextCheckDigits.add,
-      nextCheckDigits.remove
+      nextCheckDigits.remove,
     );
   }
 
@@ -114,7 +114,7 @@ export const checkDigitData = (date?: string | Date): CheckDigits => {
  */
 export const methodForBLZ = (
   blz: string,
-  date?: string | Date
+  date?: string | Date,
 ): string | null => {
   if (!blz.match(/^[1-9]\d{7}$/)) {
     return null;

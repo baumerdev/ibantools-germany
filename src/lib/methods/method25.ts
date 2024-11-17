@@ -32,7 +32,7 @@ export default (number: string): Result => {
 
   const weightedDigits = weightDigitsRTL(
     digits.slice(1),
-    [2, 3, 4, 5, 6, 7, 8, 9]
+    [2, 3, 4, 5, 6, 7, 8, 9],
   );
 
   const sum = calculateSum(weightedDigits);

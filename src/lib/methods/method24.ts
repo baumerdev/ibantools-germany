@@ -39,7 +39,7 @@ export default (number: string): Result => {
   const weightedDigits = weightDigits(
     digits,
     [1, 2, 3, 1, 2, 3, 1, 2, 3],
-    "MULTIPLY_ADD"
+    "MULTIPLY_ADD",
   );
   const weightedModuloDigits = weightedDigits.map((digit) => digit % 11);
   const sum = calculateSum(weightedModuloDigits);

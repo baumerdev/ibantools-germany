@@ -38,7 +38,7 @@ export default (number: string): Result => {
   const { difference: calculatedCheckDigit } = moduloDifference(
     sumMinus1,
     11,
-    10
+    10,
   );
 
   if (calculatedCheckDigit === 10 && givenCheckDigit === 0) {

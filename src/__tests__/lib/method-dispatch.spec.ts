@@ -47,20 +47,20 @@ describe("methodDispatch", () => {
 
     it(`returns no unknown calculation method for method ${method}`, () => {
       expect(methodDispatch("1234", "00000000", method)).not.toEqual(
-        "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
+        "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD",
       );
     });
   }
 
   it("returns unknown calculation method for method 12", () => {
     expect(methodDispatch("x", "x", "12")).toEqual(
-      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
+      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD",
     );
   });
 
   it("returns unknown calculation method", () => {
     expect(methodDispatch("x", "x", "x")).toEqual(
-      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD"
+      "UNKOWN_CHECK_DIGIT_CALCULATION_METHOD",
     );
   });
 });
@@ -70,7 +70,7 @@ describe("methodDispatch by data", () => {
     const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`confirms method ${method} in data file is implemented`, () => {
       expect(methodDispatch("1", String(firstBLZForMethod), method)).toMatch(
-        /^(VALID|INVALID|NO_CHECK_DIGIT_CALCULATION)$/
+        /^(VALID|INVALID|NO_CHECK_DIGIT_CALCULATION)$/,
       );
     });
   });

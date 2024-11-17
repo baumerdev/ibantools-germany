@@ -34,7 +34,7 @@ import { ProbablyString } from "./types";
  */
 export const isValidAccountNumberBLZ = (
   accountNumber: ProbablyString,
-  blz: ProbablyString
+  blz: ProbablyString,
 ): boolean => {
   if (
     !accountNumber ||
@@ -51,7 +51,7 @@ export const isValidAccountNumberBLZ = (
   }
 
   return ["VALID", "NO_CHECK_DIGIT_CALCULATION"].includes(
-    methodDispatch(accountNumber, blz, method)
+    methodDispatch(accountNumber, blz, method),
   );
 };
 
@@ -89,7 +89,7 @@ export const isValidBBAN = (bban: ProbablyString): boolean => {
  */
 export const isValidIBAN = (
   iban: ProbablyString,
-  onlyGermany = false
+  onlyGermany = false,
 ): boolean => {
   if (typeof iban !== "string") {
     return false;

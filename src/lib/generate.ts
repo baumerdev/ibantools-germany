@@ -32,7 +32,7 @@ import { ProbablyString } from "./types";
  */
 export const generateBBAN = (
   accountNumber: ProbablyString,
-  blz: ProbablyString
+  blz: ProbablyString,
 ): string | null => {
   if (
     !accountNumber ||
@@ -58,7 +58,7 @@ export const generateBBAN = (
  */
 export const generateIBAN = (
   accountNumber: ProbablyString,
-  blz: ProbablyString
+  blz: ProbablyString,
 ) => {
   const bban = generateBBAN(accountNumber, blz);
   if (!bban) {

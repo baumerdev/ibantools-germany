@@ -38,7 +38,7 @@ interface Method00CoreOptionInterface {
 
 const getGivenCheckDigit = (
   digits: number[],
-  checkDigitPosition: number | null
+  checkDigitPosition: number | null,
 ): number =>
   checkDigitPosition === null
     ? (digits.pop() as number) // Check digit is last digit
@@ -47,7 +47,7 @@ const getGivenCheckDigit = (
 const getWeightedDigits = (
   digits: number[],
   weights: number[],
-  rtl: boolean
+  rtl: boolean,
 ): number[] =>
   rtl ? weightDigitsRTL(digits, weights) : weightDigits(digits, weights);
 
@@ -72,7 +72,7 @@ const sumHandler = (crossSum: number, handleSum: HandleSum): number => {
 };
 
 const coreOptionsWithDefaults = (
-  options: Method00CoreOptionInterface
+  options: Method00CoreOptionInterface,
 ): Required<Method00CoreOptionInterface> => {
   return {
     ...{
@@ -88,14 +88,14 @@ const coreOptionsWithDefaults = (
 export const method00Core = (
   number: string,
   weights: number[],
-  options?: Method00CoreOptionInterface
+  options?: Method00CoreOptionInterface,
 ): Result => {
   const fullOptions = coreOptionsWithDefaults(options ?? {});
 
   const digits = getDigits(number);
   const givenCheckDigit = getGivenCheckDigit(
     digits,
-    fullOptions.checkDigitPosition
+    fullOptions.checkDigitPosition,
   );
 
   const weightedDigits = getWeightedDigits(digits, weights, fullOptions.rtl);

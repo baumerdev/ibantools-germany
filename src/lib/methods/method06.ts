@@ -27,7 +27,7 @@ import { Result } from "../types";
 export const method06CheckDigit = (
   number: string,
   weights: number[],
-  modulo = 11
+  modulo = 11,
 ): {
   calculatedCheckDigit: number;
   diffRemainder: number;
@@ -41,7 +41,7 @@ export const method06CheckDigit = (
   const { difference: calculatedCheckDigit, remainder } = moduloDifference(
     sum,
     modulo,
-    modulo
+    modulo,
   );
 
   return { calculatedCheckDigit, diffRemainder: remainder, givenCheckDigit };
@@ -51,7 +51,7 @@ export const method06Result = (
   givenCheckDigit: number,
   calculatedCheckDigit: number,
   diff10CheckDigit = 0,
-  diff11CheckDigit = 0
+  diff11CheckDigit = 0,
 ): Result => {
   if (calculatedCheckDigit === 10) {
     if (givenCheckDigit === diff10CheckDigit) {
@@ -89,19 +89,19 @@ export const method06Core = (
   weights: number[],
   diff10CheckDigit = 0,
   diff11CheckDigit = 0,
-  modulo = 11
+  modulo = 11,
 ): Result => {
   const { calculatedCheckDigit, givenCheckDigit } = method06CheckDigit(
     number,
     weights,
-    modulo
+    modulo,
   );
 
   return method06Result(
     givenCheckDigit,
     calculatedCheckDigit,
     diff10CheckDigit,
-    diff11CheckDigit
+    diff11CheckDigit,
   );
 };
 

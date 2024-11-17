@@ -96,11 +96,11 @@ export type WeightType = "MULTIPLY" | "MULTIPLY_ADD";
 export const weightDigits = (
   digits: number[],
   weights: number[],
-  weightType: WeightType = "MULTIPLY"
+  weightType: WeightType = "MULTIPLY",
 ): number[] => {
   if (weights.length < digits.length) {
     throw new Error(
-      "Number of weights must be greater or equal the number of digits."
+      "Number of weights must be greater or equal the number of digits.",
     );
   }
 
@@ -119,7 +119,7 @@ export const weightDigits = (
 export const weightDigitsRTL = (
   digits: number[],
   weights: number[],
-  weightType: WeightType = "MULTIPLY"
+  weightType: WeightType = "MULTIPLY",
 ): number[] => weightDigits([...digits].reverse(), weights, weightType);
 
 /**
@@ -131,7 +131,7 @@ export const weightDigitsRTL = (
 export const moduloDifference = (
   value: number,
   divisor: number,
-  minuend: number
+  minuend: number,
 ): { difference: number; remainder: number } => {
   const remainder = value % divisor;
   return { difference: minuend - remainder, remainder };

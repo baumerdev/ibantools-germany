@@ -24,7 +24,7 @@ import * as fs from "fs";
 // https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/bankleitzahlen/download-bankleitzahlen-602592
 const blzFile = fs.readFileSync(
   `${__dirname}/../data/blz-aktuell-txt-data.txt`,
-  "latin1"
+  "latin1",
 );
 
 const datasets = blzFile
@@ -68,7 +68,7 @@ masterDatasets.forEach((dataset) => {
 if (!fs.existsSync(`${__dirname}/../data/current.json`)) {
   fs.writeFileSync(
     `${__dirname}/../data/current.json`,
-    JSON.stringify(dataCheckDigit)
+    JSON.stringify(dataCheckDigit),
   );
 
   process.exit(0);
@@ -77,7 +77,7 @@ if (!fs.existsSync(`${__dirname}/../data/current.json`)) {
 if (
   typeof process.argv[2] !== "string" ||
   !process.argv[2].match(
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:UTC|[+-]\d{4})/
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:UTC|[+-]\d{4})/,
   )
 ) {
   console.error("Please provide a valid-from datetime");
@@ -96,11 +96,11 @@ if (JSON.stringify(currentMethods) !== JSON.stringify(nextMethods)) {
   console.warn("Check digits methods have changed!");
   console.warn(
     "Previously unused methods:",
-    nextMethods.filter((method) => !currentMethods.includes(method))
+    nextMethods.filter((method) => !currentMethods.includes(method)),
   );
   console.warn(
     "No longer used methods:",
-    currentMethods.filter((method) => !nextMethods.includes(method))
+    currentMethods.filter((method) => !nextMethods.includes(method)),
   );
 
   if (process.argv[3] !== "--ack") {
@@ -146,5 +146,5 @@ fs.writeFileSync(
     add: dataAddedCheckDigit,
     remove: dataRemovedCheckDigit,
     valid: process.argv[2],
-  })
+  }),
 );

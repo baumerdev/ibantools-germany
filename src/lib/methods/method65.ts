@@ -37,7 +37,7 @@ export default (number: string): Result => {
   }
   const weightedDigits = weightDigits(
     validateDigits,
-    [2, 1, 2, 1, 2, 1, 2, 1, 2]
+    [2, 1, 2, 1, 2, 1, 2, 1, 2],
   );
 
   const crossSumDigits = calculateCrossSums(weightedDigits);

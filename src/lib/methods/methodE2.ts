@@ -33,6 +33,6 @@ export default (number: string): Result => {
 
   return method00Core(
     `${leftFillConsts[firstDigit]}${paddedNumber.slice(1, 10)}`,
-    [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+    [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],
   );
 };

@@ -28,7 +28,7 @@ describe("extractAccountNumberBLZFromBBAN", () => {
 
   it("cannot extract data from invalid BBAN (wrong format)", () => {
     expect(extractAccountNumberBLZFromBBAN("1022050000092907021")).toEqual(
-      null
+      null,
     );
   });
 

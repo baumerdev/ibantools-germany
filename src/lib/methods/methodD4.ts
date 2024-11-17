@@ -31,6 +31,6 @@ export default (number: string): Result => {
 
   return method00Core(
     `428259${paddedNumber}`,
-    [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+    [2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2],
   );
 };

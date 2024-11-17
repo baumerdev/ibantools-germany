@@ -158,7 +158,7 @@ describe("weightDigitsRTL", () => {
 
   it("returns array [5, 8, 3, 4] for numbers [1, 2, 3, 4] with weights [1, 2, 1, 2]", () => {
     expect(weightDigitsRTL([1, 2, 3, 4], [1, 2, 1, 2], "MULTIPLY_ADD")).toEqual(
-      [5, 8, 3, 4]
+      [5, 8, 3, 4],
     );
   });
 });

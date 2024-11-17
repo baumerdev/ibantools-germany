@@ -30,7 +30,7 @@ describe("browser", () => {
   });
   it("adds function ibantoolsGermany.isValidAccountNumberBLZ to window", () => {
     expect(typeof window.ibantoolsGermany.isValidAccountNumberBLZ).toBe(
-      "function"
+      "function",
     );
   });
   it("adds function ibantoolsGermany.isValidBBAN to window", () => {

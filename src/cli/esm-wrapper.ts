@@ -28,11 +28,16 @@ const esmWrapper = [
   'import * as main from "../cjs/main.js";',
   "export default main;",
   ...mainExports.map(
-    (mainExport) => `export const ${mainExport} = main.${mainExport};`
+    (mainExport) => `export const ${mainExport} = main.${mainExport};`,
   ),
 ].join("\n");
 
 if (!fs.existsSync(`${__dirname}/../../dist/esm`)) {
   fs.mkdirSync(`${__dirname}/../../dist/esm`, { recursive: true });
 }
-fs.writeFileSync(`${__dirname}/../../dist/esm/main.js`, esmWrapper);
+fs.writeFileSync(`${__dirname}/../../dist/esm/main.mjs`, esmWrapper);
+
+fs.copyFileSync(
+  `${__dirname}/../../dist/cjs/main.d.ts`,
+  `${__dirname}/../../dist/esm/main.d.mts`,
+);

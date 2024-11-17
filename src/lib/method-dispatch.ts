@@ -33,7 +33,7 @@ import { Result } from "./types";
 export const methodDispatch = (
   accountNumber: string,
   blz: string,
-  method: string
+  method: string,
 ): Result => {
   switch (method) {
     case "00":
