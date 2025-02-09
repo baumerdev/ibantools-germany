@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025-02-09 [v1.2500.0]
+
+* Additionally includes data valid from 2025-03-03, removes data valid before 2024-12-09
+
 ## 2024-11-23 [v1.2403.1]
 
 * Add missing main entry point to package.json
