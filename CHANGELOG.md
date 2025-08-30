@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025-08-30 [v1.2502.0]
+
+* Additionally includes data valid from 2025-09-08, removes data valid before 2025-06-09
+* Upgraded dependencies
+
 ## 2025-05-20 [v1.2501.0]
 
 * Additionally includes data valid from 2025-06-09, removes data valid before 2025-03-03

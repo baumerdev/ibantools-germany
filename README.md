@@ -1,6 +1,6 @@
 # IBANTools-Germany: Validator and Generator for German Bank Accounts
 
-![CI: Lint, test and build](https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg?branch=main)
+![CI: Lint, test and build](https://github.com/baumerdev/ibantools-germany/workflows/Lint,%20test%20and%20build/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/baumerdev/ibantools-germany/badge.svg?branch=main)](https://coveralls.io/github/baumerdev/ibantools-germany?branch=main)
 
 This TypeScript/JavaScript library validates IBAN and German bank account
@@ -10,7 +10,7 @@ numbers. It can be used standalone or as an enhancement of IBAN validators, like
 If you need German bank data in your project, e.g., to auto-fill forms when a
 user enters an IBAN, take a look at the side project [BankData-Germany](https://baumerdev.github.io/bankdata-germany/).
 
-> _Version 1.2501.* includes data from 2025-03-03 to 2025-06-08, as well as from 2025-06-09 to 2025-09-07. Validation will be based on the data that is valid according to your system time (data changes at midnight CEST on 2025-06-09)._
+> _Version 1.2502.* includes data from 2025-06-09 to 2025-09-07, as well as from 2025-09-08 to 2025-12-07. Validation will be based on the data that is valid according to your system time (data changes at midnight CEST on 2025-06-09)._
 
 * [Installation](#installation)
 * [Usage](#usage)

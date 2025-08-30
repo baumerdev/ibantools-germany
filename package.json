@@ -1,6 +1,6 @@
 {
   "name": "ibantools-germany",
-  "version": "1.2501.0",
+  "version": "1.2502.0",
   "description": "IBAN Validator and Generator for German Bank Accounts",
   "author": "Markus Baumer <markus@baumer.dev>",
   "repository": {
