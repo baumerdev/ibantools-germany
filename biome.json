@@ -1,0 +1,100 @@
+{
+  "files": {
+    "includes": ["src/**/*{js,ts}"]
+  },
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "linter": {
+    "rules": {
+      "complexity": {
+        "noEmptyTypeParameters": "warn",
+        "noExcessiveNestedTestSuites": "warn",
+        "noForEach": "warn",
+        "noImplicitCoercions": "warn",
+        "noUselessStringConcat": "warn",
+        "useWhile": "warn"
+      },
+      "correctness": {
+        "noNestedComponentDefinitions": "warn",
+        "noSolidDestructuredProps": "warn",
+        "noUndeclaredDependencies": "warn",
+        "noUndeclaredVariables": "warn",
+        "useSingleJsDocAsterisk": "warn",
+        "useUniqueElementIds": "warn"
+      },
+      "performance": {
+        "noAwaitInLoops": "warn",
+        "noBarrelFile": "warn",
+        "noDelete": "warn",
+        "noReExportAll": "warn"
+      },
+      "style": {
+        "noCommonJs": "warn",
+        "noDoneCallback": "warn",
+        "noEnum": "warn",
+        "noImplicitBoolean": "warn",
+        "noInferrableTypes": "warn",
+        "noNamespace": "warn",
+        "noNegationElse": "warn",
+        "noNestedTernary": "warn",
+        "noParameterAssign": "warn",
+        "noParameterProperties": "warn",
+        "noProcessEnv": "warn",
+        "noRestrictedGlobals": "warn",
+        "noRestrictedImports": "warn",
+        "noRestrictedTypes": "warn",
+        "noShoutyConstants": "warn",
+        "noSubstr": "warn",
+        "noUnusedTemplateLiteral": "warn",
+        "noYodaExpression": "warn",
+        "useAsConstAssertion": "warn",
+        "useBlockStatements": "warn",
+        "useConsistentArrayType": {
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useConsistentBuiltinInstantiation": "warn",
+        "useConsistentMemberAccessibility": "warn",
+        "useConsistentObjectDefinitions": "warn",
+        "useConsistentTypeDefinitions": "warn",
+        "useDefaultParameterLast": "warn",
+        "useDefaultSwitchClause": "warn",
+        "useEnumInitializers": "warn",
+        "useExplicitLengthCheck": "warn",
+        "useFilenamingConvention": "warn",
+        "useForOf": "warn",
+        "useFragmentSyntax": "warn",
+        "useGroupedAccessorPairs": "warn",
+        "useNodeAssertStrict": "warn",
+        "useNumberNamespace": "warn",
+        "useObjectSpread": "warn",
+        "useReadonlyClassProperties": "warn",
+        "useSelfClosingElements": "warn",
+        "useSingleVarDeclarator": "warn",
+        "useSymbolDescription": "warn",
+        "useThrowNewError": "warn",
+        "useThrowOnlyError": "warn",
+        "useTrimStartEnd": "warn",
+        "useUnifiedTypeSignatures": "warn"
+      },
+      "suspicious": {
+        "noAlert": "warn",
+        "noBitwiseOperators": "warn",
+        "noConstantBinaryExpressions": "warn",
+        "noEmptyBlockStatements": "warn",
+        "noEvolvingTypes": "warn",
+        "noMisplacedAssertion": "warn",
+        "noUnassignedVariables": "warn",
+        "noVar": "warn",
+        "useAwait": "warn",
+        "useErrorMessage": "warn",
+        "useGuardForIn": "warn",
+        "useNumberToFixedDigitsArgument": "warn",
+        "useStaticResponseMethods": "warn",
+        "useStrictMode": "warn"
+      }
+    }
+  }
+}

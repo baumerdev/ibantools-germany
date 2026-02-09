@@ -10,7 +10,7 @@ numbers. It can be used standalone or as an enhancement of IBAN validators, like
 If you need German bank data in your project, e.g., to auto-fill forms when a
 user enters an IBAN, take a look at the side project [BankData-Germany](https://baumerdev.github.io/bankdata-germany/).
 
-> _Version 1.2600.* includes data from 2025-12-08 to 2026-03-07, as well as from 2026-03-09 to 2026-06-07. Validation will be based on the data that is valid according to your system time (data changes at midnight CET on 2026-03-09, since 2026-03-08 is not a German bank day)._
+> _Version 2.2600.* includes data from 2025-12-08 to 2026-03-07, as well as from 2026-03-09 to 2026-06-07. Validation will be based on the data that is valid according to your system time (data changes at midnight CET on 2026-03-09, since 2026-03-08 is not a German bank day)._
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -108,21 +108,29 @@ library at all.
 The version numbers are based on [Semantic Versioning](https://semver.org/)
 with some modifications.
 
-> 1.2205.3
+> 2.2605.3
 
 The first number represents the Major version. If this number increases, there
 may be updates that are not backward compatible, requiring adjustments to your
-code. In the above version string, the major version is **1**.
+code. In the above version string, the major version is **2**.
 
 The first two digits of the second number indicate the year of the included data
 and check digit methods. The third and fourth digits increase either with minor
 version changes that maintain backward compatibility or when new data is
-included. In the provided version string, the year is 20**22**, with a few minor
+included. In the provided version string, the year is 20**26**, with a few minor
 updates, possibly including data updates for spring and summer.
 
 The last number is reserved for patches and bug fixes.
 
 Considering that the data could change up to four times a year, it's advisable
 to use an appropriate version string in your package.json. As breaking changes
-occur only when the first number changes, specifying something like `"1.x"`
+occur only when the first number changes, specifying something like `"2.x"`
 should suffice.
+
+## License
+
+Versions 1.x were licensed under AGPL-3.0-only.
+Starting with version 2.x, the project is dual-licensed under MIT OR MPL-2.0.
+You can choose either license when using this work.
+
+`SPDX-License-Identifier: MIT OR MPL-2.0`

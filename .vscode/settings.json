@@ -1,7 +1,16 @@
 {
-  "eslint.probe": ["typescript", "javascript"],
-  "eslint.format.enable": true,
+  "editor.rulers": [80],
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
-  "editor.rulers": [80]
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
 }

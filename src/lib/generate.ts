@@ -1,23 +1,11 @@
 /**
  * ibantools-germany
- * Copyright (C) 2022-2024 Markus Baumer <markus@baumer.dev>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (c) 2022-2026 Markus Baumer <markus@baumer.dev>
+ * SPDX-License-Identifier: MIT OR MPL-2.0
  */
 
 import { lettersToDigits, modulo97, paddedAccountNumber } from "./helper";
-import { ProbablyString } from "./types";
+import type { ProbablyString } from "./types";
 
 /**
  * Generate and return BBAN from account number and BLZ
@@ -68,5 +56,5 @@ export const generateIBAN = (
   const dataForCalculation = lettersToDigits(`${bban}DE00`);
   const checkDigit = 98 - modulo97(dataForCalculation);
 
-  return `DE${checkDigit < 10 ? "0" + String(checkDigit) : checkDigit}${bban}`;
+  return `DE${checkDigit < 10 ? `0${String(checkDigit)}` : checkDigit}${bban}`;
 };

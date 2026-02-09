@@ -1,4 +1,3 @@
-/* eslint-env node */
 module.exports = {
   collectCoverageFrom: ["src/*.ts", "src/lib/**/*.ts"],
   coverageDirectory: "<rootDir>/coverage",

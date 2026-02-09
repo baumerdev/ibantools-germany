@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-02-09 [v2.2600.0]
+
+* License change from AGPL-3.0-only to MIT OR MPL-2.0 (same dual-license as ibantools)
+* Dev: Switched from ESLint/Prettier to Biome
+* Dev: Updated build and test toolchain
+
 ## 2026-02-09 [v1.2600.0]
 
 * Additionally includes data valid from 2026-03-09, removes data valid before 2025-12-08

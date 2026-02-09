@@ -1,23 +1,11 @@
 /**
  * ibantools-germany
- * Copyright (C) 2022-2024 Markus Baumer <markus@baumer.dev>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (c) 2022-2026 Markus Baumer <markus@baumer.dev>
+ * SPDX-License-Identifier: MIT OR MPL-2.0
  */
 
 import { getDigits, paddedAccountNumber } from "../helper";
-import { Result } from "../types";
+import type { Result } from "../types";
 
 import { method06Core } from "./method06";
 import { method33Core } from "./method33";
@@ -29,11 +17,11 @@ const methodA = (number: string): Result => {
   // its PASCAL counterpart even though there are better approaches available
   // in modern-day JavaScript.
 
-  let i; // temp var; control variable
-  let c2; // temp var; odd or even digit
-  let d2; // temp var
-  let a5; // temp var; sum, can be negative
-  let p; // temp var; keep check digit
+  let i: number; // temp var; control variable
+  let c2: number; // temp var; odd or even digit
+  let d2: number; // temp var
+  let a5: number; // temp var; sum, can be negative
+  let p: number; // temp var; keep check digit
 
   // ATTENTION:
   // According to the method documentation "konto(i)" means the value at unit
@@ -92,6 +80,7 @@ const methodA = (number: string): Result => {
         konto[i] = 1;
         break;
       //  END;
+      default:
     }
 
     //  IF C2 = D2 THEN

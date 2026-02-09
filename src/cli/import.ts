@@ -1,22 +1,10 @@
 /**
  * ibantools-germany
- * Copyright (C) 2022-2024 Markus Baumer <markus@baumer.dev>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (c) 2022-2026 Markus Baumer <markus@baumer.dev>
+ * SPDX-License-Identifier: MIT OR MPL-2.0
  */
 
-import * as fs from "fs";
+import * as fs from "node:fs";
 
 // Import the current bank data text file and convert it to JSON files.
 // This should be done after the Bundesbank releases new data multiple
@@ -57,12 +45,12 @@ interface CheckDigitData {
 // If save over 20kb if use the checkDigit method as index and put the BLZs
 // as values instead of the other way round.
 const dataCheckDigit: CheckDigitData = {};
-masterDatasets.forEach((dataset) => {
+for (const dataset of masterDatasets) {
   if (typeof dataCheckDigit[dataset.checkDigitMethod] === "undefined") {
     dataCheckDigit[dataset.checkDigitMethod] = [];
   }
   dataCheckDigit[dataset.checkDigitMethod].push(dataset.blz);
-});
+}
 
 // If file doesn't exist just write it and we're done
 if (!fs.existsSync(`${__dirname}/../data/current.json`)) {

@@ -1,30 +1,18 @@
 /**
  * ibantools-germany
- * Copyright (C) 2022-2024 Markus Baumer <markus@baumer.dev>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (c) 2022-2026 Markus Baumer <markus@baumer.dev>
+ * SPDX-License-Identifier: MIT OR MPL-2.0
  */
 
 import currentCheckDigits from "../../data/current.json";
 import nextCheckDigits from "../../data/next.json";
 import {
+  type CheckDigits,
   checkDigitData,
-  CheckDigits,
   combineCurrentNext,
   dateObject,
   methodForBLZ,
-  NextCheckDigits,
+  type NextCheckDigits,
 } from "../../lib/data";
 
 const nextValidDate = new Date((nextCheckDigits as NextCheckDigits).valid);
@@ -90,14 +78,14 @@ describe("checkDigitData", () => {
 });
 
 describe("methodForBLZ without next", () => {
-  Object.keys(currentCheckDigits as CheckDigits).forEach((method) => {
+  for (const method of Object.keys(currentCheckDigits as CheckDigits)) {
     const firstBLZForMethod = (currentCheckDigits as CheckDigits)[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
       expect(methodForBLZ(String(firstBLZForMethod), new Date(0))).toEqual(
         method,
       );
     });
-  });
+  }
 
   it("returns null for unknown BLZ 00000000", () => {
     expect(methodForBLZ("00000000")).toEqual(null);
@@ -111,14 +99,14 @@ describe("methodForBLZ with next", () => {
     (nextCheckDigits as NextCheckDigits).remove,
   );
 
-  Object.keys(combinedCheckDigits).forEach((method) => {
+  for (const method of Object.keys(combinedCheckDigits)) {
     const firstBLZForMethod = combinedCheckDigits[method][0];
     it(`returns ${method} for BLZ ${firstBLZForMethod}`, () => {
       expect(
         methodForBLZ(String(firstBLZForMethod), new Date(nextValidDate)),
       ).toEqual(method);
     });
-  });
+  }
 
   it("returns null for unknown BLZ 00000000", () => {
     expect(methodForBLZ("00000000", new Date(nextValidDate))).toEqual(null);
