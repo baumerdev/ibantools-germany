@@ -105,7 +105,7 @@ for (const method of currentMethods) {
   const nextMethodBLZs = dataCheckDigit[method];
 
   for (const currentMethodBLZ of currentMethodBLZs) {
-    if (!nextMethodBLZs || !nextMethodBLZs.includes(currentMethodBLZ)) {
+    if (!nextMethodBLZs?.includes(currentMethodBLZ)) {
       if (typeof dataRemovedCheckDigit[method] === "undefined") {
         dataRemovedCheckDigit[method] = [];
       }

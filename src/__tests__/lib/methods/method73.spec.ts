@@ -22,6 +22,9 @@ describe("method 73", () => {
   it("confirms 123456 is valid (variation 3)", () => {
     expect(method73("123456")).toEqual("VALID");
   });
+  it("confirms 70000 is valid (variation 3, calculated check digit 7 is 0)", () => {
+    expect(method73("70000")).toEqual("VALID");
+  });
   it("confirms 0199100002 is valid (nominal account, variation 1)", () => {
     expect(method73("0199100002")).toEqual("VALID");
   });

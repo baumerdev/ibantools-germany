@@ -144,7 +144,7 @@ export const modulo97 = (value: string) => {
   let checksum = Number(value.slice(0, 2));
   let fragment: string;
   for (let offset = 2; offset < value.length; offset += 7) {
-    fragment = `${checksum}${value.substring(offset, offset + 7)}`;
+    fragment = `${checksum}${value.slice(offset, offset + 7)}`;
     checksum = Number.parseInt(fragment, 10) % 97;
   }
   return checksum;

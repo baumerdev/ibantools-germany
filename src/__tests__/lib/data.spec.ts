@@ -47,6 +47,7 @@ describe("combineCurrentNext", () => {
     BB: [4, 5, 6],
     CC: [7, 8, 9],
     DD: [2],
+    EE: [9],
   };
   const exampleNextAdd: CheckDigits = {
     BB: [7],
@@ -55,6 +56,7 @@ describe("combineCurrentNext", () => {
   const exampleNextRemove: CheckDigits = {
     CC: [7],
     DD: [2],
+    EE: [9],
   };
   it("correctly builds combined data", () => {
     expect(
@@ -113,20 +115,20 @@ describe("methodForBLZ with next", () => {
   });
 });
 
-describe("Change 2026-03-09", () => {
-  test("BLZ 50215500 is unknown before valid-from date", () => {
-    expect(methodForBLZ("50215500", new Date(0))).toEqual(null);
+describe("Change 2026-06-08", () => {
+  test("BLZ 12030030 is unknown before valid-from date", () => {
+    expect(methodForBLZ("12030030", new Date(0))).toEqual(null);
   });
-  test("BLZ 50215500 has method 09 at valid-from date", () => {
-    expect(methodForBLZ("50215500", new Date(nextValidDate))).toEqual("09");
+  test("BLZ 12030030 has method 00 at valid-from date", () => {
+    expect(methodForBLZ("12030030", new Date(nextValidDate))).toEqual("00");
+  });
+  test("BLZ 51961515 has method 32 before valid-from date", () => {
+    expect(methodForBLZ("51961515", new Date(0))).toEqual("32");
+  });
+  test("BLZ 51961515 is unknown at valid-from date", () => {
+    expect(methodForBLZ("51961515", new Date(nextValidDate))).toEqual(null);
   });
   // No removals or changes this update
-  // test("BLZ 10030700 has method 16 before valid-from date", () => {
-  //   expect(methodForBLZ("10030700", new Date(0))).toEqual("16");
-  // });
-  // test("BLZ 10030700 is unknown at valid-from date", () => {
-  //   expect(methodForBLZ("10030700", new Date(nextValidDate))).toEqual(null);
-  // });
   // test("BLZ 50850150 has method 06 before valid-from date", () => {
   //   expect(methodForBLZ("50850150", new Date(0))).toEqual("06");
   // });

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-05-13 [v2.2601.0]
+
+* Additionally includes data valid from 2026-06-08, removes data valid before 2026-03-09
+* Upgraded dependencies
+
 ## 2026-02-09 [v2.2600.0]
 
 * License change from AGPL-3.0-only to MIT OR MPL-2.0 (same dual-license as ibantools)

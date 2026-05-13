@@ -24,12 +24,7 @@ export const isValidAccountNumberBLZ = (
   accountNumber: ProbablyString,
   blz: ProbablyString,
 ): boolean => {
-  if (
-    !accountNumber ||
-    !accountNumber.match(/^\d{1,10}$/) ||
-    !blz ||
-    !blz.match(/^[1-9]\d{7}$/)
-  ) {
+  if (!accountNumber?.match(/^\d{1,10}$/) || !blz?.match(/^[1-9]\d{7}$/)) {
     return false;
   }
 
