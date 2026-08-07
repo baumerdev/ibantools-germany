@@ -13,7 +13,7 @@ import type { ProbablyString } from "./types";
 /**
  * Validate bank account number and BLZ
  *
- * IMPORTANT: A positive result does not does not necessarily mean that
+ * IMPORTANT: A positive result does not necessarily mean that
  * the account exists; it only checks for structure and check digit!
  *
  * @param accountNumber Account number with up to 10 digits
@@ -41,7 +41,7 @@ export const isValidAccountNumberBLZ = (
 /**
  * Validate German BBAN
  *
- * IMPORTANT: A positive result does not does not necessarily mean that
+ * IMPORTANT: A positive result does not necessarily mean that
  * the account exists; it only checks for structure and check digit!
  *
  * @param bban German BBAN with 18 digits
@@ -63,7 +63,7 @@ export const isValidBBAN = (bban: ProbablyString): boolean => {
  * with "DE". If false, non-German IBAN will be verified but no national
  * methods will be applied.
  *
- * IMPORTANT: A positive result does not does not necessarily mean that
+ * IMPORTANT: A positive result does not necessarily mean that
  * the account exists; it only checks for structure and check digit!
  *
  * @param iban German IBAN with 22 chars
