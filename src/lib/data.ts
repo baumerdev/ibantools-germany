@@ -72,6 +72,9 @@ export const combineCurrentNext = (
   return combinedData;
 };
 
+const nextValidFrom = new Date((nextCheckDigits as NextCheckDigits).valid);
+let combinedCheckDigits: CheckDigits | undefined;
+
 /**
  * Get data, either current or combined with next by comparing it to valid-to
  * date from next data
@@ -79,18 +82,38 @@ export const combineCurrentNext = (
  * @returns
  */
 export const checkDigitData = (date?: string | Date): CheckDigits => {
-  const nextValidFrom = new Date((nextCheckDigits as NextCheckDigits).valid);
-  const currentDate = dateObject(date);
-
-  if (currentDate >= nextValidFrom) {
-    return combineCurrentNext(
+  if (dateObject(date) >= nextValidFrom) {
+    combinedCheckDigits ??= combineCurrentNext(
       currentCheckDigits,
       nextCheckDigits.add,
       nextCheckDigits.remove,
     );
+    return combinedCheckDigits;
   }
 
   return currentCheckDigits;
+};
+
+const blzMethodMaps = new WeakMap<CheckDigits, Map<number, string>>();
+
+/**
+ * Get (and lazily build) a BLZ to method lookup map for a data set
+ */
+const blzMethodMap = (data: CheckDigits): Map<number, string> => {
+  let map = blzMethodMaps.get(data);
+  if (!map) {
+    map = new Map();
+
+    for (const [method, methodBLZs] of Object.entries(data)) {
+      for (const methodBLZ of methodBLZs) {
+        map.set(methodBLZ, method);
+      }
+    }
+
+    blzMethodMaps.set(data, map);
+  }
+
+  return map;
 };
 
 /**
@@ -108,13 +131,5 @@ export const methodForBLZ = (
     return null;
   }
 
-  const numbericBlz = Number(blz);
-
-  const data = checkDigitData(date);
-
-  return (
-    Object.keys(data).find((method) => {
-      return data[method].includes(numbericBlz);
-    }) ?? null
-  );
+  return blzMethodMap(checkDigitData(date)).get(Number(blz)) ?? null;
 };
