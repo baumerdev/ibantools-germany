@@ -74,7 +74,9 @@ export const isValidIBAN = (
   iban: ProbablyString,
   onlyGermany = false,
 ): boolean => {
-  if (typeof iban !== "string") {
+  // Basic IBAN format check
+  // Country code, check digits, alphanumeric BBAN chars
+  if (!iban?.match(/^[A-Za-z]{2}\d{2}[A-Za-z0-9]{11,30}$/)) {
     return false;
   }
 

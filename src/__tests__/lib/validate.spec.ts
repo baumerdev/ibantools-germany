@@ -65,6 +65,15 @@ describe("isValidIBAN", () => {
   it("confirms fr1420041010050500013m02606 is valid (lowercase)", () => {
     expect(isValidIBAN("fr1420041010050500013m02606")).toEqual(true);
   });
+  it("confirms IBAN with spaces is invalid", () => {
+    expect(isValidIBAN("DE02 3002 0900 0106 5310 65")).toEqual(false);
+  });
+  it("confirms DEAB300209000106531065 is invalid (letters as check digit)", () => {
+    expect(isValidIBAN("DEAB300209000106531065")).toEqual(false);
+  });
+  it("confirms IBAN longer than 34 chars is invalid", () => {
+    expect(isValidIBAN("DE023002090001065310650000000000000")).toEqual(false);
+  });
   it("confirms FR1420041010050500013M02606 is invalid (onlyGerman, wrong country)", () => {
     expect(isValidIBAN("FR1420041010050500013M02606", true)).toEqual(false);
   });
