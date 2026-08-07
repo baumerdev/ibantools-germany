@@ -52,6 +52,7 @@ describe("combineCurrentNext", () => {
   const exampleNextAdd: CheckDigits = {
     BB: [7],
     DD: [1],
+    FF: [10],
   };
   const exampleNextRemove: CheckDigits = {
     CC: [7],
@@ -66,6 +67,7 @@ describe("combineCurrentNext", () => {
       BB: [4, 5, 6, 7],
       CC: [8, 9],
       DD: [1],
+      FF: [10],
     });
   });
 });

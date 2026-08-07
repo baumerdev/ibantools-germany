@@ -21,4 +21,9 @@ describe("method 13", () => {
   it("confirms 1244567600 is invalid", () => {
     expect(method13("1244567600")).toEqual("INVALID");
   });
+  // 9-digit numbers must not pass via the subaccount fallback since
+  // appending 00 would exceed the maximum of 10 digits
+  it("confirms 100000000 is invalid", () => {
+    expect(method13("100000000")).toEqual("INVALID");
+  });
 });

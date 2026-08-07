@@ -100,8 +100,8 @@ if (JSON.stringify(currentMethods) !== JSON.stringify(nextMethods)) {
 // Check which BLZ have been added and which removed
 const dataAddedCheckDigit: CheckDigitData = {};
 const dataRemovedCheckDigit: CheckDigitData = {};
-for (const method of currentMethods) {
-  const currentMethodBLZs = current[method];
+for (const method of new Set([...currentMethods, ...nextMethods])) {
+  const currentMethodBLZs = current[method] ?? [];
   const nextMethodBLZs = dataCheckDigit[method];
 
   for (const currentMethodBLZ of currentMethodBLZs) {

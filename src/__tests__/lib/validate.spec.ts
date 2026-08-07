@@ -62,6 +62,9 @@ describe("isValidIBAN", () => {
   it("confirms FR1420041010050500013M02606 is valid", () => {
     expect(isValidIBAN("FR1420041010050500013M02606")).toEqual(true);
   });
+  it("confirms fr1420041010050500013m02606 is valid (lowercase)", () => {
+    expect(isValidIBAN("fr1420041010050500013m02606")).toEqual(true);
+  });
   it("confirms FR1420041010050500013M02606 is invalid (onlyGerman, wrong country)", () => {
     expect(isValidIBAN("FR1420041010050500013M02606", true)).toEqual(false);
   });

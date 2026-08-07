@@ -48,4 +48,9 @@ describe("method 76", () => {
   it("confirms 1234567890 is invalid", () => {
     expect(method76("1234567890")).toEqual("INVALID");
   });
+  // 9-digit numbers must not pass via the subaccount fallback since
+  // appending 00 would exceed the maximum of 10 digits
+  it("confirms 400000000 is invalid", () => {
+    expect(method76("400000000")).toEqual("INVALID");
+  });
 });

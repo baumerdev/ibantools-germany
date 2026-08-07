@@ -38,6 +38,10 @@ export default (number: string): Result => {
     return "VALID";
   }
 
+  if (number.length > 8) {
+    return "INVALID";
+  }
+
   // If validation fails, try checking it with trailing
   // subaccount number 00 which is allowed to be omitted.
   return method76Core(`${number}00`.padStart(10, "0"));

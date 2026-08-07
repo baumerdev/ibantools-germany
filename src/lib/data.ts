@@ -47,14 +47,14 @@ export const combineCurrentNext = (
 ): CheckDigits => {
   const combinedData: CheckDigits = {};
 
-  const currentMethods = Object.keys(current);
-  for (const currentMethod of currentMethods) {
+  const methods = new Set([...Object.keys(current), ...Object.keys(nextAdd)]);
+  for (const currentMethod of methods) {
     if (!nextAdd[currentMethod] && !nextRemove[currentMethod]) {
       combinedData[currentMethod] = current[currentMethod];
       continue;
     }
 
-    let methodBLZs = current[currentMethod];
+    let methodBLZs = current[currentMethod] ?? [];
     if (nextRemove[currentMethod]) {
       methodBLZs = methodBLZs.filter(
         (methodBLZ) => !nextRemove[currentMethod].includes(methodBLZ),

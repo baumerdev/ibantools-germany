@@ -151,7 +151,9 @@ export const modulo97 = (value: string) => {
 };
 
 /**
- * Convert letters to digits (ASCII code minus 55)
+ * Convert letters to digits (uppercase ASCII code minus 55)
  */
 export const lettersToDigits = (string: string): string =>
-  string.replace(/[a-z]/gi, (letter) => String(letter.charCodeAt(0) - 55));
+  string.replace(/[a-z]/gi, (letter) =>
+    String(letter.toUpperCase().charCodeAt(0) - 55),
+  );
