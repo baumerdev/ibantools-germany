@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-08 [v2.2602.0]
+
+* Additionally includes data valid from 2026-09-07, removes data valid before 2026-06-08
+* Validation fixes: subaccount fallback in methods 13/76, lowercase IBANs, basic IBAN format check
+* Faster BLZ lookup (cached map)
+* Upgraded dependencies
+
 ## 2026-05-13 [v2.2601.0]
 
 * Additionally includes data valid from 2026-06-08, removes data valid before 2026-03-09
