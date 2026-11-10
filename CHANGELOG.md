@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-10 [v2.2603.0]
+
+* Additionally includes data valid from 2026-12-07, removes data valid before 2026-09-07
+* Upgraded dependencies (npm audit fix)
+
 ## 2026-08-08 [v2.2602.0]
 
 * Additionally includes data valid from 2026-09-07, removes data valid before 2026-06-08
